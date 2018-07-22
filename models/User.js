@@ -2,6 +2,8 @@
 
 //The model represents the data, and does nothing else. 
 //The model does NOT depend on the controller or the view. __Tom Dalling_
+const mongoose = require("../db/connection");
+const Schema = mongoose.Schema;
 
 const User = new Schema({
     local: {  
@@ -12,6 +14,7 @@ const User = new Schema({
       Density: String,
       Porosity: String
     },
+
     regimen: [
       {
         type: Schema.Types.ObjectId,
