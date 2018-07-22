@@ -2,6 +2,7 @@ const User = require("../models/User");
 const { Tweet } = require("../models/Regimen");
 const passport = require("passport");
 
+
 module.exports = {
   show: (req, res) => {
     User.findOne({ _id: req.params.id })

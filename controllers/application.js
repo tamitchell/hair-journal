@@ -1,4 +1,4 @@
-const { Tweet } = require("../models/Regimen");
+const { Regimen } = require("../models/Regimen");
 
 module.exports = {
   index: (req, res) => {

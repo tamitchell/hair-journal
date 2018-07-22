@@ -1,12 +1,12 @@
 const User = require("../models/User");
-const { Tweet } = require("../models/Regimen");
+const { Regimen } = require("../models/Regimen");
 const bcrypt = require("bcrypt-nodejs");
 
 const createPassword = password =>
   bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 
 User.find({}).remove(() => {
-  Tweet.find({}).remove(() => {
+  Regimen.find({}).remove(() => {
     let bugs = User.create({
       local: {
         email: "bugsbunny@gmail.com",
@@ -14,17 +14,17 @@ User.find({}).remove(() => {
       }
     }).then(user => {
       Promise.all([
-        Tweet.create({
+        Regimen.create({
           content: "eh, what's up doc?",
           author: user._id
-        }).then(tweet => {
-          user.tweets.push(tweet);
+        }).then(regimen => {
+          user.regimen.push(regimen);
         }),
-        Tweet.create({
+        Regimen.create({
           content: "That's all, folks!",
           author: user._id
-        }).then(tweet => {
-          user.tweets.push(tweet);
+        }).then(regimen => {
+          user.regimen.push(regimen);
         })
       ]).then(() => {
         user.save(err => console.log(err));
