@@ -1,0 +1,13 @@
+<section class="profile">
+  <h2>{{user.local.email}}</h2>
+  {{#if user.tweets}}
+    <div class="regimen">
+      {{#each user.regimen}}
+         {{> 'regimen'}}
+      {{/each}}
+    </div>
+  {{else}}
+    <p>You don't have any regimens yet...</p>
+    <p>Let's change that</p>
+  {{/if}}
+</section>
