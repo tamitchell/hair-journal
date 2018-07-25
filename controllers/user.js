@@ -1,13 +1,12 @@
 const User = require("../models/User");
-const { Tweet } = require("../models/Regimen");
+const { Regimen } = require("../models/Regimen");
 const passport = require("passport");
-
 
 module.exports = {
   show: (req, res) => {
     User.findOne({ _id: req.params.id })
       .populate({
-        path: "regimen",
+        path: "regimen/regimen",
         options: { limit: 5, sort: { createdAt: -1 } }
       })
       .then(user => {
@@ -15,12 +14,12 @@ module.exports = {
       });
   },
   login: (req, res) => {
-    res.render("user/login", { message: req.flash("signupMessage") });
+    res.render("user/login.hbs", { message: req.flash("signupMessage") });
   },
   createLogin: (req, res) => {
     const login = passport.authenticate("local-login", {
-      successRedirect: "/",
-      failureRedirect: "/login",
+      successRedirect: "/user/show",
+      failureRedirect: "/user/login",
       failureFlash: true
     });
 

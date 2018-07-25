@@ -1,11 +1,11 @@
 <section class="row">
-  <h4>Log In:</h4>
+  {{!-- <h4>Log In:</h4> --}}
   
   {{#if message}}
-    <p class="alert">{{message}}</p>
-  {{/if}}
+  <div class="alert alert-danger">{{message}}</div>
+{{/if}}
 
-  <form action="" method="POST" class="auth-form">
+  <form action="" method="POST" class="auth-form login">
     <p class="input-field">
       <input type="email" name="email" placeholder="Email">
     </p>

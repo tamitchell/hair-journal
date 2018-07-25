@@ -1,6 +1,72 @@
-.nav-wrapper {
-    width: 90%;
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Pacifico");
+h4 {
+  text-align: center;
+  color: white;
+  font: 2em "Montserrat", sans-serif; }
+
+header {
+  padding: 3em 5em 1em 5em; }
+  header .entire-logo {
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+    margin-bottom: 1em; }
+    header .entire-logo .site-logo {
+      display: block;
+      margin: 0 auto; }
+    header .entire-logo h2 {
+      font: 5em "Pacifico", cursive;
+      position: absolute;
+      top: 35%;
+      left: 50%;
+      transform-origin: 10% -10px;
+      transform: rotate(-20deg) skew(-15deg) translate(-50%, -50%); }
+  header h2, header h4 {
+    color: white;
+    text-align: center; }
+  header h4 {
+    margin-top: 1em;
+    font-size: 2em; }
+
+nav {
+  background: none;
+  box-shadow: none;
+  background-color: none; }
+  nav .nav-wrapper {
+    width: 50%;
+    max-width: 1000px;
+    margin: 0 auto; }
+
+ul {
+  width: 100%; }
+  ul li {
+    text-align: center;
+    width: 45%;
+    background-color: #FF6363;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    margin: 0.5em 0.3em; }
+    ul li a {
+      color: #fff;
+      font: 1em "Montserrat", sans-serif;
+      padding: 1em; }
+
+.auth-form {
+  margin: 0 auto;
+  width: 50%; }
+  .auth-form input[type=password], .auth-form input[type=email] {
+    background-color: white;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    color: #545454;
+    padding: 0.5em; }
+
+body {
+  background-color: #FCD337; }
+
+@keyframes float {
+  0% {
+    transform: translatey(0px); }
+  50% {
+    transform: translatey(-20px); }
+  100% {
+    transform: translatey(0px); } }
+
+/*# sourceMappingURL=main.css.map */

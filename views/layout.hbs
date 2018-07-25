@@ -5,16 +5,26 @@
     <meta name="viewport" content="width=device-width" />
     <title>Growthsphere</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link rel="stylesheet" href="/css/styles.css">
+
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
   </head>
   <body>
     <header class="site-header">
-      <nav>
+            <div class="entire-logo">
+              <img src="/img/sphere.png" class="site-logo" alt="Growthsphere logo">
+            <h2>Growthsphere</h2>
+            </div>
+            
+           <h4>Develop Your Own Regimens with Style!</h4>
+    </header>
+    <main class="container">
+      {{{ body }}}
+    </main>
+        <nav>
         <div class="nav-wrapper">
-          <a href="/" class="brand-logo left">Growthsphere - Develop Your Own Regimen!</a>
-          <ul class="right">
+          <ul>
           {{#if currentUser}}
-            <li><a href="/tweet/new">+tweet</a></li>
+            <li><a href="/regimen/new">+regimen</a></li>
             <li><a href="/user/{{currentUser.id}}">Profile</a></li>
             <li><a href="/user/logout">Log Out</a></li>
           {{else}}
@@ -24,9 +34,5 @@
           </ul>
         </div>
       </nav>
-    </header>
-    <main class="container">
-      {{{ body }}}
-    </main>
   </body>
 </html>

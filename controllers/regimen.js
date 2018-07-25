@@ -1,19 +1,19 @@
-const { Regimen } = require("../models/Regimen");
+const { Regimen, Routine } = require("../models/Regimen");
 
 module.exports = {
   show: (req, res) => {
     Regimen.findOne({ _id: req.params.id })
       .populate("author")
-    //   .exec(function(err, regimen) {
-    //     Comment.populate(regimen.comments, { path: "author" }, function(
-    //       err,
-    //       comments
-    //     ) {
-    //       regimen.comments = comments;
-    //       console.log(regimen);
-    //       res.render("regimen/show", regimen);
-    //     });
-    //   });
+      .exec(function(err, regimen) {
+        Routine.populate(regimen.Routine, { path: "author" }, function(
+          err,
+          routine
+        ) {
+          regimen.routine = routine;
+          console.log(regimen);
+          res.render("regimen/show", regimen);
+        });
+      });
   },
   new: (req, res) => {
     res.render("regimen/new");
