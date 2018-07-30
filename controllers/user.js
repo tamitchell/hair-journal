@@ -20,8 +20,8 @@ module.exports = {
   },
   createLogin: (req, res) => {
     const login = passport.authenticate("local-login", {
-      successRedirect: "/user",
-      failureRedirect: "/user/login",  message: req.flash("loginMessage") ,
+      successRedirect: "/",
+      failureRedirect: "../user/log-in",  message: req.flash("loginMessage") ,
       failureFlash: true
     });
 
@@ -35,7 +35,7 @@ module.exports = {
   createSignUp: (req, res) => {
     const signup = passport.authenticate("local-signup", {
       successRedirect: "/",
-      failureRedirect: "/user/signup",
+      failureRedirect: "../user/sign-up",
       failureFlash: true
     });
 
