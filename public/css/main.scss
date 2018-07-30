@@ -3,6 +3,28 @@
 $logo-font: 'Pacifico', cursive;
 $titular-font: 'Montserrat', sans-serif;
 
+@mixin flex {
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-content: stretch;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+ 
+body {
+  background-color: #FCD337;
+}
+
 h4 {
     text-align: center;
     color: white;
@@ -18,9 +40,10 @@ header{
         .site-logo {
             display:block;
             margin: 0 auto; 
+            width:20%;
           }
           h2 {
-              font: 5em $logo-font;
+              font: 3em $logo-font;
               position: absolute;
               top: 35%;
               left: 50%;
@@ -34,7 +57,7 @@ header{
       }
       h4{
           margin-top: 1em;
-          font-size: 2em;
+          font-size: 1.5em;
       }
     
   }
@@ -68,27 +91,51 @@ header{
        
       }
     }
-  
+  .container {  
+    display: block;
+    margin: auto;
+  .createAcc{
+    margin: 0 auto 1em auto;
+    width: 70%;
+    background-color: white;
+    padding: 2em;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+    h4{
+      font-size: 1.5em;
+      color: #545454;
+    }
     .auth-form {
-        margin: 0 auto;
-        width: 50%;
-        input[type=password], input[type=email]  {
-            background-color:white;
-            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
-            color:#545454;
-            padding: 0.5em;
-        }
+        padding: 0 4em 0 4em;
+      input[type=password], input[type=email], input[type=text]  {
+          background-color:white;
+          color:#545454;
+          width: 100%;
+          margin: 0;
+      }
+  }
+  }
+}
+  .login {
+    display:block;
+            margin: 0 auto; 
+    padding: 2em;
+    width: 50%;
+    input[type=password], input[type=text] {
+      padding: 0.5em;
+      background-color: white;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
     }
-   
-  
-    body {
-      background-color: #FCD337;
-    }
-  
+  }
    
   
   @keyframes float {
     0% {transform: translatey(0px);}
     50% {transform: translatey(-20px);}
     100%{transform: translatey(0px);}
+  }
+
+  @media only screen and (max-width: 768px) {
+    .site-logo {
+      width:35%;
+    }
   }

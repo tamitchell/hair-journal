@@ -1,72 +1,161 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat|Pacifico");
+body {
+  background-color: #FCD337;
+}
+
 h4 {
   text-align: center;
   color: white;
-  font: 2em "Montserrat", sans-serif; }
+  font: 2em "Montserrat", sans-serif;
+}
 
 header {
-  padding: 3em 5em 1em 5em; }
-  header .entire-logo {
-    position: relative;
-    animation: float 3s ease-in-out infinite;
-    margin-bottom: 1em; }
-    header .entire-logo .site-logo {
-      display: block;
-      margin: 0 auto; }
-    header .entire-logo h2 {
-      font: 5em "Pacifico", cursive;
-      position: absolute;
-      top: 35%;
-      left: 50%;
-      transform-origin: 10% -10px;
-      transform: rotate(-20deg) skew(-15deg) translate(-50%, -50%); }
-  header h2, header h4 {
-    color: white;
-    text-align: center; }
-  header h4 {
-    margin-top: 1em;
-    font-size: 2em; }
+  padding: 3em 5em 1em 5em;
+}
+
+header .entire-logo {
+  position: relative;
+  -webkit-animation: float 3s ease-in-out infinite;
+          animation: float 3s ease-in-out infinite;
+  margin-bottom: 1em;
+}
+
+header .entire-logo .site-logo {
+  display: block;
+  margin: 0 auto;
+  width: 20%;
+}
+
+header .entire-logo h2 {
+  font: 3em "Pacifico", cursive;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  -webkit-transform-origin: 10% -10px;
+          transform-origin: 10% -10px;
+  -webkit-transform: rotate(-20deg) skew(-15deg) translate(-50%, -50%);
+          transform: rotate(-20deg) skew(-15deg) translate(-50%, -50%);
+}
+
+header h2, header h4 {
+  color: white;
+  text-align: center;
+}
+
+header h4 {
+  margin-top: 1em;
+  font-size: 1.5em;
+}
 
 nav {
   background: none;
-  box-shadow: none;
-  background-color: none; }
-  nav .nav-wrapper {
-    width: 50%;
-    max-width: 1000px;
-    margin: 0 auto; }
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: none;
+}
+
+nav .nav-wrapper {
+  width: 50%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
 
 ul {
-  width: 100%; }
-  ul li {
-    text-align: center;
-    width: 45%;
-    background-color: #FF6363;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-    margin: 0.5em 0.3em; }
-    ul li a {
-      color: #fff;
-      font: 1em "Montserrat", sans-serif;
-      padding: 1em; }
+  width: 100%;
+}
 
-.auth-form {
+ul li {
+  text-align: center;
+  width: 45%;
+  background-color: #FF6363;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  margin: 0.5em 0.3em;
+}
+
+ul li a {
+  color: #fff;
+  font: 1em "Montserrat", sans-serif;
+  padding: 1em;
+}
+
+.container {
+  display: block;
+  margin: auto;
+}
+
+.container .createAcc {
+  margin: 0 auto 1em auto;
+  width: 70%;
+  background-color: white;
+  padding: 2em;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+.container .createAcc h4 {
+  font-size: 1.5em;
+  color: #545454;
+}
+
+.container .createAcc .auth-form {
+  padding: 0 4em 0 4em;
+}
+
+.container .createAcc .auth-form input[type=password], .container .createAcc .auth-form input[type=email], .container .createAcc .auth-form input[type=text] {
+  background-color: white;
+  color: #545454;
+  width: 100%;
+  margin: 0;
+}
+
+.login {
+  display: block;
   margin: 0 auto;
-  width: 50%; }
-  .auth-form input[type=password], .auth-form input[type=email] {
-    background-color: white;
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-    color: #545454;
-    padding: 0.5em; }
+  padding: 2em;
+  width: 50%;
+}
 
-body {
-  background-color: #FCD337; }
+.login input[type=password], .login input[type=text] {
+  padding: 0.5em;
+  background-color: white;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+}
+
+@-webkit-keyframes float {
+  0% {
+    -webkit-transform: translatey(0px);
+            transform: translatey(0px);
+  }
+  50% {
+    -webkit-transform: translatey(-20px);
+            transform: translatey(-20px);
+  }
+  100% {
+    -webkit-transform: translatey(0px);
+            transform: translatey(0px);
+  }
+}
 
 @keyframes float {
   0% {
-    transform: translatey(0px); }
+    -webkit-transform: translatey(0px);
+            transform: translatey(0px);
+  }
   50% {
-    transform: translatey(-20px); }
+    -webkit-transform: translatey(-20px);
+            transform: translatey(-20px);
+  }
   100% {
-    transform: translatey(0px); } }
+    -webkit-transform: translatey(0px);
+            transform: translatey(0px);
+  }
+}
 
+@media only screen and (max-width: 768px) {
+  .site-logo {
+    width: 35%;
+  }
+}
 /*# sourceMappingURL=main.css.map */

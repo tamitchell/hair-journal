@@ -14,24 +14,28 @@ module.exports = {
       });
   },
   login: (req, res) => {
-    res.render("user/login.hbs", { message: req.flash("signupMessage") });
+    res.render("user/login", { 
+      message: req.flash("loginMessage") 
+    });
   },
   createLogin: (req, res) => {
     const login = passport.authenticate("local-login", {
-      successRedirect: "/user/show",
-      failureRedirect: "/user/login",
+      successRedirect: "/user",
+      failureRedirect: "/user/login",  message: req.flash("loginMessage") ,
       failureFlash: true
     });
 
     return login(req, res);
   },
   signUp: (req, res) => {
-    res.render("user/signup", { message: req.flash("signupMessage") });
+    res.render("user/signup", { 
+      message: req.flash("signupMessage") 
+    });
   },
   createSignUp: (req, res) => {
     const signup = passport.authenticate("local-signup", {
       successRedirect: "/",
-      failureRedirect: "/signup",
+      failureRedirect: "/user/signup",
       failureFlash: true
     });
 

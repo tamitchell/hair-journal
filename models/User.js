@@ -8,14 +8,23 @@ const bcrypt   = require('bcrypt-nodejs');
 const Schema = mongoose.Schema;
 
 const User = new Schema({
-    local: {  
-      profilename: String,
-      hairLength: String,
-      hairType: String,
-      StrandThickness: String,
-      Density: String,
-      Porosity: String
+    local: { 
+      username: String,
+      password: String, 
+      // profilename: String,
+      // hairLength: String,
+      // hairType: String,
+      // StrandThickness: String,
+      // Density: String,
+      // Porosity: String
     },
+
+    stats: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Stats"
+      }
+    ],
 
     regimen: [
       {

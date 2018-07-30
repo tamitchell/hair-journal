@@ -1,14 +1,15 @@
-<section class="row">
-  {{!-- <h4>Sign Up:</h4> --}}
+<div class="container">
 
-  {{#if message}}
-    <p class="alert">{{message}}</p>
-  {{/if}}
-  
+<section class="row col s6 createAcc">
+  <h4>Create an Account</h4>
+
   <form action="" method="POST" class="auth-form">
     <p class="input-field">
-      <input type="email" name="email" placeholder="Email">
+      <input type="text" name="username" placeholder="Username">
     </p>
+     {{#if message}}
+  <div class="alert alert-danger">{{message}}</div>
+{{/if}}
     <p class="input-field">
       <input type="password" name="password" placeholder="Password">
     </p>
@@ -16,4 +17,12 @@
       <input type="submit" value="Sign Up" class="btn waves-effect waves-light">
     </p>
   </form>
+
+    {{#if message}}
+    <p class="alert">{{message}}</p>
+  {{/if}}
+  
 </section>
+
+</div>
+

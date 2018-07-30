@@ -9,20 +9,20 @@ User.find({}).remove(() => {
   Regimen.find({}).remove(() => {
     let bugs = User.create({
       local: {
-        email: "bugsbunny@gmail.com",
+        username: "bugsbunny@gmail.com",
         password: createPassword("bugsbunny")
       }
     }).then(user => {
       Promise.all([
         Regimen.create({
-          content: "eh, what's up doc?",
-          author: user._id
+          author: user._id,
+          description: "Stuff"
         }).then(regimen => {
           user.regimen.push(regimen);
         }),
         Regimen.create({
-          content: "That's all, folks!",
-          author: user._id
+          author: user._id,
+          description: "That's all, folks!",
         }).then(regimen => {
           user.regimen.push(regimen);
         })

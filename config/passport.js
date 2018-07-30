@@ -2,6 +2,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const User = require("../models/User");
 
 module.exports = function(passport) {
+
   passport.serializeUser(function(user, callback) {
     callback(null, user.id);
   });
@@ -16,22 +17,24 @@ module.exports = function(passport) {
     "local-signup",
     new LocalStrategy(
       {
-        usernameField: "email",
+        usernameField: "username",
         passwordField: "password",
         passReqToCallback: true
+
       },
-      function(req, email, password, callback) {
-        User.findOne({ "local.email": email })
+      function(req, username, password, callback) {
+        User.findOne({"local.username": username})
           .then(user => {
-            if (user) {
+
+             if (user){
               return callback(
                 null,
                 false,
-                req.flash("signupMessage", "this email is already taken")
+                req.flash("signupMessage", "That username is already taken. Try another one?")
               );
             } else {
               let newUser = new User();
-              newUser.local.email = email;
+              newUser.local.username = username
               newUser.local.password = newUser.encrypt(password);
 
               newUser.save(err => {
@@ -49,26 +52,26 @@ module.exports = function(passport) {
     "local-login",
     new LocalStrategy(
       {
-        usernameField: "email",
+        usernameField: "username",
         passwordField: "password",
         passReqToCallback: true
       },
-      function(req, email, password, callback) {
-        User.findOne({ "local.email": email }, function(err, user) {
+      function(req, username, password, callback) {
+        User.findOne({ "local.username": username }, function(err, user) {
           if (err) return callback(err);
 
           if (!user) {
             return callback(
               null,
               false,
-              req.flash("loginMessage", "No user found")
+              req.flash("loginMessage", "Wrong username Try again.")
             );
           }
           if (!user.validPassword(password)) {
             return callback(
               null,
               false,
-              req.flash("loginMessage", "Ooops, wrong password")
+              req.flash("loginMessage", "Ooops! Wrong password, try again.")
             );
           }
           return callback(null, user);

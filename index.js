@@ -23,22 +23,18 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-
+app.set("view engine", "hbs");
+app.use(methodOverride("_method"));
 //IMPORTANT SNIPPET FROM https://stackoverflow.com/questions/22298033/nodejs-passport-error-oauthstrategy-requires-session-support
 app.use(session({
   resave: false,
   saveUninitialized: true,
   secret: 'yass' 
 }));
-
+app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(flash());
-
-app.set("view engine", "hbs");
-app.use(methodOverride("_method"));
 
 app.use(require("./routes/index.js"));
 
-app.listen(5000, () => console.log("WUBBA LUBBA DUB DUB"));
+app.listen(5000, () => console.log("WUBBA LUBBA DUB DUB. Running on port 5000"));
