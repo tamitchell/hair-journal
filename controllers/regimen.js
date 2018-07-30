@@ -20,7 +20,7 @@ module.exports = {
   },
   create: (req, res) => {
     Regimen.create({
-      content: req.body.regimen.content,
+      description: req.body.regimen.description,
       author: req.user._id
     }).then(regimen => {
       req.user.regimen.push(regimen);

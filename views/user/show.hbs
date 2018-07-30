@@ -1,5 +1,30 @@
-<section class="profile">
-  <h2>{{user.local.email}}</h2>
+
+ <!-- Page Layout here -->
+    <div class="row">
+
+      <div class="col s3">
+        <!-- Profile sidebar goes here -->
+
+      <section class="profile">
+  <img src="../../public/img/profile_pic.png" alt="Your profile picture">
+   <h2>{{user.local.username}}</h2>
+     {{#if user.stats}}
+    <div class="stats">
+      {{#each user.stats}}
+         {{> 'stat'}}
+      {{/each}}
+    </div>
+  {{else}}
+    <p>{{user.local.username}} hasn't set their stats yet</p>
+  {{/if}}
+</section>
+
+      </div>
+
+      <div class="col s9">
+        <!-- Regimens collection goes here  -->
+
+          <section class="regimens">
   {{#if user.regimen}}
     <div class="regimen">
       {{#each user.regimen}}
@@ -7,7 +32,13 @@
       {{/each}}
     </div>
   {{else}}
-    <p>You don't have any regimens yet...</p>
+    <p>{{user.local.username}} doesn't have any regimens yet...</p>
     <p>Let's change that</p>
   {{/if}}
 </section>
+
+      </div>
+
+    </div>
+
+

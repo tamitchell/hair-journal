@@ -11,12 +11,6 @@ const User = new Schema({
     local: { 
       username: String,
       password: String, 
-      // profilename: String,
-      // hairLength: String,
-      // hairType: String,
-      // StrandThickness: String,
-      // Density: String,
-      // Porosity: String
     },
 
     stats: [
