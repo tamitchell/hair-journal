@@ -1,52 +1,41 @@
 const mongoose = require("../db/connection");
 const Schema = mongoose.Schema;
 
-
 const Routine = new Schema({
-  // content: String,
-  // createdAt: {
-  //   type: Date,
-  //   default: Date.now()
-  // },
-  // author: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "User"
-  // }
-  washing: String,
-  styling: String,
-  moisturizing: String,
-  detangling: String,
-  trimming: String,
-  products: String,
-  additionalNotes: String
-  
-});
-
-const Regimen = new Schema({
-  RegimenName: String,
+  Name: String,
   author: {
     type: Schema.Types.ObjectId,
     ref: "User"
   },
   description: String,
- 
-  routine: [Routine],
+  moisturizing: String,
+  detangling: String,
+  washing: String,
+  // styling: String,
+  trimming: String,
+  // products: String,
+  additionalNotes: String,
 
+  modifiedAt: {
+    type: Date,
+    default: Date.now(),
+  }
+});
+
+const Regimen = new Schema({
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  },
+  routines: [ Routine ],
   createdAt: {
     type: Date,
     default: Date.now()
-  },
+  }
 });
 
-// const DayReg = new Schema({
-//   purpose:String,
-//   content:String
-// })
 
-// const NightReg = new Schema({
-//     purpose: String,
-//     content:String
-// })
+
 
 module.exports = {
   Regimen: mongoose.model("Regimen", Regimen),

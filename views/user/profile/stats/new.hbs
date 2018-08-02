@@ -1,0 +1,30 @@
+<div class="container">
+
+<section class="row col s6 createAcc">
+  <h4>Hi {{user.local.username}}, what's your Stats?</h4>
+
+  <form action="" method="POST" class="auth-form">
+    <p class="input-field">
+      <input type="text" name="hairtype" placeholder="Hair type">
+    </p>
+    <p class="input-field">
+      <input type="text" name="hairlength" placeholder="Hair Length">
+    </p>
+    <p class="input-field">
+      <input type="text" name="density" placeholder="Hair Density">
+    </p>
+    <p class="input-field">
+      <input type="text" name="hairporosity" placeholder="Hair Porosity">
+    </p>
+    <p class="input-field">
+      <input type="submit" value="Submit" class="btn waves-effect waves-light">
+    </p>
+  </form>
+
+    {{#if message}}
+    <p class="alert">{{message}}</p>
+  {{/if}}
+  
+</section>
+
+</div>

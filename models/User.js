@@ -1,13 +1,10 @@
-//Understanding Growthsphere Models
-
-//The model represents the data, and does nothing else. 
-//The model does NOT depend on the controller or the view. __Tom Dalling_
 const mongoose = require("../db/connection");
 const bcrypt   = require('bcrypt-nodejs');
 
 const Schema = mongoose.Schema;
 
 const User = new Schema({
+
     local: { 
       username: String,
       password: String, 
@@ -20,7 +17,7 @@ const User = new Schema({
       }
     ],
 
-    regimen: [
+    regimens: [
       {
         type: Schema.Types.ObjectId,
         ref: "Regimen"

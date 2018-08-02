@@ -3,14 +3,23 @@ const { Regimen } = require("../models/Regimen");
 const passport = require("passport");
 
 module.exports = {
-  show: (req, res) => {
-    User.findOne({ _id: req.params.id })
-      .populate({
-        path: "regimen/regimen",
-        options: { limit: 5, sort: { createdAt: -1 } }
-      })
-      .then(user => {
-        res.render("user/show", { user });
+  // show: (req, res) => {
+  //   User.findOne({ _id: req.params.id })
+  //     .populate({
+  //       path: "regimen/regimen",
+  //       options: { limit: 5, sort: { createdAt: -1 } }
+  //     })
+  //     .then(user => {
+  //       res.render("user/profile/show", { user });
+  //     });
+  // },
+  index: (req, res) => {
+    Regimen.find({})
+      .sort({ createdAt: -1 })
+      .limit(10)
+      .populate("author")
+      .then(regimen => {
+        res.render("app/index", { regimen });
       });
   },
   login: (req, res) => {
@@ -21,7 +30,7 @@ module.exports = {
   createLogin: (req, res) => {
     const login = passport.authenticate("local-login", {
       successRedirect: "/",
-      failureRedirect: "../user/log-in",  message: req.flash("loginMessage") ,
+      failureRedirect: "../user/login",  message: req.flash("loginMessage") ,
       failureFlash: true
     });
 

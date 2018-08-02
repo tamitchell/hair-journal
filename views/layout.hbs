@@ -9,26 +9,28 @@
     <link rel="stylesheet" type="text/css" href="/css/main.css">
   </head>
   <body>
-     <header class="site-header">
+     {{!-- <header class="site-header">
             <div class="entire-logo">
               <img src="/img/sphere.png" class="site-logo" alt="Growthsphere logo">
             <h2>Growthsphere</h2>
             </div>
             
            <h4>Develop Your Own Regimens with Style!</h4>
-    </header>
-    <main class="container">
+    </header> --}}
+    <main class="container-fluid">
       {{{ body }}}
     </main>
+
            <nav>
         <div class="nav-wrapper">
           <ul>
           {{#if currentUser}}
-            <li><a href="/regimen/new">+regimen</a></li>
-            <li><a href="/user/{{currentUser.id}}">Profile</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/user/profile/{{currentUser.id}}">Profile</a></li>
             <li><a href="/user/logout">Log Out</a></li>
           {{else}}
             <li><a href="/user/login">Log In</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="/user/sign-up">Sign Up</a></li>
           {{/if}}
           </ul>

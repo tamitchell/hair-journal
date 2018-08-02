@@ -8,8 +8,9 @@ router.use((req, res, next) => {
 });
 
 router.use('/', require('./application.js'));
+// router.use('/profile', require('./profile'))
 router.use('/user', require('./user'));
-router.use('/regimen', require('./regimen'));
+
 
 router.all('*', (req, res) => {
   res.status(400).send();

@@ -2,27 +2,27 @@
   {{> 'regimen'}}
 </p>
 
-{{#if comments.length}}
-  {{#each comments}}
+{{#if regimen.length}}
+  {{#each regimen}}
     <div class="card">
       <div class="card-content">
         <span class="card-title">
-          {{ content }}
+          {{ regimen }}
         </span>
       </div>
       <div class="card-action">
-        <a href="/user/{{ author.id }}" class="">{{ author.local.email }}</a>
-        <span class="tweet__date">{{ createdAt }}</span>
+        <a href="/user/{{ user.id }}" class="">{{ user.local.email }}</a>
+        <span class="regimen__date">{{ createdAt }}</span>
       </div>
     </div>
   {{/each}}
 {{/if}}
 
-{{#if currentUser}}
+{{!-- {{#if currentUser}}
 <div class="card">
   <div class="card-content">
     <h4 class="card-title">Update Routine</h6>
-    <form method="POST" action="/routine/{{id}}?_method=PUT" class="row">
+    <form method="POST" action="/regimen/{{id}}?_method=PUT" class="row">
       <p class="input-field inline col s10">
         <label for="content"></label>
         <input type="text" name="content" id="">
@@ -33,4 +33,4 @@
     </form>
   </div>
 </div>
-{{/if }}
+{{/if }} --}}

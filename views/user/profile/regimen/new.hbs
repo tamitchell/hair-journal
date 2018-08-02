@@ -1,27 +1,27 @@
-{{!-- 
+
 <div class="container create-regimen">
 <section class="form-container">
-  <form action="/regimen" method="post" class="form regimen-form">
+  <form action="/profile/" method="POST" class="form regimen-form">
       <h4>Building a Regimen</h4>
 
     <p class="input-field">
         <p><label for="regimenname">Name</label></p>
-      <input type="text" name="regimenname" id="regimenname" placeholder="Regimen Name" maxlength="30">
+      <input type="text" name="regimenname" placeholder="Regimen Name" maxlength="30">
     </p>
 
      <p class="input-field">
-     <p><label for="txtDesc">Regimen Description</label></p>
-<textarea name="txtDesc" id="txtDesc" cols="60" rows="10" placeholder="What is the purpose of this regimen? Length? Maintenence? Write a short description here."></textarea>
+     <p><label for="txtDesc">Description</label></p>
+<textarea name="txtDesc" cols="60" rows="10" placeholder="What is the purpose of this regimen? Length? Maintenence? Write a short description here."></textarea>
     </p>
 
     <p class="input-field">
               <p><label for="moisturizing">Moisturizing</label></p>
-      <input type="text" id="moisturizing" name="moisturizing" placeholder="How do you keep your hair moisturized?" maxlength="30">
+      <input type="text" name="moisturizing" placeholder="How do you keep your hair moisturized?" maxlength="30">
     </p>
 
      <fieldset>
        <p class="input-field">
-
+       
        <legend>Detangling Methods</legend>
        
        <div>
@@ -71,15 +71,15 @@
      </fieldset>
 
       <p class="input-field">
-        <p><label for="trimming">Trimming Routine</label></p>
+                      <p><label for="trimming">Trimming</label></p>
 
-      <input type="text" id="trimming" name="trimming" placeholder="How often do you trim?" maxlength="100">
+      <input type="text" name="trimming" placeholder="How often do you trim?" maxlength="100">
     </p>
 
      <p class="input-field">
                      <p><label for="addNotes">Additional Notes</label></p>
 
-<textarea name="addNotes" cols="60" id="addNotes" rows="10" placeholder="Add whatever else you can think of here."></textarea>
+<textarea name="addNotes" cols="60" rows="10" placeholder="Add whatever else you can think of here."></textarea>
     </p>
 
    
@@ -88,4 +88,4 @@
     </p>
   </form>
 </section>
-</div> --}}
+</div>

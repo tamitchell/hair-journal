@@ -1,10 +1,8 @@
- 
-<div class="container">
-
-<section class="row col s6 createAcc">
-  <h4>Hi {{_id}}, what's your Stats?</h4>
-
-  <form action="" method="POST" class="auth-form">
+{{#if currentUser}}
+<div class="card">
+  <div class="card-content">
+    <h4 class="card-title">{{_id}}'s Stats</h6>
+    <form method="POST" action="/stats/{{id}}?_method=PUT" class="row">
     <p class="input-field">
       <input type="text" name="hairtype" placeholder="Hair type">
     </p>
@@ -18,14 +16,9 @@
       <input type="text" name="hairporosity" placeholder="Hair Porosity">
     </p>
     <p class="input-field">
-      <input type="submit" value="Sign Up" class="btn waves-effect waves-light">
+      <input type="submit" value="Submit" class="btn waves-effect waves-light">
     </p>
-  </form>
-
-    {{#if message}}
-    <p class="alert">{{message}}</p>
-  {{/if}}
-  
-</section>
-
+    </form>
+  </div>
 </div>
+{{/if }}

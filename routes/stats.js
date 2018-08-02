@@ -1,10 +1,16 @@
-const express = require("express");
-const router = express.Router();
-const statsController = require("../controllers/stats");
+// const express = require("express");
+// const router = express.Router();
+// const statsController = require("../controllers/stats");
 
-router.post("/", statsController.create);
-router.get("/new", statsController.new);
-router.get("/:id", statsController.show);
-router.put("/:id", statsController.update);
+// router.use((req, res, next) => {
+//     res.locals.currentUser = req.user;
+//     next();
+//   });
+  
 
-module.exports = router;
+// router.post("/", statsController.createStats);
+// router.get("/new", statsController.new);
+// router.get("/:id", statsController.show);
+// router.put("/:id", statsController.update);
+
+// module.exports = router;
