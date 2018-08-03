@@ -5,7 +5,7 @@ const profileController = require('../controllers/profile.js');
 const userController = require('../controllers/user')
 
 router.get('/', applicationController.index)
-router.get('/user', userController.index);
+router.get('/user', userController.index); //consider getting rid of this because you already have a users route file with a lot of routes *Don*
 router.get('/profile', profileController.showProfile);
 
 

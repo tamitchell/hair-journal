@@ -8,8 +8,8 @@ router.use((req, res, next) => {
 });
 
 router.use('/', require('./application.js'));
-// router.use('/profile', require('./profile'))
 router.use('/user', require('./user'));
+
 
 
 router.all('*', (req, res) => {

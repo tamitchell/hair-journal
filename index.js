@@ -15,17 +15,18 @@ app.use(function (req, res, next) {
   next();
 });
 
-hbs.registerPartials(__dirname + "/views/partials");
 
+
+///Users/tasha/dev/wdi/projects/hair-journal/public/img
 
 // for external files
 app.use(express.static(path.join(__dirname, '/public')));
+app.use('/img', express.static(path.join(__dirname, '/public/img')));
 
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "hbs");
 app.use(methodOverride("_method"));
-//IMPORTANT SNIPPET FROM https://stackoverflow.com/questions/22298033/nodejs-passport-error-oauthstrategy-requires-session-support
 app.use(session({
   resave: false,
   saveUninitialized: true,

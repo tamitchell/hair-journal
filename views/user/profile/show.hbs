@@ -2,13 +2,13 @@
 
 
  <!-- Page Layout here -->
-    <div class="row container-fluid">
+    <div class="row profile-row container-fluid">
 
-      <div class="col s3 m4 l3 s12 profile-container">
+      <div class="col s12 m12 l12 profile-container">
         <!-- Profile sidebar goes here -->
 
       <section class="profile">
-  <img src="../../public/img/profile_pic.png" alt="Your profile picture" class="circle">
+  <img src="/img/profile_pic.png" alt="Your profile picture" class="circle">
    <h2>{{user.local.username}}</h2>
      {{#if user.stats}}
     <div class="stats">
@@ -22,21 +22,13 @@
       </section>
 
       </div>
+      </div>
 
-      <div class="col s9 m8 l9 s12 regimen-container">
-        <!-- Regimens collection goes here  -->
-  {{#if user.regimen}}
-    <div class="regimen">
-      {{#each user.regimen}}
-         {{> 'regimen'}}
-      {{/each}}
-    </div>
-  {{else}}
-    <p>{{user.local.username}} doesn't have any regimens yet...</p>
-    <p>Let's change that</p>
-  {{/if}}
+      <div class="row navbar-row container-fluid">
 
-    <nav>
+     <div class="col s12 m12 l12 navbar-container">
+
+           <nav>
       <div class="nav-wrapper">
           <ul>
           {{#if currentUser}}
@@ -49,6 +41,27 @@
               </ul>
               </div>
     </nav>
+
+     </div>   
+
+      </div>
+
+      <div class="row regimen-row container-fluid">
+
+      <div class="col s12 m12 l12 regimen-container">
+        <!-- Regimens collection goes here  -->
+  {{#if user.regimen}}
+    <div class="regimen">
+      {{#each user.regimen}}
+         {{> 'regimen'}}
+      {{/each}}
+    </div>
+  {{else}}
+    <p>{{user.local.username}} doesn't have any regimens yet...</p>
+    <p>Let's change that</p>
+  {{/if}}
+
+
 
       </div>
 

@@ -1,19 +1,19 @@
 const mongoose = require("../db/connection");
-const Schema = mongoose.Schema;
+const Schema = mongoose.Schema
 
 const Routine = new Schema({
-  Name: String,
   author: {
     type: Schema.Types.ObjectId,
     ref: "User"
   },
+  routinename: String,
   description: String,
   moisturizing: String,
   detangling: String,
   washing: String,
-  // styling: String,
+  styling: String,
   trimming: String,
-  // products: String,
+  products: String,
   additionalNotes: String,
 
   modifiedAt: {
@@ -23,19 +23,18 @@ const Routine = new Schema({
 });
 
 const Regimen = new Schema({
+  title: String,
+  purpose: String,
   author: {
     type: Schema.Types.ObjectId,
     ref: "User"
   },
-  routines: [ Routine ],
   createdAt: {
     type: Date,
     default: Date.now()
-  }
-});
-
-
-
+  },
+  routines: [Routine],
+})
 
 module.exports = {
   Regimen: mongoose.model("Regimen", Regimen),
