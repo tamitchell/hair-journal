@@ -1,21 +1,5 @@
 <p class="card">
-
-  <div class="card">
-  <div class="card-content">
-    <a class="card-title" href="/regimen/{{id}}">
-      {{ content }}
-    </a>
-  </div>
-  <div class="card-action">
-    <a href="/user/{{ author.id }}" class="">{{ author.local.email }}</a>
-    <span class="tweet__date">{{ createdAt }}</span>
-    <span class="tweet_comments">{{ comments.length }} Comments</span>
-    <form class="" action="/tweet/{{id}}?_method=DELETE" method="POST">
-      <button type="submit" name="button">Delete</button>
-    </form>
-  </div>
-</div>
-
+  {{> 'regimen'}}
 </p>
 
 {{#if regimen.length}}
@@ -34,7 +18,7 @@
   {{/each}}
 {{/if}}
 
-{{#if currentUser}}
+{{!-- {{#if currentUser}}
 <div class="card">
   <div class="card-content">
     <h4 class="card-title">Update Routine</h6>
@@ -49,4 +33,4 @@
     </form>
   </div>
 </div>
-{{/if }}
+{{/if }} --}}

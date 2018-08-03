@@ -2,54 +2,12 @@
 
 $logo-font: 'Pacifico', cursive;
 $titular-font: 'Montserrat', sans-serif;
-$navbar-background: #C04B23;
 $profile-background: white;
 $regimen-background: rgba(219, 219, 219, 0.7);
 $form-color: #9D9D9D;
 $regimen-form: white;
 $card-shadow:0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
 
-@mixin space-reset {
-  margin: 0;
-   padding: 0;
-}
-
-@mixin background {
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-@mixin logo {
-
-  .entire-logo{
-    position: relative;
-    animation: float 3s ease-in-out infinite;
-    margin-bottom: 1em;
-    .site-logo {
-        display:block;
-        margin: 0 auto; 
-        width:20%;
-      }
-      h2 {
-          font: 3em $logo-font;
-          position: absolute;
-          top: 35%;
-          left: 50%;
-          transform-origin: 10% -10px;
-          transform: rotate(-20deg) skew(-15deg) translate(-50%,-50%);
-      }
-}
- h2, h4, {
-    color:white;
-    text-align: center;
-  }
-  h4{
-      margin-top: 1em;
-      font-size: 1.5em;
-  }
-
-}
 
 @mixin flex {
   display: flex;
@@ -80,8 +38,34 @@ h4 {
 }
 
 header{
-    padding: 10em 5em 1em 5em;
-    @include logo();
+    padding: 3em 5em 1em 5em;
+    .entire-logo{
+        position: relative;
+        animation: float 3s ease-in-out infinite;
+        margin-bottom: 1em;
+        .site-logo {
+            display:block;
+            margin: 0 auto; 
+            width:20%;
+          }
+          h2 {
+              font: 3em $logo-font;
+              position: absolute;
+              top: 35%;
+              left: 50%;
+              transform-origin: 10% -10px;
+              transform: rotate(-20deg) skew(-15deg) translate(-50%,-50%);
+          }
+    }
+     h2, h4, {
+        color:white;
+        text-align: center;
+      }
+      h4{
+          margin-top: 1em;
+          font-size: 1.5em;
+      }
+    
   }
   
   
@@ -113,21 +97,6 @@ header{
        
       }
     }
-    .parallax-container{
-      min-height: 380px;
-      line-height: 0;
-      height: auto;
-      color: rgba(255,255,255,.9);
-      .section{
-        width: 100%;
-        .homepage-container{
-          @include logo();
-        }
-      }
-      
-
-    }
-    
   .container {  
     display: block;
     margin: auto;
@@ -165,46 +134,32 @@ header{
     }
   }
 
- .profile-row {
-  @include space-reset();
-  @include background();
-  background-image: url('/img/plant.jpg');
-  width:100%;
+ .row {
    .profile-container{
+    border: 2px solid red;
      display: block;
      margin: 0 auto;
      text-align: center;
+     padding: 2em;
      height: 40%;
-     width: 50%;
-   .profile{
-    background-color: $profile-background;
-
+     width: 100%;
+     background-color: $profile-background;
    }
-    }
- } 
-
- .navbar-row {
-  @include space-reset(); 
-  background-color: $navbar-background;
-
- }
-
- .regimen-row {
-  .regimen-container{
-    width:100%;
-    height:30em;
-    max-height: 100%;
-    background-color: $regimen-background;
-    padding: 3em;
+   .regimen-container{
+     border: 2px solid blue;
+     width:100%;
+     height:30em;
+     max-height: 100%;
+     background-color: $regimen-background;
+     padding: 3em;
   
-  }
- }
- 
+   }
+ } 
  
  .create-regimen{
    padding: 2em;
-   width: 70%;
-   h4{ 
+   width: 50%;
+   h4{
      color: $form-color;
    }
    .regimen-form{

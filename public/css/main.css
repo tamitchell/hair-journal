@@ -10,7 +10,7 @@ h4 {
 }
 
 header {
-  padding: 10em 5em 1em 5em;
+  padding: 3em 5em 1em 5em;
 }
 
 header .entire-logo {
@@ -79,51 +79,6 @@ ul li a {
   padding: 1em;
 }
 
-.parallax-container {
-  min-height: 380px;
-  line-height: 0;
-  height: auto;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.parallax-container .section {
-  width: 100%;
-}
-
-.parallax-container .section .homepage-container .entire-logo {
-  position: relative;
-  -webkit-animation: float 3s ease-in-out infinite;
-          animation: float 3s ease-in-out infinite;
-  margin-bottom: 1em;
-}
-
-.parallax-container .section .homepage-container .entire-logo .site-logo {
-  display: block;
-  margin: 0 auto;
-  width: 20%;
-}
-
-.parallax-container .section .homepage-container .entire-logo h2 {
-  font: 3em "Pacifico", cursive;
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  -webkit-transform-origin: 10% -10px;
-          transform-origin: 10% -10px;
-  -webkit-transform: rotate(-20deg) skew(-15deg) translate(-50%, -50%);
-          transform: rotate(-20deg) skew(-15deg) translate(-50%, -50%);
-}
-
-.parallax-container .section .homepage-container h2, .parallax-container .section .homepage-container h4 {
-  color: white;
-  text-align: center;
-}
-
-.parallax-container .section .homepage-container h4 {
-  margin-top: 1em;
-  font-size: 1.5em;
-}
-
 .container {
   display: block;
   margin: auto;
@@ -168,36 +123,19 @@ ul li a {
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 }
 
-.profile-row {
-  margin: 0;
-  padding: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-image: url("/img/plant.jpg");
-  width: 100%;
-}
-
-.profile-row .profile-container {
+.row .profile-container {
+  border: 2px solid red;
   display: block;
   margin: 0 auto;
   text-align: center;
   padding: 2em;
   height: 40%;
-  width: 50%;
-}
-
-.profile-row .profile-container .profile {
+  width: 100%;
   background-color: white;
 }
 
-.navbar-row {
-  margin: 0;
-  padding: 0;
-  background-color: #C04B23;
-}
-
-.regimen-row .regimen-container {
+.row .regimen-container {
+  border: 2px solid blue;
   width: 100%;
   height: 30em;
   max-height: 100%;
@@ -207,7 +145,7 @@ ul li a {
 
 .create-regimen {
   padding: 2em;
-  width: 70%;
+  width: 50%;
 }
 
 .create-regimen h4 {

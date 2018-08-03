@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const applicationController = require('../controllers/application.js');
-const profileController = require('../controllers/profile.js');
+const regimenController = require('../controllers/regimen')
 const userController = require('../controllers/user')
+const statsController = require('../controllers/stats')
 
 router.get('/', applicationController.index)
-router.get('/user', userController.index); //consider getting rid of this because you already have a users route file with a lot of routes *Don*
-router.get('/profile', profileController.showProfile);
+router.get('/user', userController.index);
+router.get('/user/profile/:id', userController.showProfile)
+router.get('/regimen', regimenController.show)
+router.get('/stats', statsController.show)
 
 
 module.exports = router;
