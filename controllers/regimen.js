@@ -1,4 +1,5 @@
-const { Regimen } = require("../models/Regimen");
+const User        = require("../models/User")
+const { Regimen, Routine } = require("../models/Regimen");
 const passport = require("passport");
 
 
@@ -12,22 +13,25 @@ module.exports = {
           regimen
         ) {
           console.log(regimen);
-          res.render("user/profile/regimen/show", regimen);
+          res.render("regimen/show", regimen);
         });
       });
   },
   new: (req, res) => {
-    res.render("/profile/regimen/new");
+    res.render("regimen/new");
     
   },
   create: (req, res) => {
     Regimen.create({
-      // description: req.body.regimen.description,
-      author: req.user._id
+      regimentitle: req.body.regimen.regimentitle,
+      purpose: req.body.regimen.purpose,
+      author: req.body.currentUser.id
     }).then(regimenInstance => {
-      req.user.regimen.push(regimenInstance);
-      req.user.save(err => {
-        res.redirect(`/user/profile/${user.regimen}`);
+      User.findOne({ _id: currentUser.id }).then(user => {
+        user.regimens.push(regimenInstance);
+        user.save(err => {
+          res.redirect(`/regimen/${regimen._id}`);
+        });
       });
     });
   },

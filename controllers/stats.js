@@ -14,7 +14,7 @@ module.exports = {
           });
       },
       new: (req, res) => {
-        res.render("user/profile/stats/new");
+        res.render("stats/new");
       },
       createStats: (req, res) => {
         Stats.create({

@@ -1,22 +1,25 @@
 
 <div class="container create-regimen">
 <section class="form-container">
-  <form action="/user/regimen" method="POST" class="form regimen-form">
+  <form action="/regimen" method="POST" class="form regimen-form">
+      
       <h4>Building a Regimen</h4>
+      
 
     <p class="input-field">
-        <p><label for="regimenname">Regimen Name</label></p>
-      <input type="text" name="regimenname" id="regimenname" placeholder="Regimen Name" maxlength="30">
+        <p><label for="regimentitle">Regimen Name</label></p>
+      <input type="text" name="regimentitle" id="regimentitle" placeholder="Regimen Name" maxlength="30">
     </p>
 
      <p class="input-field">
      <p><label for="txtDesc">Purpose</label></p>
-<textarea name="txtDesc" cols="60" rows="10" placeholder="What is the purpose of this regimen? Length? Maintenence? Write a short description here."></textarea>
+<textarea name="txtDesc" id="txtDesc" cols="60" rows="10" placeholder="What is the purpose of this regimen? Length? Maintenence? Write a short description here."></textarea>
     </p>
 
     <p class="input-field">
       <input type="submit" value="Submit" class="btn waves-effect waves-light">
     </p>
+    <h6>created by {{currentUser.id}}</h6>
   </form>
 </section>
 </div>

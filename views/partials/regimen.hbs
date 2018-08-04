@@ -1,3 +1,20 @@
+<div class="card">
+  <div class="card-content">
+    <a class="card-title" href="/regimen/{{id}}">
+      {{ regimen }}
+    </a>
+  </div>
+  <div class="card-action">
+    <a href="/user/{{ author.id }}" class="">{{ author.local.email }}</a>
+    <span class="tweet__date">{{ createdAt }}</span>
+    {{!-- <span class="tweet_comments">{{ comments.length }} Comments</span> --}}
+    <form class="" action="/regimen/{{id}}?_method=DELETE" method="POST">
+      <button type="submit" name="button">Delete</button>
+    </form>
+  </div>
+</div>
+
+
 {{!-- 
 <div class="container create-regimen">
 <section class="form-container">

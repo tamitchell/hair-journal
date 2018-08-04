@@ -23,6 +23,8 @@ const Routine = new Schema({
 });
 
 const Regimen = new Schema({
+  regimentitle: String,
+  purpose: String, 
   author: {
     type: Schema.Types.ObjectId,
     ref: "User"

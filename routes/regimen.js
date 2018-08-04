@@ -9,7 +9,7 @@ router.use((req, res, next) => {
   
 
 router.post("/:id", regimenController.requireAuth, regimenController.create);
-router.get("/regimen/new", regimenController.requireAuth, regimenController.new);
+router.get("/new", regimenController.requireAuth, regimenController.new);
 router.get("/:id", regimenController.show);
 router.put("/:id", regimenController.requireAuth, regimenController.update);
 
