@@ -1,0 +1,7 @@
+www.grow.com
+    - www.grow.com/signup           (Create User)
+    - www.grow.com/login            (User Login)
+        - www.grow.com/profile/id           (User profile page)
+        - www.grow.com/profile/id/regimen   (Shows the current regimens)
+            - www.grow.com/profile/id/regimen/new   (Create new regimen)
+            
