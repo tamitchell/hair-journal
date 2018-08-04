@@ -9,8 +9,7 @@ router.use((req, res, next) => {
 
 router.use('/', require('./application.js'));
 router.use('/user', require('./user'));
-router.use('/regimen', require('./regimen'))
-router.use('/stats', require('./stats'))
+router.use('/profile', require('./profile'))
 
 
 router.all('*', (req, res) => {
