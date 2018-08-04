@@ -10,7 +10,7 @@ const profileController = require('../controllers/profile.js');
 router.get('/:id', profileController.showProfile)
 
 router.post("/", profileController.requireAuth, profileController.createRegimen);
-router.get("/:id/new", profileController.requireAuth, profileController.newRegimen);
+router.get("/regimen/new", profileController.requireAuth, profileController.newRegimen);
 router.get("/:id", profileController.showRegimen);
 router.put("/:id", profileController.requireAuth, profileController.updateRegimen);
 

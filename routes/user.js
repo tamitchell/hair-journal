@@ -12,7 +12,7 @@ router.post('/sign-up', userController.createSignUp);
 router.get('/logout', userController.logout);
 
 
-router.get('/:id', profileController.showProfile)
+// router.get('/:id', profileController.showProfile)
 
 // router.get("/profile/stats/new", profileController.newStat);
 

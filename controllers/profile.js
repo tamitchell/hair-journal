@@ -1,6 +1,8 @@
 const User  = require("../models/User");
-const { Regimen } = require("../models/Regimen")
+const { Regimen, Routine } = require("../models/Regimen")
+const Stats = require('../models/Stats')
 const passport = require("passport");
+
  module.exports = {
   showProfile: (req, res) => {
     User.findOne({ _id: req.params.id })
@@ -37,7 +39,7 @@ const passport = require("passport");
       purpose: req.body.regimen.purpose,
       author: req.body.currentUser.id
     }).then(regimenInstance => {
-      User.findOne({ _id: currentUser.id }).then(user => {
+      User.findOne({ _id: req.params.id }).then(user => {
         user.regimens.push(regimenInstance);
         user.save(err => {
           res.redirect(`/regimen/${regimen._id}`);
