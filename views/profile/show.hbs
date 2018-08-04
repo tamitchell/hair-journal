@@ -32,8 +32,8 @@
       <div class="nav-wrapper">
           <ul>
           {{#if currentUser}}
-            <li><a href="/user/profile/{{currentUser.id}}/stats/new">adjust stats</a></li>
-            <li><a href="/user/profile/{{currentUser.id}}/regimen/new">+regimen</a></li>
+            <li><a href="/{{currentUser.id}}/stats/new">adjust stats</a></li>
+            <li><a href="/profile/{{currentUser.id}}/regimen/new">+regimen</a></li>
             {{else}}
               <p>You must be logged in to make regimens and add stats</p>
               {{/if}}

@@ -11,7 +11,7 @@ const passport = require("passport");
         options: { limit: 5, sort: { createdAt: -1 } }
       })
       .then(user => {
-        res.render("user/profile/show", { user } );
+        res.render("profile/show", { user } );
       });
   },
  
