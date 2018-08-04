@@ -37,19 +37,19 @@ const passport = require("passport");
     Regimen.create({
       regimentitle: req.body.regimen.regimentitle,
       purpose: req.body.regimen.purpose,
-      author: req.body.currentUser.id
+      author: req.params.id
     }).then(regimenInstance => {
       User.findOne({ _id: req.params.id }).then(user => {
         user.regimens.push(regimenInstance);
         user.save(err => {
-          res.redirect(`/regimen/${regimen._id}`);
+          res.redirect(`/profile/${regimen._id}`);
         });
       });
     });
   },
   updateRegimen: (req, res) => {
     let { content } = req.body;
-    Regimen.findOne({ _id: req.params.id }).then(regimen => {
+    Regimen.findByIdAndUpdate({ _id: req.params.id }).then(regimen => {
       regimen.push({
         content,
         author: req.user._id
@@ -74,12 +74,12 @@ const passport = require("passport");
   },
   createStat: (req, res) => {
     Stats.create({
-      author: req.user._id
+      author: req.params.id
     }).then(stat => {
-      req.user.stat.push(stat);
+      req.user.stats.push(stat);
       console.log(stat)
       req.user.save(err => {
-        res.redirect(`/user/profile/${stats._id}`);
+        res.redirect(`/profile/${user._id}`);
       });
     });
   },

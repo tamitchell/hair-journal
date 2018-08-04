@@ -11,9 +11,9 @@ const Routine = new Schema({
   moisturizing: String,
   detangling: String,
   washing: String,
-  // styling: String,
+  styling: String,
   trimming: String,
-  // products: String,
+  products: String,
   additionalNotes: String,
 
   modifiedAt: {
