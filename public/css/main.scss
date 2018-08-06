@@ -145,14 +145,18 @@ header{
 
  .row {
    .profile-container{
-    border: 2px solid red;
-     display: block;
-     margin: 0 auto;
+    @include flex();
+    background-image: url('/img/profile_background.jpg');
+    @include background-setup();
      text-align: center;
      padding: 2em;
      height: 40%;
      width: 100%;
-     background-color: $profile-background;
+     .profile{
+      padding: 2em;
+      width: 50%;
+      background-color: $profile-background;
+     }
    }
    .regimen-container{
      border: 2px solid blue;

@@ -124,13 +124,32 @@ ul li a {
 }
 
 .row .profile-container {
-  border: 2px solid red;
-  display: block;
-  margin: 0 auto;
+  display: -webkit-box;
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -ms-flex-flow: row wrap;
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+          align-items: center;
+  background-image: url("/img/profile_background.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   text-align: center;
   padding: 2em;
   height: 40%;
   width: 100%;
+}
+
+.row .profile-container .profile {
+  padding: 2em;
+  width: 50%;
   background-color: white;
 }
 
