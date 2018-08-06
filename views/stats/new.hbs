@@ -1,9 +1,71 @@
-<div class="container">
+<div class="container statsform-container">
 
-<section class="row col s6 createAcc">
-  <h4>Hi {{user.local.username}}, what's your Stats?</h4>
+<section class="row col s6 createStats">
 
-  <form action="" method="POST" class="auth-form">
+  <div class="stat-card card">
+  <div class="card-image stat-card-img">
+    <img src="/img/stats_green_img.jpeg" alt="Carefree black boy" class="hoverZoomLink">
+  </div>
+  <div class="right-content">
+        <h4 class="card-title">Hi {{currentUser.local.username}}, what's your Stats?</h4>
+    <div class="stat-card card-content">
+      <form action="/profile/" method="POST" class="auth-form">
+
+        <label for="hairtypes">Hair Types</label>
+  <select class="browser-default" id="hairtypes">
+    <option value="" disabled selected>Choose your option</option>
+    <optgroup for="Straight Hair">
+      <option value="straight">Type 1 - Straight Hair</option>
+    </optgroup>
+    <optgroup label="Wavy Hair">
+      <option value="wavy">Type 2A - Wavy Hair</option>
+      <option value="wavy">Type 2B - Wavy Hair</option>
+      <option value="wavy">Type 2C - Wavy Hair</option>
+      </optgroup>
+
+  <optgroup label="Curly Hair">
+        <option value="curly">Type 3A - Curly Hair</option>
+        <option value="curly">Type 3B - Curly Hair</option>
+        <option value="curly">Type 3C - Curly Hair</option>
+    </optgroup>
+
+<optgroup label="Kinky Hair">
+
+    <option value="kinky">Type 4A - Kinky Hair</option>
+    <option value="kinky">Type 4B - Kinky Hair</option>
+    <option value="kinky">Type 4C - Kinky Hair</option>
+
+</optgroup>
+    
+  </select>
+
+    <p class="input-field">
+      <label for="hairlength">Hair length</label>
+      <br>
+      <input type="text" name="hairlength" placeholder="Hair Length">
+    </p>
+
+    <p class="input-field">
+      <label for="hairdensity">Hair Density</label>
+      <br>
+      <input type="text" name="density" id="hairdensity" placeholder="Hair Density">
+    </p>
+    <p class="input-field">
+    <label for="hairporosity">Hair Porosity</label>
+    <br>
+      <input type="text" name="hairporosity" id="hairporosity" placeholder="Hair Porosity">
+    </p>
+    <p class="input-field">
+      <input type="submit" value="Submit" class="btn waves-effect waves-light">
+    </p>
+  </form>
+    </div>
+  </div>
+</div>
+
+  {{!-- <h4>Hi {{user.local.username}}, what's your Stats?</h4>
+
+  <form action="/profile/" method="POST" class="auth-form">
     <p class="input-field">
       <input type="text" name="hairtype" placeholder="Hair type">
     </p>
@@ -23,7 +85,7 @@
 
     {{#if message}}
     <p class="alert">{{message}}</p>
-  {{/if}}
+  {{/if}} --}}
   
 </section>
 

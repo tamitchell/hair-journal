@@ -8,6 +8,13 @@ $form-color: #9D9D9D;
 $regimen-form: white;
 $card-shadow:0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
 
+@mixin cardbox {
+  margin: 0 auto 1em auto;
+  width: 70%;
+  background-color: white;
+  padding: 2em;
+  box-shadow: $card-shadow;
+}
 
 @mixin flex {
   display: flex;
@@ -101,11 +108,7 @@ header{
     display: block;
     margin: auto;
   .createAcc{
-    margin: 0 auto 1em auto;
-    width: 70%;
-    background-color: white;
-    padding: 2em;
-    box-shadow: $card-shadow;
+@include cardbox();
     h4{
       font-size: 1.5em;
       color: #545454;
@@ -155,6 +158,38 @@ header{
   
    }
  } 
+
+ .createStats{
+   @include cardbox();
+   width: 100%;
+   margin-top: 4em;
+   padding: 0;
+   h4{
+     text-align: left;
+     color: $form-color;
+   }
+   .stat-card {
+     padding: 0;
+     margin: 0;
+    .card-image {
+      float: left;
+      width: 40%;
+      height:100%;
+      img{
+        height:100%;
+      }
+    }
+    .right-content {
+      padding: 3em;
+      width: 60%;
+      float: left;
+    }
+    .card-title {
+      padding-left: 20px;
+    }
+   }
+ }
+
  
  .create-regimen{
    padding: 2em;

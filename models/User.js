@@ -10,10 +10,10 @@ const User = new Schema({
       password: String, 
     },
 
-    stats: [
+    hairstats: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Stats"
+        ref: "HairStats"
       }
     ],
 

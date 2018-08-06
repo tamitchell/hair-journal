@@ -1,6 +1,6 @@
 const User  = require("../models/User");
 const { Regimen, Routine } = require("../models/Regimen")
-const Stats = require('../models/Stats')
+const HairStats = require('../models/HairStats')
 const passport = require("passport");
 
  module.exports = {
@@ -40,9 +40,10 @@ const passport = require("passport");
       author: req.params.id
     }).then(regimenInstance => {
       User.findOne({ _id: req.params.id }).then(user => {
+          console.log(regimenInstance)
         user.regimens.push(regimenInstance);
         user.save(err => {
-          res.redirect(`/profile/${regimen._id}`);
+          res.redirect(`/profile/${user._id}/${regimens.regimenInstance._id}`);
         });
       });
     });
@@ -63,7 +64,8 @@ const passport = require("passport");
    showStats: (req, res) => {
     Stats.findOne({ _id: req.params.id })
     .populate({
-        path: "stats/show"
+        path: "stats/show",
+        options: { limit: 1, sort: { createdAt: -1 } }
               })
       .then(user => {
         res.render("stats/show", { user });
@@ -73,13 +75,17 @@ const passport = require("passport");
     res.render("stats/new");
   },
   createStat: (req, res) => {
-    Stats.create({
+    HairStats.create({
+      hairtype: req.body.hairtype,
+      hairlength: req.body.hairlength,
+      hairdensity: req.body.density,
+      hairporosity: req.body.hairporosity,  
       author: req.params.id
     }).then(stat => {
-      req.user.stats.push(stat);
+      req.user.hairstats.push(stat);
       console.log(stat)
       req.user.save(err => {
-        res.redirect(`/profile/${user._id}`);
+        res.redirect(`/profile/${stat._id}`);
       });
     });
   },
