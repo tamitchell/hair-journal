@@ -1,8 +1,8 @@
 <div class="container statsform-container">
 
-<section class="row col s6 createStats">
-
-  <div class="stat-card card">
+<section class="row col s6 container createStats">
+{{#if currentUser}}
+  <div class="stat-card card horizontal">
   <div class="card-image stat-card-img">
     <img src="/img/stats_green_img.jpeg" alt="Carefree black boy" class="hoverZoomLink">
   </div>
@@ -10,7 +10,6 @@
         <h4 class="card-title">Hi {{currentUser.local.username}}, what's your Stats?</h4>
     <div class="stat-card card-content">
       <form action="/profile/" method="POST" class="auth-form">
-
         <label for="hairtypes">Hair Types</label>
   <select class="browser-default" id="hairtypes">
     <option value="" disabled selected>Choose your option</option>
@@ -39,22 +38,66 @@
     
   </select>
 
-    <p class="input-field">
-      <label for="hairlength">Hair length</label>
-      <br>
-      <input type="text" name="hairlength" placeholder="Hair Length">
-    </p>
+        <label for="hairlength">Hair Length</label>
+  <select class="browser-default" id="hairlength">
+    <optgroup for="Short Length">
+      <option value="short">TWA - Tweeny Weeny Afro </option>
+      <option value="short">Ear Length</option>
+      <option value="short">Neck Length</option>
+    </optgroup>
 
-    <p class="input-field">
-      <label for="hairdensity">Hair Density</label>
-      <br>
-      <input type="text" name="density" id="hairdensity" placeholder="Hair Density">
-    </p>
-    <p class="input-field">
-    <label for="hairporosity">Hair Porosity</label>
-    <br>
-      <input type="text" name="hairporosity" id="hairporosity" placeholder="Hair Porosity">
-    </p>
+    <optgroup label="Average Length">
+      <option value="average">Shoulder Length</option>
+      <option value="average">Armpit Length</option>
+      <option value="average">Bra-Strap Length</option>
+    </optgroup>
+
+    <optgroup label="Long Length">
+        <option value="long">Mid-Back Length</option>
+        <option value="long">Waist Length</option>
+        <option value="long">Hip Length</option>
+        <option value="long">Tailbone Length</option>
+        <option value="long">Classic Length</option>
+    </optgroup>
+
+<optgroup label="Extremely Long Length">
+        <option value="long">Mid-Thigh Length</option>
+        <option value="long">Knee Length</option>
+        <option value="long">Calf Length</option>
+        <option value="long">Ankle Length</option>
+        <option value="long">Floor Length</option>
+    </optgroup>
+    
+  </select>
+
+  <fieldset>
+  <legend>Select Hair Density (Amount of Hair on Head)</legend>
+  <div>
+    <input type="checkbox" id="lowdensity" value="thin" />
+      <label for="lowdensity">Low Density - Thin</label>
+  </div>
+  <div>
+   <input type="checkbox" id="meddensity" value="medium" />
+    <label for="meddensity">Medium Density - Not too thick, not really thin</label>
+  </div>
+
+    <div>
+   <input type="checkbox" id="highdensity" value="thick" />
+      <label for="highdensity">High Density - Thick Hair</label>
+  </div>
+</fieldset>
+
+   <fieldset> 
+<legend>Hair Porosity</legend> 
+<select class="browser-default">
+      <option value="" disabled selected>Choose your option</option>
+      <option value="lowporosity">Low Porosity</option>
+      <option value="medporosity">Medium Porosity</option>
+      <option value="highporosity">High Porosity</option>
+      
+
+</select>
+</fieldset> 
     <p class="input-field">
       <input type="submit" value="Submit" class="btn waves-effect waves-light">
     </p>
@@ -62,31 +105,15 @@
     </div>
   </div>
 </div>
+{{else}}
+<div class="card-panel responsive-img teal stats-not-logged">
 
-  {{!-- <h4>Hi {{user.local.username}}, what's your Stats?</h4>
-
-  <form action="/profile/" method="POST" class="auth-form">
-    <p class="input-field">
-      <input type="text" name="hairtype" placeholder="Hair type">
-    </p>
-    <p class="input-field">
-      <input type="text" name="hairlength" placeholder="Hair Length">
-    </p>
-    <p class="input-field">
-      <input type="text" name="density" placeholder="Hair Density">
-    </p>
-    <p class="input-field">
-      <input type="text" name="hairporosity" placeholder="Hair Porosity">
-    </p>
-    <p class="input-field">
-      <input type="submit" value="Submit" class="btn waves-effect waves-light">
-    </p>
-  </form>
-
-    {{#if message}}
-    <p class="alert">{{message}}</p>
-  {{/if}} --}}
-  
+    <span class="white-text flow-text not-logged-text">
+          <p>You need to be logged in to build a stat</p>
+    </span>
+   
+</div>
+{{/if}}
 </section>
 
 </div>
