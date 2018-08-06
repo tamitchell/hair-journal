@@ -43,7 +43,7 @@ const passport = require("passport");
           console.log(regimenInstance)
         user.regimens.push(regimenInstance);
         user.save(err => {
-          res.redirect(`/profile/${user._id}/${regimens.regimenInstance._id}`);
+          res.redirect(`/profile/${regimens.regimenInstance._id}`);
         });
       });
     });
@@ -78,26 +78,26 @@ const passport = require("passport");
     HairStats.create({
       hairtype: req.body.hairtype,
       hairlength: req.body.hairlength,
-      hairdensity: req.body.density,
+      hairdensity: req.body.hairdensity,
       hairporosity: req.body.hairporosity,  
       author: req.params.id
     }).then(stat => {
       req.user.hairstats.push(stat);
       console.log(stat)
       req.user.save(err => {
-        res.redirect(`/profile/${User._id}`);
+        res.render('profile/show', {stat} );
       });
     });
   },
   updateStat: (req, res) => {
     let { content } = req.body;
-    Stats.findOne({ _id: req.params.id }).then(stats => {
+    Stats.findOne({ _id: req.params.id }).then(stat => {
       stat.push({
         content,
         author: req.user._id
       });
       regimen.save(err => {
-        res.redirect(`/user/${user._id}`);
+        res.redirect(`/profile/${user._id}`);
       });
     });
   },

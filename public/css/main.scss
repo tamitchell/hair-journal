@@ -171,6 +171,7 @@ header{
 .statsform-container{
   @include flex();
   .createStats{
+    @include flex();
     width: 90%;
     margin-top: 4em;
     h4{
@@ -225,11 +226,4 @@ header{
     100%{transform: translatey(0px);}
   }
 
-  @media #{max-width=768px} {
-    // styles for small screens and down
-
-    .site-logo{
-      width:35%;
-    }
-  }
   
