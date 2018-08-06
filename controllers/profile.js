@@ -85,7 +85,7 @@ const passport = require("passport");
       req.user.hairstats.push(stat);
       console.log(stat)
       req.user.save(err => {
-        res.redirect(`/profile/${stat._id}`);
+        res.redirect(`/profile/${User._id}`);
       });
     });
   },
