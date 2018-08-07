@@ -39,8 +39,9 @@ const passport = require("passport");
       purpose: req.body.regimen.purpose,
       author: req.params.id
     }).then(regimenInstance => {
+      console.log(regimenInstance)
       User.findOne({ _id: req.params.id }).then(user => {
-          console.log(regimenInstance)
+        console.log(user)
         user.regimens.push(regimenInstance);
         user.save(err => {
           res.redirect(`/profile/${regimens.regimenInstance._id}`);
@@ -53,7 +54,7 @@ const passport = require("passport");
     Regimen.findByIdAndUpdate({ _id: req.params.id }).then(regimen => {
       regimen.push({
         content,
-        author: req.user._id
+        author: req.body.author
       });
       regimen.save(err => {
         res.redirect(`/regimen/${regimen._id}`);
@@ -80,13 +81,17 @@ const passport = require("passport");
       hairlength: req.body.hairlength,
       hairdensity: req.body.hairdensity,
       hairporosity: req.body.hairporosity,  
-      author: req.params.id
+      author: req.body.author
     }).then(stat => {
-      req.user.hairstats.push(stat);
       console.log(stat)
-      req.user.save(err => {
-        res.render('profile/show', {stat} );
-      });
+      User.findOne({ _id: req.body.author }).then(user => {
+        console.log(user)
+        user.hairstats.push(stat);
+        console.log(user)
+        user.save(err => {
+          res.render('profile/show', {stat} );
+        });
+      })
     });
   },
   updateStat: (req, res) => {
@@ -96,7 +101,7 @@ const passport = require("passport");
         content,
         author: req.user._id
       });
-      regimen.save(err => {
+      user.save(err => {
         res.redirect(`/profile/${user._id}`);
       });
     });

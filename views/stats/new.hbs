@@ -98,6 +98,15 @@
 
 </select>
 </fieldset> 
+
+   <fieldset> 
+<legend>User Verification</legend> 
+  <div>
+    <input type="checkbox" name="author" id="author" value="{{currentUser._id}}" />
+      <label for="author">I verify that I am {{currentUser.local.username}}</label>
+  </div>
+</fieldset> 
+
     <p class="input-field">
       <input type="submit" value="Submit" class="btn waves-effect waves-light">
     </p>
