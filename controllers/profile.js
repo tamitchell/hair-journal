@@ -63,13 +63,11 @@ const passport = require("passport");
   },
    //STATS Controller
    showStats: (req, res) => {
-    Stats.findOne({ _id: req.params.id })
-    .populate({
-        path: "stats/show",
-        options: { limit: 1, sort: { createdAt: -1 } }
-              })
-      .then(user => {
-        res.render("stats/show", { user });
+    User.findOne({ _id: req.params.id  })
+    .populate( "hairstats")
+      .then(stat => {
+        console.log(stat)
+        res.render("profile/show", { stat } );
       });
   },
   newStat: (req, res) => {

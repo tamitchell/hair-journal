@@ -1,8 +1,19 @@
 
+<div class="card">
+  <div class="card-content">
+    <a class="card-title" href="/stat/{{id}}">
+      <p>{{stat}}</p>
       <p>{{ stat.hairtype }}</p>
       <p>{{ stat.hairlength }}</p>
       <p>{{ stat.hairdensity }}</p>
       <p>{{ stat.hairporosity }}</p>
-      <p>{{ stat._id }}</p>
       <p>Blah....</p>
-
+    </a>
+  </div>
+  <div class="card-action">
+    
+    <form class="" action="/stat/{{id}}?_method=UPDATE" method="GET">
+      <button type="submit" name="button">Update</button>
+    </form>
+  </div>
+</div>
