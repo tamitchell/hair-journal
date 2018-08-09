@@ -62,13 +62,20 @@ const passport = require("passport");
     });
   },
    //STATS Controller
+   //TODO: determine where the User.findOne Query is actually getting the right user
+   //TODO: understand how populate works, why isn't hairstats populating
+   //TODO: determine whether or not .exec is necessary, or if I can just render what has been populated
+   //TODO: Why isn't console.log working
    showStats: (req, res) => {
-    User.findOne({ _id: req.params.id  })
-    .populate( "hairstats")
-      .then(stat => {
-        console.log(stat)
-        res.render("profile/show", { stat } );
-      });
+    User
+    .findOne({ _id: '5b6b9a8c44f60212b51eea19' })
+    .populate('hairstats')
+    .exec(function (err, stat) {
+      err
+      console.log(stat);
+      res.render("profile/show", stat);
+      console.log(stat)    
+    })
   },
   newStat: (req, res) => {
     res.render("stats/new");
@@ -81,13 +88,11 @@ const passport = require("passport");
       hairporosity: req.body.hairporosity,  
       author: req.body.author
     }).then(stat => {
-      console.log(stat)
       User.findOne({ _id: req.body.author }).then(user => {
-        console.log(user)
         user.hairstats.push(stat);
-        console.log(user)
         user.save(err => {
           res.render('profile/show', {stat} );
+          console.log({stat})
         });
       })
     });
