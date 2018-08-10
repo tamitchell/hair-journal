@@ -9,8 +9,8 @@ router.get("/:id/regimen/new", profileController.requireAuth, profileController.
 router.get("/:id", profileController.showRegimen);
 router.put("/:id", profileController.requireAuth, profileController.updateRegimen);
 
-router.post("/", profileController.createStat);
-router.get("/:id/stats/new", profileController.newStat);
+// router.post("/", profileController.createStat);
+// router.get("/:id/stats/new", profileController.newStat);
 router.get("/:id", profileController.showStats);
 router.get("/:id/stats/edit", profileController.editStat)
 router.put("/:id/stats/update", profileController.updateStat);
