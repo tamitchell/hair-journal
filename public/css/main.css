@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat|Pacifico");
+@import url("https://fonts.googleapis.com/css?family=Signika:400,600");
 body {
   background-color: #FCD337;
 }
@@ -148,9 +149,63 @@ ul li a {
 }
 
 .row .profile-container .profile {
-  padding: 2em;
-  width: 50%;
-  background-color: white;
+  width: 60%;
+  color: white;
+}
+
+.row .profile-container .profile .stats {
+  display: -webkit-box;
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -ms-flex-flow: row wrap;
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  width: 100%;
+}
+
+.row .profile-container .profile .stats .statbox {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 0.5em;
+  height: 9em;
+  width: 9em;
+  vertical-align: middle;
+  line-height: 9em;
+  font-family: "Signika", sans-serif;
+  letter-spacing: 1px;
+}
+
+.row .profile-container .profile .stats .hairtype {
+  background-color: #FFFFFF;
+  color: black;
+}
+
+.row .profile-container .profile .stats .hairlength {
+  background-color: #388F53;
+  text-transform: uppercase;
+  color: white;
+}
+
+.row .profile-container .profile .stats .hairdensity {
+  background-color: #C04B23;
+  color: white;
+}
+
+.row .profile-container .profile .stats .hairporosity {
+  color: white;
+  background-color: #BF792F;
 }
 
 .row .regimen-container {
