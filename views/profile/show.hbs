@@ -18,7 +18,6 @@
     <div class="container stats">
       {{#each user.hairstats}}      
      
-
     <div class="row">
          <div class="col card-panel statbox hairtype">
           {{> stat this.hairtype}}
@@ -37,6 +36,9 @@
     </div>
 
       {{/each}}
+    
+      <button type="button" class="btn" name="button"><a href="/profile/{{currentUser.id}}/stats/update">Update</a></button>
+
     </div>
      {{else}}
     <p>{{user.local.username}} hasn't set their stats yet</p>

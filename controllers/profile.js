@@ -68,8 +68,12 @@ const passport = require("passport");
    //TODO: Why isn't console.log working
    showStats: (req, res) => {
     User
-    .findOne({ _id: '5b6b9a8c44f60212b51eea19' })
-    .populate('hairstats')
+    .findOne({ _id: req.params.id })
+    .populate({
+      path: 'hairstats',
+    options: {
+      limit: 1
+    }})
     .exec(function (err, stat) {
       err
       console.log(stat);
@@ -90,24 +94,32 @@ const passport = require("passport");
     }).then(stat => {
       User.findOne({ _id: req.body.author }).then(user => {
         user.hairstats.push(stat);
-        user.save(err => {
-          res.render('profile/show', {stat} );
+        user.save(res => {
+          res.redirect(`/profile/${user._id}`)
           console.log({stat})
         });
       })
     });
   },
+  editStat: (req,res) => {
+    User.findOne({_id: req.params.id}).then(user => {
+      res.render("stats/edit")
+    })
+
+  },
   updateStat: (req, res) => {
-    let { content } = req.body;
-    Stats.findOne({ _id: req.params.id }).then(stat => {
-      stat.push({
-        content,
-        author: req.user._id
-      });
-      user.save(err => {
-        res.redirect(`/profile/${user._id}`);
-      });
-    });
+    // .then(user =>{
+    //   user.hairstats.findOneAndUpdate({_id: req.body.statid})
+    // })
+    // HairStats.findOneAndUpdate({ _id: req.params.id }).then(stat => {
+    //   stat.push({
+    //     content,
+    //     author: req.user._id
+    //   });
+    //   user.save(err => {
+    //     res.redirect(`/profile/${user._id}`);
+    //   });
+    // });
   },
    requireAuth: function(req, res, next) {
     if (req.isAuthenticated()) {
