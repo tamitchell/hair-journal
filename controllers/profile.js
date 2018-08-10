@@ -7,7 +7,7 @@ const passport = require("passport");
   showProfile: (req, res) => {
     User.findOne({ _id: req.params.id })
       .populate({
-        path: "regimen",
+        path: "hairstats",
         options: { limit: 5, sort: { createdAt: -1 } }
       })
       .then(user => {
