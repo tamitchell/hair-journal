@@ -35,8 +35,8 @@ const passport = require("passport");
   },
   createRegimen: (req, res) => {
     Regimen.create({
-      regimentitle: req.body.regimen.regimentitle,
-      purpose: req.body.regimen.purpose,
+      regimentitle: req.body.regimentitle,
+      purpose: req.body.purpose,
       author: req.params.id
     }).then(regimenInstance => {
       console.log(regimenInstance)
@@ -44,7 +44,7 @@ const passport = require("passport");
         console.log(user)
         user.regimens.push(regimenInstance);
         user.save(err => {
-          res.redirect(`/profile/${regimens.regimenInstance._id}`);
+          res.redirect(`/profile/${user._id}`);
         });
       });
     });

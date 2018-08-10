@@ -10,11 +10,11 @@ router.get('/sign-up', userController.signUp);
 router.post('/sign-up', userController.createSignUp);
 router.get('/logout', userController.logout);
 
-router.post("/", profileController.createStat);
+router.post("/:id", profileController.createStat);
 router.get("/stats/new", profileController.newStat);
 router.get("/:id", profileController.showStats);
-router.get("/:id/stats/edit", profileController.editStat)
-router.put("/:id/stats/update", profileController.updateStat);
+// router.get("/:id/stats/edit", profileController.editStat)
+// router.put("/:id/stats/update", profileController.updateStat);
 
 
 module.exports = router;
