@@ -1,31 +1,9 @@
 const mongoose = require("../db/connection");
 const Schema = mongoose.Schema;
 
-// const Routine = new Schema({
-//   Name: String,
-//   author: {
-//     type: Schema.Types.ObjectId,
-//     ref: "User"
-//   },
-//   description: String,
-//   moisturizing: String,
-//   detangling: String,
-//   washing: String,
-//   styling: String,
-//   trimming: String,
-//   products: String,
-//   additionalNotes: String,
-
-//   modifiedAt: {
-//     type: Date,
-//     default: Date.now(),
-//   }
-// });
-
 const Regimen = new Schema({
   regimentitle: String,
   purpose: String,
-  description: String,
   moisturizing: String,
   detangling: String,
   washing: String,

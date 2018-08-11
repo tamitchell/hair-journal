@@ -1,175 +1,205 @@
-
 <div class="container create-regimen">
   {{#if currentUser}}
 
-    <section class="card regimen-card">
+  <section class="card regimen-card">
 
-        <div class="card-image regimen-card-img">
-    <img src="/img/build_a_regimen.jpg" alt="Building a regimen" class="hoverZoomLink">
-    <h4 class="card-title regimen-card-title flow-text">Building a Regimen</h4>
-  </div>
+    <div class="card-image regimen-card-img">
+      <img src="/img/build_a_regimen.jpg" alt="Building a regimen" class="hoverZoomLink">
+      <h4 class="card-title regimen-card-title flow-text">Building a Regimen</h4>
+    </div>
 
-  <div class="card-content">
+    <div class="card-content">
 
-       <form action="/profile/" method="POST" class="regimen-form">
-    <p class="input-field">
-        <p><label for="regimenname">Name</label></p>
-      <input type="text" name="regimenname" placeholder="Regimen Name" maxlength="30">
-    </p>
+      <form action="/profile/" method="POST" class="regimen-form">
 
-     <p class="input-field">
-     <p><label for="txtDesc">Description</label></p>
-<textarea name="txtDesc" cols="60" rows="10" placeholder="What is the purpose of this regimen? Length? Maintenence? Write a short description here."></textarea>
-    </p>
+        <p class="input-field">
+          <p>
+            <label for="regimenname">Name</label>
+          </p>
+          <input type="text" id="regimenname" name="regimenname" placeholder="Regimen Name" maxlength="30">
+        </p>
 
-    <p class="input-field">
-              <p><label for="moisturizing">Moisturizing</label></p>
-      <input type="text" name="moisturizing" placeholder="How do you keep your hair moisturized?" maxlength="30">
-    </p>
+        <p class="input-field">
+          <p>
+            <label for="purpose">Purpose</label>
+          </p>
+          <textarea name="purpose" id="purpose" cols="60" rows="20" placeholder="What is the purpose of this regimen? Length? Maintenence? Write a short description here."></textarea>
+        </p>
 
-     <fieldset>
-       <p class="input-field">
-       
-       <legend>Detangling Methods</legend>
-       
-       <div>
-    <input type="checkbox" id="comb" name="detangling" value="comb">
-    <label for="comb">Comb</label>
-  </div>
+        <p class="input-field">
+          <p>
+            <label for="moisturizing">Moisturizing - How do you keep your hair moisturized?</label>
+          </p>
+          <input type="text" name="moisturizing" id="moisturizing" placeholder="" maxlength="30">
+        </p>
 
-  <div>
-    <input type="checkbox" id="brush" name="detangling" value="brush">
-    <label for="brush">Brush</label>
-  </div> 
+        <fieldset>
+          <p class="input-field">
 
-    <div>
-    <input type="checkbox" id="fingers" name="detangling" value="brush">
-    <label for="fingers">Finger Detangling</label>
-  </div>    
+            <legend>Detangling Methods</legend>
 
-  </p>
-     </fieldset>
+            <div>
+              <input type="checkbox" id="comb" name="detangling" value="comb">
+              <label for="comb">Comb</label>
+            </div>
 
-     <fieldset>
-       <p class="input-field">
-                <legend>Washing Frequency</legend>
+            <div>
+              <input type="checkbox" id="brush" name="detangling" value="brush">
+              <label for="brush">Brush</label>
+            </div>
 
+            <div>
+              <input type="checkbox" id="fingers" name="detangling" value="brush">
+              <label for="fingers">Finger Detangling</label>
+            </div>
+
+          </p>
+        </fieldset>
+
+        <fieldset>
+          <p class="input-field">
+            <legend>Washing Frequency</legend>
+
+            <div>
+              <input type="checkbox" id="day" name="washing" value="day">
+              <label for="day">Daily</label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="week" name="washing" value="week">
+              <label for="week">Weekly</label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="month" name="washing" value="month">
+              <label for="month">Monthly</label>
+            </div>
+
+            <div>
+              <input type="checkbox" id="nosched" name="washing" value="nosched">
+              <label for="nosched">I wash whenever!</label>
+            </div>
+
+
+          </p>
+        </fieldset>
+
+        <p class="input-field">
+          <p>
+            <label for="styling">Styling Notes</label>
+          </p>
+          <textarea name="styling" id="styling" cols="60" rows="20" maxlength="500" placeholder="Any particular style favorites? Write them here."></textarea>
+        </p>
+
+        <p class="input-field">
+          <p>
+            <label for="trimming">Trimming</label>
+          </p>
+
+          <input type="text" name="trimming" placeholder="How often do you trim?" maxlength="100">
+        </p>
+
+        <p class="input-field">
+          <p>
+            <label for="products">Products</label>
+          </p>
+          <textarea name="products" id="products" cols="60" rows="20" maxlength="500" placeholder="Any particular style favorites? Write them here."></textarea>
+        </p>
+
+        <p class="input-field">
+          <p>
+            <label for="addNotes">Additional Notes</label>
+          </p>
+
+          <textarea name="addNotes" id="addNotes" cols="60" rows="10" placeholder="Add whatever else you can think of here."></textarea>
+        </p>
+
+        <fieldset>
+          <legend>User Verification</legend>
           <div>
-            <input type="checkbox" id="day" name="washing" value="day">
-            <label for="day">Daily</label>
-          </div> 
-
-          <div>
-            <input type="checkbox" id="week" name="washing" value="week">
-            <label for="week">Weekly</label>
-          </div>   
-
-          <div>
-            <input type="checkbox" id="month" name="washing" value="month">
-            <label for="month">Monthly</label>
+            <input type="checkbox" name="author" id="author" value="{{currentUser._id}}" />
+            <label for="author">I verify that I am {{currentUser.local.username}}</label>
           </div>
-
-          <div>
-            <input type="checkbox" id="nosched" name="washing" value="nosched">
-            <label for="nosched">I wash whenever!</label>
-          </div>
+        </fieldset>
 
 
-      </p>
-     </fieldset>
+        <p class="input-field">
+          <input type="submit" value="Submit" class="btn waves-effect waves-light">
+        </p>
+      </form>
+    </div>
 
-      <p class="input-field">
-                      <p><label for="trimming">Trimming</label></p>
 
-      <input type="text" name="trimming" placeholder="How often do you trim?" maxlength="100">
-    </p>
+  </section>
 
-     <p class="input-field">
-                     <p><label for="addNotes">Additional Notes</label></p>
-
-<textarea name="addNotes" cols="60" rows="10" placeholder="Add whatever else you can think of here."></textarea>
-    </p>
-
-       <fieldset> 
-<legend>User Verification</legend> 
-  <div>
-    <input type="checkbox" name="author" id="author" value="{{currentUser._id}}" />
-      <label for="author">I verify that I am {{currentUser.local.username}}</label>
-  </div>
-</fieldset> 
-
-   
-    <p class="input-field">
-      <input type="submit" value="Submit" class="btn waves-effect waves-light">
-    </p>
-  </form>
-  </div>
-
-  
-</section>
-  
   {{/if}}
 
 </div>
 
 
-{{!-- 
+{{!--
 <div class="container create-regimen">
-<section class="form-container">
-  <form action="/profile/" method="POST" class="form regimen-form">
+  <section class="form-container">
+    <form action="/profile/" method="POST" class="form regimen-form">
       <h4>Building a Regimen</h4>
 
-    <p class="input-field">
-        <p><label for="regimenname">Name</label></p>
-      <input type="text" name="regimenname" placeholder="Regimen Name" maxlength="30">
-    </p>
+      <p class="input-field">
+        <p>
+          <label for="regimenname">Name</label>
+        </p>
+        <input type="text" name="regimenname" placeholder="Regimen Name" maxlength="30">
+      </p>
 
-     <p class="input-field">
-     <p><label for="txtDesc">Description</label></p>
-<textarea name="txtDesc" cols="60" rows="10" placeholder="What is the purpose of this regimen? Length? Maintenence? Write a short description here."></textarea>
-    </p>
+      <p class="input-field">
+        <p>
+          <label for="txtDesc">Description</label>
+        </p>
+        <textarea name="txtDesc" cols="60" rows="10" placeholder="What is the purpose of this regimen? Length? Maintenence? Write a short description here."></textarea>
+      </p>
 
-    <p class="input-field">
-              <p><label for="moisturizing">Moisturizing</label></p>
-      <input type="text" name="moisturizing" placeholder="How do you keep your hair moisturized?" maxlength="30">
-    </p>
+      <p class="input-field">
+        <p>
+          <label for="moisturizing">Moisturizing</label>
+        </p>
+        <input type="text" name="moisturizing" placeholder="How do you keep your hair moisturized?" maxlength="30">
+      </p>
 
-     <fieldset>
-       <p class="input-field">
-       
-       <legend>Detangling Methods</legend>
-       
-       <div>
-    <input type="checkbox" id="comb" name="detangling" value="comb">
-    <label for="comb">Comb</label>
-  </div>
+      <fieldset>
+        <p class="input-field">
 
-  <div>
-    <input type="checkbox" id="brush" name="detangling" value="brush">
-    <label for="brush">Brush</label>
-  </div> 
+          <legend>Detangling Methods</legend>
 
-    <div>
-    <input type="checkbox" id="fingers" name="detangling" value="brush">
-    <label for="fingers">Finger Detangling</label>
-  </div>    
+          <div>
+            <input type="checkbox" id="comb" name="detangling" value="comb">
+            <label for="comb">Comb</label>
+          </div>
 
-  </p>
-     </fieldset>
+          <div>
+            <input type="checkbox" id="brush" name="detangling" value="brush">
+            <label for="brush">Brush</label>
+          </div>
 
-     <fieldset>
-       <p class="input-field">
-                <legend>Washing Frequency</legend>
+          <div>
+            <input type="checkbox" id="fingers" name="detangling" value="brush">
+            <label for="fingers">Finger Detangling</label>
+          </div>
+
+        </p>
+      </fieldset>
+
+      <fieldset>
+        <p class="input-field">
+          <legend>Washing Frequency</legend>
 
           <div>
             <input type="checkbox" id="day" name="washing" value="day">
             <label for="day">Daily</label>
-          </div> 
+          </div>
 
           <div>
             <input type="checkbox" id="week" name="washing" value="week">
             <label for="week">Weekly</label>
-          </div>   
+          </div>
 
           <div>
             <input type="checkbox" id="month" name="washing" value="month">
@@ -182,25 +212,29 @@
           </div>
 
 
-      </p>
-     </fieldset>
+        </p>
+      </fieldset>
 
       <p class="input-field">
-                      <p><label for="trimming">Trimming</label></p>
+        <p>
+          <label for="trimming">Trimming</label>
+        </p>
 
-      <input type="text" name="trimming" placeholder="How often do you trim?" maxlength="100">
-    </p>
+        <input type="text" name="trimming" placeholder="How often do you trim?" maxlength="100">
+      </p>
 
-     <p class="input-field">
-                     <p><label for="addNotes">Additional Notes</label></p>
+      <p class="input-field">
+        <p>
+          <label for="addNotes">Additional Notes</label>
+        </p>
 
-<textarea name="addNotes" cols="60" rows="10" placeholder="Add whatever else you can think of here."></textarea>
-    </p>
+        <textarea name="addNotes" cols="60" rows="10" placeholder="Add whatever else you can think of here."></textarea>
+      </p>
 
-   
-    <p class="input-field">
-      <input type="submit" value="Submit" class="btn waves-effect waves-light">
-    </p>
-  </form>
-</section>
+
+      <p class="input-field">
+        <input type="submit" value="Submit" class="btn waves-effect waves-light">
+      </p>
+    </form>
+  </section>
 </div> --}}

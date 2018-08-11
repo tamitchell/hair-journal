@@ -17,17 +17,26 @@ const passport = require("passport");
  
   //REGIMEN CONTROLLER
   showRegimen: (req, res) => {
-    Regimen.findOne({ _id: req.params.id })
-      .populate("author")
-      .exec(function(err, regimen) {
-        Regimen.populate(regimen, { path: "author" }, function(
-          err,
-          regimen
-        ) {
-          console.log(regimen);
-          res.render("regimen/show", regimen);
-        });
-      });
+    User
+    .findOne({ _id: req.params.id })
+    .populate('regimens')
+    .exec(function (err, regimen) {
+      err
+      console.log(regimen);
+      res.render("profile/show", regimen);
+      console.log(regimen)    
+    })
+    // Regimen.findOne({ _id: req.params.id })
+    //   .populate("regimen")
+    //   .exec(function(err, regimen) {
+    //     Regimen.populate(regimen, { path: "author" }, function(
+    //       err,
+    //       regimen
+    //     ) {
+    //       console.log(regimen);
+    //       res.render("regimen/show", regimen);
+    //     });
+    //   });
   },
   newRegimen: (req, res) => {
     res.render("regimen/new");
@@ -35,12 +44,19 @@ const passport = require("passport");
   },
   createRegimen: (req, res) => {
     Regimen.create({
-      regimentitle: req.body.regimen.regimentitle,
-      purpose: req.body.regimen.purpose,
-      author: req.params.id
+      regimentitle: req.body.regimentitle,
+      purpose: req.body.purpose,
+      moisturizing: req.body.moisturizing,
+      detangling: req.body.detangling,
+      washing: req.body.washing,
+      styling: req.body.styling,
+      trimming: req.body.trimming,
+      products: req.body.products,
+      additionalNotes: req.body.addNotes,
+      author: req.body.author
     }).then(regimenInstance => {
       console.log(regimenInstance)
-      User.findOne({ _id: req.params.id }).then(user => {
+      User.findOne({ _id: req.body.author }).then(user => {
         console.log(user)
         user.regimens.push(regimenInstance);
         user.save(err => {

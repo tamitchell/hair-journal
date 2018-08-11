@@ -75,10 +75,10 @@
 
       <div class="col s12 m12 l12 regimen-container">
         <!-- Regimens collection goes here  -->
-  {{#if user.regimen}}
+  {{#if user.regimens}}
     <div class="regimen">
-      {{#each user.regimen}}
-         {{> 'regimen'}}
+      {{#each user.regimens}}
+         {{> regimen this}}
       {{/each}}
     </div>
   {{else}}
