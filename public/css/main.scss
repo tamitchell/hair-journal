@@ -239,14 +239,16 @@ header{
  
  .create-regimen{
    padding: 2em;
-   width: 50%;
+   width: 80%;
    h4{
      color: $form-color;
+   }
+  .regimen-card-img{
+     height: 30%;
    }
    .regimen-form{
      padding: 2em 6em;
      background-color: $regimen-form;
-     box-shadow: $card-shadow;
      color: $form-color;
      textarea{
        border: none;

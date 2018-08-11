@@ -1,0 +1,25 @@
+
+Todo
+
+  Add photo to regimen form card
+    Make sure photo shrinks on scroll to only take up maybe 20% height 
+    of total card space when card is small and perhaps around 30% height when screen is full size
+
+  Figure out how to implement/initialize materialize with javascript
+    Right now I am only using about 30% of materialize full functionality
+    I need to figure how download and use materialize css/js file without breaking the style of site
+    Currently when I download the css/js files and create a custom js file to init[https://materializecss.com/auto-init.html] nothing works
+
+Format Regimen 
+    Due to time constraints the details of the regimen model and routine model should be confined and merge together
+        'Building a regimen' should have all of the original form information that is commented out on the view/regimen/new
+        I can edit how that information is displayed in views:
+            Regimen title and purpose should be displayed as an accordion functionality
+                Accordion should also have two additionl links for editing and deleting
+                When the button/ is clicked accordion should open up to reveal other details
+                
+                refer to the planning/wireframe link for details, that should link to an adobe page with the desired mockup
+
+Implement Create feature for [+regimen] button on profile page
+    Right now the [+regimen] button leads to a form view, but when submitted does nothing (that I know of)
+    It should save the data and redirect back to the profile page
