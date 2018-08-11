@@ -12,6 +12,7 @@ router.put("/:id", profileController.requireAuth, profileController.updateRegime
 router.post("/", profileController.createStat);
 router.get("/:id/stats/new", profileController.newStat);
 router.get("/:id", profileController.showStats);
+router.get("/:id/stats/edit", profileController.editStat)
 router.put("/:id", profileController.updateStat);
 
  module.exports = router; 

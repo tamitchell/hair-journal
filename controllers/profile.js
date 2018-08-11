@@ -97,17 +97,28 @@ const passport = require("passport");
       })
     });
   },
+  editStat: (req,res) => {
+    User.findOne({_id: req.params.id}).then(user => {
+      res.render("stats/edit")
+    })
+   },
   updateStat: (req, res) => {
-    let { content } = req.body;
-    Stats.findOne({ _id: req.params.id }).then(stat => {
-      stat.push({
-        content,
-        author: req.user._id
-      });
-      user.save(err => {
-        res.redirect(`/profile/${user._id}`);
-      });
-    });
+    User.findOne({id: req.params.id}).then(user => {
+      HairStats.findOneAndUpdate({author: req.body.author}, {$set : {
+        hairtype: req.body.hairtype,
+        hairlength: req.body.hairlength,
+        hairdensity: req.body.hairdensity,
+        hairporosity: req.body.hairporosity}}, {new:true}).then((stat) => {
+        console.log("Here's the updated stat" + stat)
+        user.save((res, err) => {
+          if(res){
+            res.redirect(`/profile/${user._id}`);
+          } else if (err) {
+            res.render("error/err")
+          }
+        });
+      })
+    })
   },
    requireAuth: function(req, res, next) {
     if (req.isAuthenticated()) {
