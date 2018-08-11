@@ -240,22 +240,42 @@ header{
  .create-regimen{
    padding: 2em;
    width: 80%;
-   h4{
-     color: $form-color;
-   }
-  .regimen-card-img{
-     height: 30%;
-   }
-   .regimen-form{
-     padding: 2em 6em;
-     background-color: $regimen-form;
-     color: $form-color;
-     textarea{
-       border: none;
-      //  &:hover{
+   .regimen-card{
 
-      //  }
-     }
+    .regimen-card-img{
+      height: 20em;
+      overflow: hidden;
+      .regimen-card-title{
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        line-height: 10em;
+        font-family: $titular-font;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        text-align: center;
+        color: white;
+
+      }
+    }
+    .regimen-form{
+      padding: 2em 3em;
+      background-color: $regimen-form;
+      color: $form-color;
+      fieldset{
+        border:none;
+        padding: 0.8em 0 0.8em 0;
+        legend{
+          font-size: 16px;
+        }
+      }
+      label {
+        font-size: 16px;
+      }
+      textarea{
+        border: none;
+      }
+   }
    }
  }
   
