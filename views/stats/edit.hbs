@@ -9,7 +9,7 @@
   <div class="right-content">
         <h4 class="card-title">Hi {{currentUser.local.username}}, what's your Stats?</h4>
     <div class="stat-card card-content">
-      <form action="/profile/{{currentUser.id}}" method="PUT" class="auth-form">
+      <form action="/profile/{{currentUser.id}}?_method=put" method="POST" class="auth-form">
         <label for="hairtype">Hair Types</label>
   <select class="browser-default" id="hairtype" name="hairtype">
     <option value="" disabled selected>Choose your option</option>
@@ -102,7 +102,7 @@
    <fieldset> 
 <legend>User Verification</legend> 
   <div>
-    <input type="checkbox" name="author" id="author" value="{{currentUser._id}}" />
+    <input type="checkbox" name="author" id="author" value="{{currentUser.id}}" />
       <label for="author">I verify that I am {{currentUser.local.username}}</label>
   </div>
 </fieldset> 
