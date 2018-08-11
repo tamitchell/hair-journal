@@ -1,7 +1,16 @@
 
 <div class="container create-regimen">
-<section class="form-container">
-  <form action="/profile/" method="POST" class="form regimen-form">
+  {{#if currentUser}}
+
+    <section class="card regimen-card">
+
+        <div class="card-image stat-card-img hide-on-med-and-down">
+    <img src="/img/stats_green_img.jpeg" alt="Carefree black boy" class="hoverZoomLink">
+  </div>
+
+  <div class="stat-card card-content">
+
+      <form action="/profile/" method="POST" class="auth-form">
       
       <h4>Building a Regimen</h4>
       
@@ -21,7 +30,14 @@
     </p>
     {{!-- <h6>created by {{currentUser.username}}</h6> --}}
   </form>
+
+  </div>
+
+  
 </section>
+  
+  {{/if}}
+
 </div>
 
 
