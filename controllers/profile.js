@@ -44,7 +44,7 @@ const passport = require("passport");
         console.log(user)
         user.regimens.push(regimenInstance);
         user.save(err => {
-          res.redirect(`/profile/${regimens.regimenInstance._id}`);
+          res.redirect(`/profile/${user._id}`);
         });
       });
     });
@@ -57,7 +57,7 @@ const passport = require("passport");
         author: req.body.author
       });
       regimen.save(err => {
-        res.redirect(`/regimen/${regimen._id}`);
+        res.redirect(`/profile/${user._id}`);
       });
     });
   },
@@ -91,7 +91,7 @@ const passport = require("passport");
       User.findOne({ _id: req.body.author }).then(user => {
         user.hairstats.push(stat);
         user.save(err => {
-          res.render('profile/show', {stat} );
+          res.redirect(`/profile/${user._id}`);
           console.log({stat})
         });
       })
