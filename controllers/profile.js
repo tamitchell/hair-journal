@@ -50,16 +50,17 @@ const passport = require("passport");
     });
   },
   updateRegimen: (req, res) => {
-    let { content } = req.body;
-    Regimen.findByIdAndUpdate({ _id: req.params.id }).then(regimen => {
-      regimens.push({
-        content,
-        author: req.body.author
-      });
-      regimen.save(err => {
-        res.redirect(`/profile/${user._id}`);
-      });
-    });
+    HairStats.findOneAndUpdate({author: req.params.id}, {$set : {
+      hairtype: req.body.hairtype,
+      hairlength: req.body.hairlength,
+      hairdensity: req.body.hairdensity,
+      hairporosity: req.body.hairporosity}}, {new:true}).then(stat => {
+        User.findOne({_id: req.params.id}).then(user => {
+          console.log("Here's the updated stat" + stat)
+          console.log(user)
+          res.redirect(`/profile/${user._id}`)
+        })
+    })
   },
    //STATS Controller
    //TODO: determine where the User.findOne Query is actually getting the right user
@@ -68,7 +69,7 @@ const passport = require("passport");
    //TODO: Why isn't console.log working
    showStats: (req, res) => {
     User
-    .findOne({ _id: '5b6b9a8c44f60212b51eea19' })
+    .findOne({ _id: req.params.id })
     .populate('hairstats')
     .exec(function (err, stat) {
       err
@@ -104,30 +105,26 @@ const passport = require("passport");
     })
    },
   updateStat: (req, res) => {
-    // User.findOne({id: req.params.id}).then(user => {
-    //   HairStats.findOneAndUpdate({author: req.body.author}, {$set : {
-    //     hairtype: req.body.hairtype,
-    //     hairlength: req.body.hairlength,
-    //     hairdensity: req.body.hairdensity,
-    //     hairporosity: req.body.hairporosity}}, {new:true}).then((stat) => {
-    //     console.log("Here's the updated stat" + stat)
-    //     user.save((res, err) => {
-    //       if(res){
-    //         res.redirect(`/profile/${user._id}`);
-    //       } else if (err) {
-    //         res.render("error/err")
-    //       }
-    //     });
-    //   })
+      HairStats.findOneAndUpdate({author: req.params.id}, {$set : {
+        hairtype: req.body.hairtype,
+        hairlength: req.body.hairlength,
+        hairdensity: req.body.hairdensity,
+        hairporosity: req.body.hairporosity}}, {new:true}).then(stat => {
+          User.findOne({_id: req.params.id}).then(user => {
+            console.log("Here's the updated stat" + stat)
+            console.log(user)
+            res.redirect(`/profile/${user._id}`)
+          })
+      })
+
+    // HairStats.findOneAndUpdate({author: req.params.id}, {$set : {
+    //   hairtype: req.body.hairtype,
+    //   hairlength: req.body.hairlength,
+    //   hairdensity: req.body.hairdensity,
+    //   hairporosity: req.body.hairporosity}}, {new:true}).then(stat => {
+    //   console.log("Here's the updated stat" + stat)
+    //   res.redirect(`/profile/${user._id}`)
     // })
-    HairStats.findOneAndUpdate({author: req.body.author}, {$set : {
-      hairtype: req.body.hairtype,
-      hairlength: req.body.hairlength,
-      hairdensity: req.body.hairdensity,
-      hairporosity: req.body.hairporosity}}, {new:true}).then(stat => {
-      console.log("Here's the updated stat" + stat)
-      res.redirect(`/profile/${user._id}`)
-    })
   },
    requireAuth: function(req, res, next) {
     if (req.isAuthenticated()) {
