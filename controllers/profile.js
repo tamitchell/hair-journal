@@ -50,13 +50,11 @@ const passport = require("passport");
     });
   },
   updateRegimen: (req, res) => {
-    HairStats.findOneAndUpdate({author: req.params.id}, {$set : {
-      hairtype: req.body.hairtype,
-      hairlength: req.body.hairlength,
-      hairdensity: req.body.hairdensity,
-      hairporosity: req.body.hairporosity}}, {new:true}).then(stat => {
+    Regimen.findOneAndUpdate({author: req.params.id}, {$set : {
+      regimentitle: req.body.regimentitle,
+      purpose: req.body.purpose}}, {new:true}).then(regimenInstance => {
         User.findOne({_id: req.params.id}).then(user => {
-          console.log("Here's the updated stat" + stat)
+          console.log("Here's the updated regimen" + regimenInstance)
           console.log(user)
           res.redirect(`/profile/${user._id}`)
         })
