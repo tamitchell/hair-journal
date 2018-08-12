@@ -26,5 +26,4 @@ const Regimen = new Schema({
 
 module.exports = {
   Regimen: mongoose.model("Regimen", Regimen),
-  // Routine: mongoose.model("Routine", Routine)
 };

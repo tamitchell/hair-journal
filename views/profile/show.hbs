@@ -80,14 +80,13 @@
     <!-- Regimens collection goes here  -->
     {{#if user.regimens}} {{#each user.regimens}}
 
-    {{log user}}
-{{!-- 
       <p>
-                    {{> regimen this.regimentitle}}
+        {{> regimen this.regimentitle}}
 
       </p>
 
-      <p>{{log regimen}}</p> --}}
+      <p>{{log this}}</p>
+                <p>{{log this.regimentitle}}</p>
      
     {{/each}} {{else}}
     <p>{{user.local.username}} doesn't have any regimens yet...</p>

@@ -17,13 +17,12 @@ const passport = require("passport");
   //REGIMEN CONTROLLER
   showRegimen: (req, res) => {
     User
-    .findOne({ _id: req.params.id })
+    .findById(req.params.id )
     .populate('regimens')
     .exec(function (err, regimen) {
       err
-      // console.log(regimen);
+      console.log("Here's the regimen" + regimen);
       res.render("profile/show", regimen);
-      // console.log(regimen)    
     })
   },
   newRegimen: (req, res) => {

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const profileController = require('../controllers/profile.js');
 
-router.get('/:id', profileController.showProfile)
+router.get('/:id', profileController.showProfile,profileController.showStats, profileController.showRegimen)
 router.get("/:id/stats/new", profileController.newStat);
 router.get("/:id/regimen/new", profileController.requireAuth, profileController.newRegimen);
 router.get("/:id/stats/edit", profileController.editStat)
