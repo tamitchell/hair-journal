@@ -1,152 +1,104 @@
+<!-- Page Layout here -->
+<div class="row profile-row container-fluid">
+
+  <div class="col s12 m12 l12 profile-container">
+    <!-- Profile sidebar goes here -->
+
+    <section class="profile">
 
 
-
- <!-- Page Layout here -->
-    <div class="row profile-row container-fluid">
-
-      <div class="col s12 m12 l12 profile-container">
-        <!-- Profile sidebar goes here -->
-
-      <section class="profile">
-  
-  
-  <img src="/img/profile_pic.png" alt="Your profile picture" class="circle">
-   <h2>{{user.local.username}}</h2>
-  
-  
-     {{#if user.hairstats}}
-    <div class="container stats">
-      {{#each user.hairstats}}      
-     
-
-    <div class="row">
-         <div class="col card-panel statbox hairtype">
-          {{> stat this.hairtype}}
-      </div>
-      <div class="col card-panel statbox hairlength">
-        {{> stat this.hairlength}}
-      </div>
-    </div>
-    <div class="row">
-         <div class="col card-panel statbox hairdensity">
-        {{> stat this.hairdensity}}
-      </div>
-      <div class="col card-panel statbox hairporosity">
-      {{> stat this.hairporosity}}
-      </div>     
-    </div>
-
-      {{/each}}
-
-              <button type="button" class="btn" name="button"><a href="/profile/{{currentUser.id}}/stats/edit">Update</a></button>
+      <img src="/img/profile_pic.png" alt="Your profile picture" class="circle">
+      <h2>{{user.local.username}}</h2>
 
 
-    </div>
-     {{else}}
-    <p>{{user.local.username}} hasn't set their stats yet</p>
-     {{/if}}
-      </section>
+      {{#if user.hairstats}}
+      <div class="container stats">
+        {{#each user.hairstats}}
 
-      </div>
-      </div>
 
-      <div class="row navbar-row container-fluid">
-     <div class="col s12 m12 l12 navbar-container">
+        <div class="row">
+          <div class="col card-panel statbox hairtype">
+            {{> stat this.hairtype}}
+          </div>
+          <div class="col card-panel statbox hairlength">
+            {{> stat this.hairlength}}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col card-panel statbox hairdensity">
+            {{> stat this.hairdensity}}
+          </div>
+          <div class="col card-panel statbox hairporosity">
+            {{> stat this.hairporosity}}
+          </div>
+        </div>
 
-           <nav>
-      <div class="nav-wrapper">
-          <ul>
-          {{#if currentUser}}
-            <li><a href="/profile/{{currentUser.id}}/stats/new">adjust stats</a></li>
-            <li><a href="/profile/{{currentUser.id}}/regimen/new">+regimen</a></li>
-            {{else}}
-              <p>You must be logged in to make regimens and add stats</p>
-              {{/if}}
-              
-              </ul>
-              </div>
-    </nav>
+        {{/each}}
 
-     </div>   
-
-      </div>
-
-      <div class="row regimen-row container-fluid">
-
-      <div class="col s12 m12 l12 regimen-container">
-        <!-- Regimens collection goes here  -->
-  {{#if user.regimens}}
-    <div class="regimen">
-      {{#each user.regimens}}
-      <div class=""
-         {{> regimen this}}
-      {{/each}}
-    </div>
-  {{else}}
-    <p>{{user.local.username}} doesn't have any regimens yet...</p>
-    <p>Let's change that</p>
-  {{/if}}
-
+        <button type="button" class="btn" name="button">
+          <a href="/profile/{{currentUser.id}}/stats/edit">Update</a>
+        </button>
 
 
       </div>
+      {{else}}
+      <p>{{user.local.username}} hasn't set their stats yet</p>
+      {{/if}}
+    </section>
 
-    </div>
+  </div>
+</div>
 
-
-
-{{!-- 
-
-
- <!-- Page Layout here -->
-    <div class="row container-fluid">
-
-      <div class="col s3 m4 l3 s12 profile-container">
-        <!-- Profile sidebar goes here -->
-
-      <section class="profile">
-  <img src="../../public/img/profile_pic.png" alt="Your profile picture" class="circle">
-   <h2>{{user.local.username}}</h2>
-     {{#if user.stats}}
-    <div class="stats">
-      {{#each user.stats}}
-         {{> 'stat'}}
-      {{/each}}
-    </div>
-     {{else}}
-    <p>{{user.local.username}} hasn't set their stats yet</p>
-     {{/if}}
-      </section>
-
-      </div>
-
-      <div class="col s9 m8 l9 s12 regimen-container">
-        <!-- Regimens collection goes here  -->
-  {{#if user.regimen}}
-    <div class="regimen">
-      {{#each user.regimen}}
-         {{> 'regimen'}}
-      {{/each}}
-    </div>
-  {{else}}
-    <p>{{user.local.username}} doesn't have any regimens yet...</p>
-    <p>Let's change that</p>
-  {{/if}}
+<div class="row navbar-row container-fluid">
+  <div class="col s12 m12 l12 navbar-container">
 
     <nav>
       <div class="nav-wrapper">
-          <ul>
+        <ul>
           {{#if currentUser}}
-            <li><a href="/user/profile/stats/new">adjust stats</a></li>
-            <li><a href="/user/profile/regimen/new">+regimen</a></li>
-            {{else}}
-              <p>You must be logged in to make regimens and add stats</p>
-              {{/if}}
-              
-              </ul>
-              </div>
+          <li>
+            <a href="/profile/{{currentUser.id}}/stats/new">adjust stats</a>
+          </li>
+          <li>
+            <a href="/profile/{{currentUser.id}}/regimen/new">+regimen</a>
+          </li>
+          {{else}}
+          <p>You must be logged in to make regimens and add stats</p>
+          {{/if}}
+
+        </ul>
+      </div>
     </nav>
 
-      </div>
+  </div>
 
-    </div> --}}
+</div>
+
+<div class="row regimen-row container-fluid">
+
+  <div class="col s12 m12 l12 regimen-container">
+    <!-- Regimens collection goes here  -->
+    {{#if user.regimens}} {{#each user.regimens}}
+      <ul class="collapsible">
+        <li>
+          <div class="collapsible-header">
+            <i class="material-icons">filter_drama</i>
+            {{> regimen this.regimenname}}
+            Blah
+            {{> regimen this.purpose}}
+          </div>
+          <div class="collapsible-body">
+            <span>{{> regimen this.detangling}}</span>
+          </div>
+        </li>
+      </ul>
+    {{/each}} {{else}}
+    <p>{{user.local.username}} doesn't have any regimens yet...</p>
+    <p>Let's change that</p>
+    {{/if}}
+
+
+  </div>
+
+
+</div>

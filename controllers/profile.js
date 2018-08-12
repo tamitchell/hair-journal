@@ -1,5 +1,5 @@
 const User  = require("../models/User");
-const { Regimen, Routine } = require("../models/Regimen")
+const { Regimen } = require("../models/Regimen")
 const HairStats = require('../models/HairStats')
 const passport = require("passport");
 
@@ -14,29 +14,30 @@ const passport = require("passport");
         res.render("profile/show", { user } );
       });
   },
- 
   //REGIMEN CONTROLLER
   showRegimen: (req, res) => {
     User
     .findOne({ _id: req.params.id })
-    .populate('regimens')
+    .populate({
+      path: 'regimens',
+      select: {
+        'regimentitle' : 1,
+        'createdAt': 1,
+        'purpose': 1,
+        'moisturizing': 1,
+        'detangling' : 1,
+        'washing' : 1,
+        'styling' : 1,
+        'trimming' : 1,
+        'products' : 1,
+        'additionalNotes' : 1
+      }})
     .exec(function (err, regimen) {
       err
       console.log(regimen);
       res.render("profile/show", regimen);
       console.log(regimen)    
     })
-    // Regimen.findOne({ _id: req.params.id })
-    //   .populate("regimen")
-    //   .exec(function(err, regimen) {
-    //     Regimen.populate(regimen, { path: "author" }, function(
-    //       err,
-    //       regimen
-    //     ) {
-    //       console.log(regimen);
-    //       res.render("regimen/show", regimen);
-    //     });
-    //   });
   },
   newRegimen: (req, res) => {
     res.render("regimen/new");
@@ -44,7 +45,7 @@ const passport = require("passport");
   },
   createRegimen: (req, res) => {
     Regimen.create({
-      regimentitle: req.body.regimentitle,
+      regimentitle: req.body.regimenname,
       purpose: req.body.purpose,
       moisturizing: req.body.moisturizing,
       detangling: req.body.detangling,
@@ -77,11 +78,7 @@ const passport = require("passport");
         })
     })
   },
-   //STATS Controller
-   //TODO: determine where the User.findOne Query is actually getting the right user
-   //TODO: understand how populate works, why isn't hairstats populating
-   //TODO: determine whether or not .exec is necessary, or if I can just render what has been populated
-   //TODO: Why isn't console.log working
+  //STAT CONTROLLER
    showStats: (req, res) => {
     User
     .findOne({ _id: req.params.id })
@@ -131,15 +128,6 @@ const passport = require("passport");
             res.redirect(`/profile/${user._id}`)
           })
       })
-
-    // HairStats.findOneAndUpdate({author: req.params.id}, {$set : {
-    //   hairtype: req.body.hairtype,
-    //   hairlength: req.body.hairlength,
-    //   hairdensity: req.body.hairdensity,
-    //   hairporosity: req.body.hairporosity}}, {new:true}).then(stat => {
-    //   console.log("Here's the updated stat" + stat)
-    //   res.redirect(`/profile/${user._id}`)
-    // })
   },
    requireAuth: function(req, res, next) {
     if (req.isAuthenticated()) {

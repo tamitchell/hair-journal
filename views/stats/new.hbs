@@ -76,17 +76,23 @@
   <fieldset>
   <legend>Select Hair Density (Amount of Hair on Head)</legend>
   <div>
-    <input type="checkbox" name="hairdensity" id="lowdensity" value="lowdensity" />
-      <label for="lowdensity">Low Density - Thin</label>
+    <label for="lowdensity">
+    <input type="checkbox" name="hairdensity" id="lowdensity" value="Low" />
+      <span>Low Density - Thin</span>
+      </label>
   </div>
   <div>
-   <input type="checkbox" name="hairdensity" id="meddensity" value="mediumdensity" />
-    <label for="meddensity">Medium Density - Not too thick, not really thin</label>
+     <label for="meddensity">
+   <input type="checkbox" name="hairdensity" id="meddensity" value="Med" />
+   <span>Medium Density - Not too thick, not too thin</span>
+   </label>
   </div>
 
     <div>
-   <input type="checkbox" name="hairdensity" id="highdensity" value="highdensity" />
-      <label for="highdensity">High Density - Thick Hair</label>
+       <label for="highdensity">
+   <input type="checkbox" name="hairdensity" id="highdensity" value="High" />
+     <span>High Density - Thick Hair</span>
+     </label>
   </div>
 </fieldset>
 
@@ -105,8 +111,10 @@
    <fieldset> 
 <legend>User Verification</legend> 
   <div>
+    <label for="author">
     <input type="checkbox" name="author" id="author" value="{{currentUser._id}}" />
-      <label for="author">I verify that I am {{currentUser.local.username}}</label>
+      <span>I verify that I am {{currentUser.local.username}}</span>
+      </label>
   </div>
 </fieldset> 
 

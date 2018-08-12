@@ -12,23 +12,24 @@
 
       <form action="/profile/{{currentUser.id}}/regimen/create" method="POST" class="regimen-form">
 
+
         <p class="input-field">
           <p>
-            <label for="regimenname">Name</label>
+            <label for="regimentitle">Name</label>
           </p>
-          <input type="text" id="regimenname" name="regimenname" placeholder="Regimen Name" maxlength="30">
+          <input type="text" id="regimentitle" name="regimentitle" placeholder="Regimen Name" maxlength="30">
         </p>
 
         <p class="input-field">
           <p>
-            <label for="purpose">Purpose</label>
+            <label for="purpose">What is the purpose of this regimen? </label>
           </p>
-          <textarea name="purpose" id="purpose" cols="60" rows="20" placeholder="What is the purpose of this regimen? Length? Maintenence? Write a short description here."></textarea>
+          <textarea name="purpose" id="purpose" cols="60" rows="20" placeholder="Write a short description here."></textarea>
         </p>
 
         <p class="input-field">
           <p>
-            <label for="moisturizing">Moisturizing - How do you keep your hair moisturized?</label>
+            <label for="moisturizing">How do you keep your hair moisturized?</label>
           </p>
           <input type="text" name="moisturizing" id="moisturizing" placeholder="" maxlength="30">
         </p>
@@ -39,18 +40,24 @@
             <legend>Detangling Methods</legend>
 
             <div>
-              <input type="checkbox" id="comb" name="detangling" value="comb">
-              <label for="comb">Comb</label>
+              <label for="comb">
+              <input type="checkbox" id="comb" name="detangling" value="Combs">
+              <span>Comb</span>
+              </label>
             </div>
 
             <div>
-              <input type="checkbox" id="brush" name="detangling" value="brush">
-              <label for="brush">Brush</label>
+              <label for="brush">
+              <input type="checkbox" id="brush" name="detangling" value="Brushes">
+              <span>Brush</span>
+              </label>
             </div>
 
             <div>
-              <input type="checkbox" id="fingers" name="detangling" value="brush">
-              <label for="fingers">Finger Detangling</label>
+              <label for="fingerdetanling">
+              <input type="checkbox" id="fingerdetangling" name="detangling" value="Finger Detangling">
+              <span>Finger Detangling</span>
+              </label>
             </div>
 
           </p>
@@ -61,23 +68,30 @@
             <legend>Washing Frequency</legend>
 
             <div>
-              <input type="checkbox" id="day" name="washing" value="day">
-              <label for="day">Daily</label>
+              <label for="day">
+              <input type="checkbox" id="day" name="washing" value="Daily">
+              <span>Daily</span>
+              </label>
             </div>
 
             <div>
-              <input type="checkbox" id="week" name="washing" value="week">
-              <label for="week">Weekly</label>
+              <label for="week">
+              <input type="checkbox" id="week" name="washing" value="Weekly">
+              <span>Weekly</span>
+              </label>
             </div>
 
             <div>
-              <input type="checkbox" id="month" name="washing" value="month">
-              <label for="month">Monthly</label>
+              <label for="month">
+              <input type="checkbox" id="month" name="washing" value="Monthly">
+              <span>Monthly</span>
+              </label>
             </div>
 
             <div>
-              <input type="checkbox" id="nosched" name="washing" value="nosched">
-              <label for="nosched">I wash whenever!</label>
+              <label for="nosched">
+              <input type="checkbox" id="nosched" name="washing" value="Unscheduled washes">
+              <span>I wash whenever!</span></label>
             </div>
 
 
@@ -103,7 +117,7 @@
           <p>
             <label for="products">Products</label>
           </p>
-          <textarea name="products" id="products" cols="60" rows="20" maxlength="500" placeholder="Any particular style favorites? Write them here."></textarea>
+          <textarea name="products" id="products" cols="60" rows="20" maxlength="500" placeholder="Any particular product favorites? Write them here."></textarea>
         </p>
 
         <p class="input-field">
@@ -117,8 +131,10 @@
         <fieldset>
           <legend>User Verification</legend>
           <div>
+            <label for="author">
             <input type="checkbox" name="author" id="author" value="{{currentUser._id}}" />
-            <label for="author">I verify that I am {{currentUser.local.username}}</label>
+            <span>I verify that I am {{currentUser.local.username}}</span>
+            </label>
           </div>
         </fieldset>
 
