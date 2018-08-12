@@ -1,5 +1,5 @@
 const User  = require("../models/User");
-const { Regimen, Routine } = require("../models/Regimen")
+const { Regimen } = require("../models/Regimen")
 const HairStats = require('../models/HairStats')
 const passport = require("passport");
 
@@ -7,27 +7,24 @@ const passport = require("passport");
   showProfile: (req, res) => {
     User.findOne({ _id: req.params.id })
       .populate({
-        path: "regimen",
+        path: "hairstats",
         options: { limit: 5, sort: { createdAt: -1 } }
       })
       .then(user => {
         res.render("profile/show", { user } );
       });
   },
- 
   //REGIMEN CONTROLLER
   showRegimen: (req, res) => {
-    Regimen.findOne({ _id: req.params.id })
-      .populate("author")
-      .exec(function(err, regimen) {
-        Regimen.populate(regimen, { path: "author" }, function(
-          err,
-          regimen
-        ) {
-          console.log(regimen);
-          res.render("regimen/show", regimen);
-        });
-      });
+    User
+    .findOne({ _id: req.params.id })
+    .populate('regimens')
+    .exec(function (err, regimen) {
+      err
+      // console.log(regimen);
+      res.render("profile/show", regimen);
+      // console.log(regimen)    
+    })
   },
   newRegimen: (req, res) => {
     res.render("regimen/new");
@@ -35,41 +32,48 @@ const passport = require("passport");
   },
   createRegimen: (req, res) => {
     Regimen.create({
-      regimentitle: req.body.regimen.regimentitle,
-      purpose: req.body.regimen.purpose,
-      author: req.params.id
+      regimentitle: req.body.regimentitle,
+      purpose: req.body.purpose,
+      moisturizing: req.body.moisturizing,
+      detangling: req.body.detangling,
+      washing: req.body.washing,
+      styling: req.body.styling,
+      trimming: req.body.trimming,
+      products: req.body.products,
+      additionalNotes: req.body.addNotes,
+      author: req.body.author
     }).then(regimenInstance => {
-      User.findOne({ _id: req.params.id }).then(user => {
-          console.log(regimenInstance)
+      console.log(regimenInstance)
+      User.findOne({ _id: req.body.author }).then(user => {
         user.regimens.push(regimenInstance);
         user.save(err => {
-          res.redirect(`/profile/${user._id}/${regimens.regimenInstance._id}`);
+          res.redirect(`/profile/${user._id}`);
         });
       });
     });
   },
   updateRegimen: (req, res) => {
-    let { content } = req.body;
-    Regimen.findByIdAndUpdate({ _id: req.params.id }).then(regimen => {
-      regimen.push({
-        content,
-        author: req.user._id
-      });
-      regimen.save(err => {
-        res.redirect(`/regimen/${regimen._id}`);
-      });
-    });
+    Regimen.findOneAndUpdate({author: req.params.id}, {$set : {
+      regimentitle: req.body.regimentitle,
+      purpose: req.body.purpose}}, {new:true}).then(regimenInstance => {
+        User.findOne({_id: req.params.id}).then(user => {
+          console.log("Here's the updated regimen" + regimenInstance)
+          console.log(user)
+          res.redirect(`/profile/${user._id}`)
+        })
+    })
   },
-   //STATS Controller
+  //STAT CONTROLLER
    showStats: (req, res) => {
-    Stats.findOne({ _id: req.params.id })
-    .populate({
-        path: "stats/show",
-        options: { limit: 1, sort: { createdAt: -1 } }
-              })
-      .then(user => {
-        res.render("stats/show", { user });
-      });
+    User
+    .findOne({ _id: req.params.id })
+    .populate('hairstats')
+    .exec(function (err, stat) {
+      err
+      console.log(stat);
+      res.render("profile/show", stat);
+      console.log(stat)    
+    })
   },
   newStat: (req, res) => {
     res.render("stats/new");
@@ -78,28 +82,37 @@ const passport = require("passport");
     HairStats.create({
       hairtype: req.body.hairtype,
       hairlength: req.body.hairlength,
-      hairdensity: req.body.density,
+      hairdensity: req.body.hairdensity,
       hairporosity: req.body.hairporosity,  
-      author: req.params.id
+      author: req.body.author
     }).then(stat => {
-      req.user.hairstats.push(stat);
-      console.log(stat)
-      req.user.save(err => {
-        res.redirect(`/profile/${User._id}`);
-      });
+      User.findOne({ _id: req.body.author }).then(user => {
+        console.log(stat)
+        user.hairstats.push(stat);
+        user.save(err => {
+          res.redirect(`/profile/${user._id}`);
+          console.log(user)
+        });
+      })
     });
   },
+  editStat: (req,res) => {
+    User.findOne({_id: req.params.id}).then(user => {
+      res.render("stats/edit")
+    })
+   },
   updateStat: (req, res) => {
-    let { content } = req.body;
-    Stats.findOne({ _id: req.params.id }).then(stats => {
-      stat.push({
-        content,
-        author: req.user._id
-      });
-      regimen.save(err => {
-        res.redirect(`/user/${user._id}`);
-      });
-    });
+      HairStats.findOneAndUpdate({author: req.params.id}, {$set : {
+        hairtype: req.body.hairtype,
+        hairlength: req.body.hairlength,
+        hairdensity: req.body.hairdensity,
+        hairporosity: req.body.hairporosity}}, {new:true}).then(stat => {
+          User.findOne({_id: req.params.id}).then(user => {
+            console.log("Here's the updated stat" + stat)
+            console.log(user)
+            res.redirect(`/profile/${user._id}`)
+          })
+      })
   },
    requireAuth: function(req, res, next) {
     if (req.isAuthenticated()) {

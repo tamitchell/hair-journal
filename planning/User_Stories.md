@@ -1,4 +1,4 @@
-#User Stories
+# User Stories
 
 As a user in general, I should be able to create a regimen and see that regimen stored in a gallery.
 

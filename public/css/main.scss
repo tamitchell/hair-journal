@@ -1,11 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Signika:400,600');
 
+$card-font: 'Signika', sans-serif;
 $logo-font: 'Pacifico', cursive;
 $titular-font: 'Montserrat', sans-serif;
 $profile-background: white;
 $regimen-background: rgba(219, 219, 219, 0.7);
 $form-color: #9D9D9D;
 $regimen-form: white;
+$hairtype: #FFFFFF;
+$hairlength: #388F53;
+$hairdensity: #C04B23;
+$hairporosity: #BF792F;
 $card-shadow:0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
 
 @mixin background-setup {
@@ -153,9 +159,40 @@ header{
      height: 40%;
      width: 100%;
      .profile{
-      padding: 2em;
-      width: 50%;
-      background-color: $profile-background;
+      width: 60%;
+      color: white;
+      .stats{
+        @include flex();
+        flex-flow: column wrap;
+        width: 100%;
+        .statbox{
+          flex: 1;
+          margin: 0.5em;
+          height: 9em;
+          width: 9em;
+          vertical-align: middle;
+          line-height: 9em;  
+          font-family: $card-font;
+          letter-spacing: 1px;
+        }
+        .hairtype{
+          background-color:$hairtype;
+          color:black;
+        }
+        .hairlength{
+          background-color:$hairlength;
+          text-transform: uppercase;
+          color:white;
+        }
+        .hairdensity{
+          background-color:$hairdensity;
+          color:white;
+        }
+        .hairporosity{
+          color:white;
+          background-color: $hairporosity;
+        }
+      }
      }
    }
    .regimen-container{
@@ -171,6 +208,7 @@ header{
 .statsform-container{
   @include flex();
   .createStats{
+    @include flex();
     width: 90%;
     margin-top: 4em;
     h4{
@@ -201,21 +239,43 @@ header{
  
  .create-regimen{
    padding: 2em;
-   width: 50%;
-   h4{
-     color: $form-color;
-   }
-   .regimen-form{
-     padding: 2em 6em;
-     background-color: $regimen-form;
-     box-shadow: $card-shadow;
-     color: $form-color;
-     textarea{
-       border: none;
-      //  &:hover{
+   width: 80%;
+   .regimen-card{
 
-      //  }
-     }
+    .regimen-card-img{
+      height: 20em;
+      overflow: hidden;
+      .regimen-card-title{
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        line-height: 10em;
+        font-family: $titular-font;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        text-align: center;
+        color: white;
+
+      }
+    }
+    .regimen-form{
+      padding: 2em 3em;
+      background-color: $regimen-form;
+      color: $form-color;
+      fieldset{
+        border:none;
+        padding: 0.8em 0 0.8em 0;
+        legend{
+          font-size: 16px;
+        }
+      }
+      label {
+        font-size: 16px;
+      }
+      textarea{
+        border: none;
+      }
+   }
    }
  }
   
@@ -225,11 +285,4 @@ header{
     100%{transform: translatey(0px);}
   }
 
-  @media #{max-width=768px} {
-    // styles for small screens and down
-
-    .site-logo{
-      width:35%;
-    }
-  }
   

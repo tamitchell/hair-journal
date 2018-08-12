@@ -4,6 +4,9 @@ Growthsphere is an online web application initially designed to create a space f
 
 ## Getting Started - A history of the issue
 
+![Alt text](relative/path/to/img.jpg?raw=true "Title")
+
+
 Although many blame the media for dictating how people (in particular women) behave and present themselves to the outer world, it is becoming increasingly obvious that despite it's shortcomings, the foundational way in which we consume and advertise media is not going to change. That is to say, buyers will always want to purchase that which looks the most attractive and most appealing based on the alloted price. And therefore, at least from the consumer's perspective, it should be important to note that it is not always what is being advertised that causes an issue, but how it is being promoted and to whom.
 
 Within this broad category of marketing and advertising fall African American women and the Natural Hair Industry. 

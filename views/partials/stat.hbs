@@ -1,15 +1,1 @@
-<div class="card">
-  <div class="card-content">
-    <a class="card-title" href="/stats/{{id}}">
-      {{ stat }}
-    </a>
-  </div>
-  <div class="card-action">
-    <a href="/user/{{ author.id }}" class="">{{ author.local.email }}</a>
-    <span class="tweet__date">{{ createdAt }}</span>
-    {{!-- <span class="tweet_comments">{{ comments.length }} Comments</span> --}}
-    <form class="" action="/stats/{{id}}?_method=UPDATE" method="POST">
-      <button type="submit" name="button">Update</button>
-    </form>
-  </div>
-</div>
+  {{this}}

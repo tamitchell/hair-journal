@@ -10,12 +10,12 @@ const User = new Schema({
       password: String, 
     },
 
-    hairstats: [
-      {
+    hairstats: 
+      [{
         type: Schema.Types.ObjectId,
         ref: "HairStats"
-      }
-    ],
+      }]
+    ,
 
     regimens: [
       {

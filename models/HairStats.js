@@ -6,6 +6,10 @@ const HairStats = new Schema({
   hairlength: String,
   hairdensity: String,
   hairporosity: String,
+  author: {
+    type: Schema.Types.ObjectId,
+    ref: "User"
+  }
 });
 
 module.exports = mongoose.model("HairStats", HairStats);
