@@ -8,8 +8,11 @@
   </div>
   <div class="right-content">
         <h4 class="card-title">Hi {{currentUser.local.username}}, what's your Stats?</h4>
+   
     <div class="stat-card card-content">
+      
       <form action="/profile/" method="POST" class="auth-form">
+        
         <label for="hairtype">Hair Types</label>
   <select class="browser-default" id="hairtype" name="hairtype">
     <option value="" disabled selected>Choose your option</option>

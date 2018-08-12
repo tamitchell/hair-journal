@@ -59,6 +59,7 @@ const passport = require("passport");
       User.findOne({ _id: req.body.author }).then(user => {
         console.log(user)
         user.regimens.push(regimenInstance);
+        console.log(user)
         user.save(err => {
           res.redirect(`/profile/${user._id}`);
         });
