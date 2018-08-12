@@ -18,25 +18,12 @@ const passport = require("passport");
   showRegimen: (req, res) => {
     User
     .findOne({ _id: req.params.id })
-    .populate({
-      path: 'regimens',
-      select: {
-        'regimentitle' : 1,
-        'createdAt': 1,
-        'purpose': 1,
-        'moisturizing': 1,
-        'detangling' : 1,
-        'washing' : 1,
-        'styling' : 1,
-        'trimming' : 1,
-        'products' : 1,
-        'additionalNotes' : 1
-      }})
+    .populate('regimens')
     .exec(function (err, regimen) {
       err
-      console.log(regimen);
+      // console.log(regimen);
       res.render("profile/show", regimen);
-      console.log(regimen)    
+      // console.log(regimen)    
     })
   },
   newRegimen: (req, res) => {
@@ -45,7 +32,7 @@ const passport = require("passport");
   },
   createRegimen: (req, res) => {
     Regimen.create({
-      regimentitle: req.body.regimenname,
+      regimentitle: req.body.regimentitle,
       purpose: req.body.purpose,
       moisturizing: req.body.moisturizing,
       detangling: req.body.detangling,
@@ -58,9 +45,7 @@ const passport = require("passport");
     }).then(regimenInstance => {
       console.log(regimenInstance)
       User.findOne({ _id: req.body.author }).then(user => {
-        console.log(user)
         user.regimens.push(regimenInstance);
-        console.log(user)
         user.save(err => {
           res.redirect(`/profile/${user._id}`);
         });

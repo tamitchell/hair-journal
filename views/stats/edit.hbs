@@ -1,136 +1,136 @@
 <div class="container statsform-container">
 
-<section class="row col s6 container createStats">
-{{#if currentUser}}
-  <div class="stat-card card horizontal">
-  <div class="card-image stat-card-img hide-on-med-and-down">
-    <img src="/img/stats_green_img.jpeg" alt="Carefree black boy" class="hoverZoomLink">
-  </div>
-  <div class="right-content">
+  <section class="row col s6 container createStats">
+    {{#if currentUser}}
+    <div class="stat-card card horizontal">
+      <div class="card-image stat-card-img hide-on-med-and-down">
+        <img src="/img/stats_green_img.jpeg" alt="Carefree black boy" class="hoverZoomLink">
+      </div>
+      <div class="right-content">
         <h4 class="card-title">Hi {{currentUser.local.username}}, what's your Stats?</h4>
-    <div class="stat-card card-content">
-      <form action="/profile/{{currentUser.id}}?_method=put" method="POST" class="auth-form">
-        <label for="hairtype">Hair Types</label>
-  <select class="browser-default" id="hairtype" name="hairtype">
-    <option value="" disabled selected>Choose your option</option>
-    <optgroup for="Straight Hair">
-      <option value="type1">Type 1 - Straight Hair</option>
-    </optgroup>
-    <optgroup label="Wavy Hair">
-      <option name="hairtype" value="type2a">Type 2A - Wavy Hair</option>
-      <option name="hairtype" value="type2b">Type 2B - Wavy Hair</option>
-      <option name="hairtype" value="type2c">Type 2C - Wavy Hair</option>
-      </optgroup>
+        <div class="stat-card card-content">
+          <form action="/profile/{{currentUser.id}}/stats/update?_method=put" method="POST" class="auth-form">
+            <label for="hairtype">Hair Types</label>
+            <select class="browser-default" id="hairtype" name="hairtype">
+              <option value="" disabled selected>Choose your option</option>
+              <optgroup for="Straight Hair">
+                <option value="type1">Type 1 - Straight Hair</option>
+              </optgroup>
+              <optgroup label="Wavy Hair">
+                <option name="hairtype" value="type2a">Type 2A - Wavy Hair</option>
+                <option name="hairtype" value="type2b">Type 2B - Wavy Hair</option>
+                <option name="hairtype" value="type2c">Type 2C - Wavy Hair</option>
+              </optgroup>
 
-  <optgroup label="Curly Hair">
-        <option name="hairtype" value="type3a">Type 3A - Curly Hair</option>
-        <option  name="hairtype" value="type3b">Type 3B - Curly Hair</option>
-        <option name="hairtype" value="type3c">Type 3C - Curly Hair</option>
-    </optgroup>
+              <optgroup label="Curly Hair">
+                <option name="hairtype" value="type3a">Type 3A - Curly Hair</option>
+                <option name="hairtype" value="type3b">Type 3B - Curly Hair</option>
+                <option name="hairtype" value="type3c">Type 3C - Curly Hair</option>
+              </optgroup>
 
-<optgroup label="Kinky Hair">
+              <optgroup label="Kinky Hair">
 
-    <option name="hairtype" value="type4a">Type 4A - Kinky Hair</option>
-    <option name="hairtype" value="type4b">Type 4B - Kinky Hair</option>
-    <option name="hairtype" value="type4c">Type 4C - Kinky Hair</option>
+                <option name="hairtype" value="type4a">Type 4A - Kinky Hair</option>
+                <option name="hairtype" value="type4b">Type 4B - Kinky Hair</option>
+                <option name="hairtype" value="type4c">Type 4C - Kinky Hair</option>
 
-</optgroup>
-    
-  </select>
+              </optgroup>
 
-        <label for="hairlength">Hair Length</label>
-  <select class="browser-default" id="hairlength" name="hairlength">
-    <optgroup for="Short Length">
-      <option name="hairlength" value="twa">TWA - Tweeny Weeny Afro </option>
-      <option name="hairlength" value="EL">Ear Length</option>
-      <option name="hairlength" value="NL">Neck Length</option>
-    </optgroup>
+            </select>
 
-    <optgroup label="Average Length">
-      <option name="hairlength" value="SL">Shoulder Length</option>
-      <option name="hairlength" value="APL">Armpit Length</option>
-      <option name="hairlength" value="BSL">Bra-Strap Length</option>
-    </optgroup>
+            <label for="hairlength">Hair Length</label>
+            <select class="browser-default" id="hairlength" name="hairlength">
+              <optgroup for="Short Length">
+                <option name="hairlength" value="twa">TWA - Tweeny Weeny Afro </option>
+                <option name="hairlength" value="EL">Ear Length</option>
+                <option name="hairlength" value="NL">Neck Length</option>
+              </optgroup>
 
-    <optgroup label="Long Length">
-        <option name="hairlength" value="MBL">Mid-Back Length</option>
-        <option name="hairlength" value="WL">Waist Length</option>
-        <option name="hairlength" value="HL">Hip Length</option>
-        <option name="hairlength" value="TL">Tailbone Length</option>
-        <option name="hairlength" value="CL">Classic Length</option>
-    </optgroup>
+              <optgroup label="Average Length">
+                <option name="hairlength" value="SL">Shoulder Length</option>
+                <option name="hairlength" value="APL">Armpit Length</option>
+                <option name="hairlength" value="BSL">Bra-Strap Length</option>
+              </optgroup>
 
-<optgroup label="Extremely Long Length">
-        <option name="hairlength" value="MTL">Mid-Thigh Length</option>
-        <option name="hairlength" value="KL">Knee Length</option>
-        <option name="hairlength" value="calflength">Calf Length</option>
-        <option name="hairlength" value="anklelength">Ankle Length</option>
-        <option name="hairlength" value="FL">Floor Length</option>
-    </optgroup>
-    
-  </select>
+              <optgroup label="Long Length">
+                <option name="hairlength" value="MBL">Mid-Back Length</option>
+                <option name="hairlength" value="WL">Waist Length</option>
+                <option name="hairlength" value="HL">Hip Length</option>
+                <option name="hairlength" value="TL">Tailbone Length</option>
+                <option name="hairlength" value="CL">Classic Length</option>
+              </optgroup>
 
-  <fieldset>
-  <legend>Select Hair Density (Amount of Hair on Head)</legend>
-  <div>
-    <label for="lowdensity">
-    <input type="checkbox" name="hairdensity" id="lowdensity" value="Low" />
-      <span>Low Density - Thin</span>
-      </label>
-  </div>
-  <div>
-    <label for="meddensity">
-   <input type="checkbox" name="hairdensity" id="meddensity" value="Med" />
-    <span>Medium Density - Not too thick, not too thin</span>
-    </label>
-  </div>
+              <optgroup label="Extremely Long Length">
+                <option name="hairlength" value="MTL">Mid-Thigh Length</option>
+                <option name="hairlength" value="KL">Knee Length</option>
+                <option name="hairlength" value="calflength">Calf Length</option>
+                <option name="hairlength" value="anklelength">Ankle Length</option>
+                <option name="hairlength" value="FL">Floor Length</option>
+              </optgroup>
 
-    <div>
-      <label for="highdensity">
-   <input type="checkbox" name="hairdensity" id="highdensity" value="High" />
-      <span>High Density - Thick Hair</span>
-      </label>
-  </div>
-</fieldset>
+            </select>
 
-   <fieldset> 
-<legend>Hair Porosity</legend> 
-<select class="browser-default" name="hairporosity">
-      <option name="hairporosity" value="" disabled selected>Choose your option</option>
-      <option name="hairporosity" value="lowporosity">Low Porosity</option>
-      <option name="hairporosity" value="medporosity">Medium Porosity</option>
-      <option name="hairporosity" value="highporosity">High Porosity</option>
-      
+            <fieldset>
+              <legend>Select Hair Density (Amount of Hair on Head)</legend>
+              <div>
+                <label for="lowdensity">
+                  <input type="checkbox" name="hairdensity" id="lowdensity" value="Low" />
+                  <span>Low Density - Thin</span>
+                </label>
+              </div>
+              <div>
+                <label for="meddensity">
+                  <input type="checkbox" name="hairdensity" id="meddensity" value="Med" />
+                  <span>Medium Density - Not too thick, not too thin</span>
+                </label>
+              </div>
 
-</select>
-</fieldset> 
+              <div>
+                <label for="highdensity">
+                  <input type="checkbox" name="hairdensity" id="highdensity" value="High" />
+                  <span>High Density - Thick Hair</span>
+                </label>
+              </div>
+            </fieldset>
 
-   <fieldset> 
-<legend>User Verification</legend> 
-  <div>
-    <label for="author">
-    <input type="checkbox" name="author" id="author" value="{{currentUser.id}}" />
-      <span>I verify that I am {{currentUser.local.username}}</span>
-      </label>
-  </div>
-</fieldset> 
+            <fieldset>
+              <legend>Hair Porosity</legend>
+              <select class="browser-default" name="hairporosity">
+                <option name="hairporosity" value="" disabled selected>Choose your option</option>
+                <option name="hairporosity" value="lowporosity">Low Porosity</option>
+                <option name="hairporosity" value="medporosity">Medium Porosity</option>
+                <option name="hairporosity" value="highporosity">High Porosity</option>
 
-    <p class="input-field">
-      <input type="submit" value="Submit" class="btn waves-effect waves-light">
-    </p>
-  </form>
+
+              </select>
+            </fieldset>
+
+            <fieldset>
+              <legend>User Verification</legend>
+              <div>
+                <label for="author">
+                  <input type="checkbox" name="author" id="author" value="{{currentUser.id}}" />
+                  <span>I verify that I am {{currentUser.local.username}}</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <p class="input-field">
+              <input type="submit" value="Submit" class="btn waves-effect waves-light">
+            </p>
+          </form>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-{{else}}
-<div class="card-panel responsive-img teal stats-not-logged">
+    {{else}}
+    <div class="card-panel responsive-img teal stats-not-logged">
 
-    <span class="white-text flow-text not-logged-text">
-          <p>You need to be logged in to build a stat</p>
-    </span>
-   
-</div>
-{{/if}}
-</section>
+      <span class="white-text flow-text not-logged-text">
+        <p>You need to be logged in to build a stat</p>
+      </span>
+
+    </div>
+    {{/if}}
+  </section>
 
 </div>

@@ -11,8 +11,7 @@
    
     <div class="stat-card card-content">
       
-      <form action="/profile/" method="POST" class="auth-form">
-        
+      <form action="/profile/{{currentUser.id}}/stats/create" method="POST" class="auth-form">
         <label for="hairtype">Hair Types</label>
   <select class="browser-default" id="hairtype" name="hairtype">
     <option value="" disabled selected>Choose your option</option>

@@ -79,19 +79,16 @@
   <div class="col s12 m12 l12 regimen-container">
     <!-- Regimens collection goes here  -->
     {{#if user.regimens}} {{#each user.regimens}}
-      <ul class="collapsible">
-        <li>
-          <div class="collapsible-header">
-            <i class="material-icons">filter_drama</i>
-            {{> regimen this.regimenname}}
-            Blah
-            {{> regimen this.purpose}}
-          </div>
-          <div class="collapsible-body">
-            <span>{{> regimen this.detangling}}</span>
-          </div>
-        </li>
-      </ul>
+
+    {{log user}}
+{{!-- 
+      <p>
+                    {{> regimen this.regimentitle}}
+
+      </p>
+
+      <p>{{log regimen}}</p> --}}
+     
     {{/each}} {{else}}
     <p>{{user.local.username}} doesn't have any regimens yet...</p>
     <p>Let's change that</p>
