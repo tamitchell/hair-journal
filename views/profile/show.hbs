@@ -80,24 +80,29 @@
     <!-- Regimens collection goes here  -->
     {{#if user.regimens}} {{#each user.regimens}}
 
-        <ul class="collapsible">
+        <ul class="collapsible expandable regimen-accordion">
     <li>
-      <div class="collapsible-header">
-        <i class="material-icons">filter_drama</i>
-        First
+      <div class="collapsible-header accordion-header">
          <p>
         {{> regimen this.regimentitle}}
       </p>
       <p>{{> regimen this.purpose}}</p>
         </div>
-      <div class="collapsible-body">
-        <span>      
-      <p>{{> regimen this.moisturizing}}</p>
-      <p>{{> regimen this.detangling}}</p>
-      <p>{{> regimen this.washing}}</p>
-      <p>{{> regimen this.styling}}</p>
-      <p>{{> regimen this.trimming}}</p>
-      <p>{{> regimen this.products}}</p>
+      <div class="collapsible-body accordion-body">
+        <span class="col">      
+      <p>How do you keep your hair moisturized?</p>
+        <p>{{> regimen this.moisturizing}}</p>
+      <p>How do you detangle your hair?</p>
+        <p>{{> regimen this.detangling}}</p>
+      <p>How often do you wash your hair?</p>
+        <p>{{> regimen this.washing}}</p>
+      <p>What kind of styles do you prefer?</p> 
+        <p>{{> regimen this.styling}}</p>
+      <p>How often do you trim?</p> 
+        <p>{{> regimen this.trimming}}</p>
+      <p>Any particular product favorites?</p> 
+        <p>{{> regimen this.products}}</p>
+      <p>Additional Notes</p> 
       <p>{{> regimen this.additionalNotes}}</p>
       </span>
         </div>
