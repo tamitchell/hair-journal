@@ -6,10 +6,8 @@ const passport = require("passport");
  module.exports = {
   showProfile: (req, res) => {
     User.findOne({ _id: req.params.id })
-      .populate({
-        path: "hairstats",
-        options: { limit: 5, sort: { createdAt: -1 } }
-      })
+      .populate("hairstats")
+      .populate("regimens")
       .then(user => {
         res.render("profile/show", { user } );
       });
@@ -19,10 +17,10 @@ const passport = require("passport");
     User
     .findById(req.params.id )
     .populate('regimens')
-    .exec(function (err, regimen) {
-      err
-      console.log("Here's the regimen" + regimen);
+    .then((regimenInstance) => {
+      console.log(regimenInstance)
       res.render("profile/show", regimen);
+
     })
   },
   newRegimen: (req, res) => {
