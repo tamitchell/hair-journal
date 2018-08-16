@@ -74,9 +74,9 @@ const passport = require("passport");
     })
   },
   deleteRegimen: (req, res) => {
-      Regimen.findOneAndRemove({author: req.params.id}).then(regimenInstance => {
-        res.redirect(`/profile/${user._id}`)
-      })
+      Regimen.findByIdAndRemove(req.params.id).then(regimenInstance => {
+          res.redirect(`/`)
+        })
   },
   //STAT CONTROLLER
    showStats: (req, res) => {

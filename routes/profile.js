@@ -14,4 +14,6 @@ router.post("/:id/regimen/create", profileController.createRegimen);
 router.put("/:id/stats/update", profileController.updateStat);
 router.put("/:id/regimen/update", profileController.requireAuth, profileController.updateRegimen);
 
+router.delete("/regimen/:id", profileController.deleteRegimen)
+
  module.exports = router; 
