@@ -51,13 +51,21 @@ const passport = require("passport");
   },
   editRegimen: (req,res) => {
     User.findOne({_id: req.params.id}).then(user => {
-      res.render("stats/edit")
+      res.render("regimen/edit")
     })
    },
   updateRegimen: (req, res) => {
     Regimen.findOneAndUpdate({author: req.params.id}, {$set : {
       regimentitle: req.body.regimentitle,
-      purpose: req.body.purpose}}, {new:true}).then(regimenInstance => {
+      purpose: req.body.purpose,
+      moisturizing: req.body.moisturizing,
+      detangling: req.body.detangling,
+      washing: req.body.washing,
+      styling: req.body.styling,
+      trimming: req.body.trimming,
+      products: req.body.products,
+      additionalNotes: req.body.addNotes,
+    }}, {new:true}).then(regimenInstance => {
         User.findOne({_id: req.params.id}).then(user => {
           console.log("Here's the updated regimen" + regimenInstance)
           console.log(user)

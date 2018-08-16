@@ -78,6 +78,7 @@
 
   <div class="col s12 m12 l12 regimen-container">
     <!-- Regimens collection goes here  -->
+
     {{#if user.regimens}} {{#each user.regimens}}
 
       <ul class="collapsible regimen-accordion" data-collapsible="accordion">
@@ -86,10 +87,8 @@
         
           <p>{{> regimen this.regimentitle}}</p>
           <p>{{> regimen this.purpose}}</p>
+          <p><a href="/profile/{{>regimen this.author}}/regimen/edit">Edit</a></p>
 
-        <button type="button" class="btn" name="button">
-          <a href="/profile/{{currentUser.id}}/regimen/edit">Edit</a>
-        </button>
         </div>
       <div class="collapsible-body">
         <p>How do you keep your hair moisturized?</p>
