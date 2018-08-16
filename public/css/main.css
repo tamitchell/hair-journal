@@ -313,6 +313,7 @@ ul li a {
 }
 
 .create-regimen .regimen-card .regimen-card-img {
+  background-position: center center;
   height: 20em;
   overflow: hidden;
 }
