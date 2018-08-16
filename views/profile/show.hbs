@@ -35,11 +35,6 @@
 
         {{/each}}
 
-        <button type="button" class="btn" name="button">
-          <a href="/profile/{{currentUser.id}}/stats/edit">Update</a>
-        </button>
-
-
       </div>
       {{else}}
       <p>{{user.local.username}} hasn't set their stats yet</p>
@@ -57,7 +52,7 @@
         <ul>
           {{#if currentUser}}
           <li>
-            <a href="/profile/{{currentUser.id}}/stats/new">adjust stats</a>
+            <a href="/profile/{{currentUser.id}}/stats/edit">adjust stats</a>
           </li>
           <li>
             <a href="/profile/{{currentUser.id}}/regimen/new">+regimen</a>

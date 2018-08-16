@@ -4,8 +4,9 @@ module.exports = {
   index: (req, res) => {
     Regimen.find({})
       .sort({ createdAt: -1 })
-      .limit(10)
-      .populate("author")
+      .populate("createdAt")
+      .populate("regimentitle")
+      .populate("purpose")
       .then(regimen => {
         res.render("app/index", { regimen });
       });
