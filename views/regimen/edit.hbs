@@ -4,13 +4,13 @@
   <section class="card regimen-card">
 
     <div class="card-image regimen-card-img">
-      <img src="/img/build_a_regimen.jpg" alt="Building a regimen" class="hoverZoomLink">
+      <img src="/img/edit_a_regimen.jpg" alt="Building a regimen" class="hoverZoomLink">
       <h4 class="card-title regimen-card-title flow-text">Building a Regimen</h4>
     </div>
 
     <div class="card-content">
 
-      <form action="/profile/{{currentUser.id}}/regimen/create" method="POST" class="regimen-form">
+      <form action="/profile/{{currentUser.id}}/regimen/update?_method=put" method="POST" class="regimen-form">
 
 
         <p class="input-field">
@@ -31,7 +31,7 @@
           <p>
             <label for="moisturizing">How do you keep your hair moisturized?</label>
           </p>
-          <input type="text" name="moisturizing" id="moisturizing" placeholder="" maxlength="30">
+          <input type="text" name="moisturizing" id="moisturizing" placeholder="">
         </p>
 
         <fieldset>
@@ -145,6 +145,14 @@
       </form>
     </div>
 
+       {{else}}
+    <div class="card-panel responsive-img teal stats-not-logged">
+
+      <span class="white-text flow-text not-logged-text">
+        <p>You need to be logged in to update a regimen</p>
+      </span>
+
+    </div>
 
   </section>
 

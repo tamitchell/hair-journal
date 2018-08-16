@@ -6,10 +6,8 @@ const passport = require("passport");
  module.exports = {
   showProfile: (req, res) => {
     User.findOne({ _id: req.params.id })
-      .populate({
-        path: "hairstats",
-        options: { limit: 5, sort: { createdAt: -1 } }
-      })
+      .populate("hairstats")
+      .populate("regimens")
       .then(user => {
         res.render("profile/show", { user } );
       });
@@ -17,13 +15,12 @@ const passport = require("passport");
   //REGIMEN CONTROLLER
   showRegimen: (req, res) => {
     User
-    .findOne({ _id: req.params.id })
+    .findById(req.params.id )
     .populate('regimens')
-    .exec(function (err, regimen) {
-      err
-      // console.log(regimen);
+    .then((regimenInstance) => {
+      console.log(regimenInstance)
       res.render("profile/show", regimen);
-      // console.log(regimen)    
+
     })
   },
   newRegimen: (req, res) => {
@@ -52,16 +49,34 @@ const passport = require("passport");
       });
     });
   },
+  editRegimen: (req,res) => {
+    User.findOne({_id: req.params.id}).then(user => {
+      res.render("regimen/edit")
+    })
+   },
   updateRegimen: (req, res) => {
     Regimen.findOneAndUpdate({author: req.params.id}, {$set : {
       regimentitle: req.body.regimentitle,
-      purpose: req.body.purpose}}, {new:true}).then(regimenInstance => {
+      purpose: req.body.purpose,
+      moisturizing: req.body.moisturizing,
+      detangling: req.body.detangling,
+      washing: req.body.washing,
+      styling: req.body.styling,
+      trimming: req.body.trimming,
+      products: req.body.products,
+      additionalNotes: req.body.addNotes,
+    }}, {new:true}).then(regimenInstance => {
         User.findOne({_id: req.params.id}).then(user => {
           console.log("Here's the updated regimen" + regimenInstance)
           console.log(user)
           res.redirect(`/profile/${user._id}`)
         })
     })
+  },
+  deleteRegimen: (req, res) => {
+      Regimen.findByIdAndRemove(req.params.id).then(regimenInstance => {
+          res.redirect(`/`)
+        })
   },
   //STAT CONTROLLER
    showStats: (req, res) => {

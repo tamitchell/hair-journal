@@ -17,12 +17,10 @@ const User = new Schema({
       }]
     ,
 
-    regimens: [
-      {
+    regimens: [{
         type: Schema.Types.ObjectId,
         ref: "Regimen"
-      }
-    ]
+      }]
   });
 
   User.methods.encrypt = function(password) {

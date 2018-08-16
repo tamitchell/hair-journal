@@ -211,10 +211,29 @@ ul li a {
 .row .regimen-container {
   border: 2px solid blue;
   width: 100%;
-  height: 30em;
+  height: auto;
   max-height: 100%;
   background-color: rgba(219, 219, 219, 0.7);
   padding: 3em;
+}
+
+.row .regimen-container .regimen-accordion {
+  border: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  width: 70em;
+}
+
+.row .regimen-container .regimen-accordion .accordion-header {
+  font-family: "Signika", sans-serif;
+  font-style: oblique;
+  height: 10em;
+}
+
+.row .regimen-container .regimen-accordion .accordion-body {
+  text-align: left;
+  max-height: auto;
+  height: auto;
 }
 
 .statsform-container {
@@ -294,6 +313,7 @@ ul li a {
 }
 
 .create-regimen .regimen-card .regimen-card-img {
+  background-position: center center;
   height: 20em;
   overflow: hidden;
 }

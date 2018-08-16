@@ -35,11 +35,6 @@
 
         {{/each}}
 
-        <button type="button" class="btn" name="button">
-          <a href="/profile/{{currentUser.id}}/stats/edit">Update</a>
-        </button>
-
-
       </div>
       {{else}}
       <p>{{user.local.username}} hasn't set their stats yet</p>
@@ -57,7 +52,7 @@
         <ul>
           {{#if currentUser}}
           <li>
-            <a href="/profile/{{currentUser.id}}/stats/new">adjust stats</a>
+            <a href="/profile/{{currentUser.id}}/stats/edit">adjust stats</a>
           </li>
           <li>
             <a href="/profile/{{currentUser.id}}/regimen/new">+regimen</a>
@@ -78,17 +73,41 @@
 
   <div class="col s12 m12 l12 regimen-container">
     <!-- Regimens collection goes here  -->
+
     {{#if user.regimens}} {{#each user.regimens}}
 
-    {{log user}}
-{{!-- 
-      <p>
-                    {{> regimen this.regimentitle}}
+      <ul class="collapsible regimen-accordion" data-collapsible="accordion">
+    <li>
+      <div class="collapsible-header">
+        
+          <p>{{> regimen this.regimentitle}}</p>
+          <p>{{> regimen this.purpose}}</p>
+          
+          <button type="button" name="button"><a href="/profile/{{>regimen this.author}}/regimen/edit">Edit</a></button>
+      <form action="/profile/regimen/{{>regimen this.id}}?_method=DELETE" method="POST">
+              <button type="submit" name="button">Delete</button>
+      </form>
 
-      </p>
+        </div>
+      <div class="collapsible-body">
+        <p>How do you keep your hair moisturized?</p>
+        <p>{{> regimen this.moisturizing}}</p>
+      <p>How do you detangle your hair?</p>
+        <p>{{> regimen this.detangling}}</p>
+      <p>How often do you wash your hair?</p>
+        <p>{{> regimen this.washing}}</p>
+      <p>What kind of styles do you prefer?</p> 
+        <p>{{> regimen this.styling}}</p>
+      <p>How often do you trim?</p> 
+        <p>{{> regimen this.trimming}}</p>
+      <p>Any particular product favorites?</p> 
+        <p>{{> regimen this.products}}</p>
+      <p>Additional Notes</p> 
+      <p>{{> regimen this.additionalNotes}}</p>
+        </div>
+    </li>
+  </ul>
 
-      <p>{{log regimen}}</p> --}}
-     
     {{/each}} {{else}}
     <p>{{user.local.username}} doesn't have any regimens yet...</p>
     <p>Let's change that</p>
