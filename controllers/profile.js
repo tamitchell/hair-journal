@@ -41,7 +41,7 @@ const passport = require("passport");
       author: req.body.author
     }).then(regimenInstance => {
       console.log(regimenInstance)
-      User.findOne({ _id: req.body.author }).then(user => {
+      User.findById(req.body.author).then(user => {
         user.regimens.push(regimenInstance);
         user.save(err => {
           res.redirect(`/profile/${user._id}`);
