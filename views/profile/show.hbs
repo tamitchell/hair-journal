@@ -80,17 +80,19 @@
     <!-- Regimens collection goes here  -->
     {{#if user.regimens}} {{#each user.regimens}}
 
-        <ul class="collapsible regimen-accordion">
+      <ul class="collapsible regimen-accordion" data-collapsible="accordion">
     <li>
-      <div class="collapsible-header accordion-header">
-         <p>
-        {{> regimen this.regimentitle}}
-      </p>
-      <p>{{> regimen this.purpose}}</p>
+      <div class="collapsible-header">
+        
+          <p>{{> regimen this.regimentitle}}</p>
+          <p>{{> regimen this.purpose}}</p>
+
+        <button type="button" class="btn" name="button">
+          <a href="/profile/{{currentUser.id}}/regimen/edit">Edit</a>
+        </button>
         </div>
-      <div class="collapsible-body accordion-body">
-        <span class="col">      
-      <p>How do you keep your hair moisturized?</p>
+      <div class="collapsible-body">
+        <p>How do you keep your hair moisturized?</p>
         <p>{{> regimen this.moisturizing}}</p>
       <p>How do you detangle your hair?</p>
         <p>{{> regimen this.detangling}}</p>
@@ -104,7 +106,6 @@
         <p>{{> regimen this.products}}</p>
       <p>Additional Notes</p> 
       <p>{{> regimen this.additionalNotes}}</p>
-      </span>
         </div>
     </li>
   </ul>

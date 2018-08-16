@@ -49,6 +49,11 @@ const passport = require("passport");
       });
     });
   },
+  editRegimen: (req,res) => {
+    User.findOne({_id: req.params.id}).then(user => {
+      res.render("stats/edit")
+    })
+   },
   updateRegimen: (req, res) => {
     Regimen.findOneAndUpdate({author: req.params.id}, {$set : {
       regimentitle: req.body.regimentitle,
