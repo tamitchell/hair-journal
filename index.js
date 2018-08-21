@@ -43,7 +43,7 @@ app.use(require("./routes/index.js"));
 
 // app.listen(5000, () => console.log("WUBBA LUBBA DUB DUB. Running on port 5000"));
 
-app.set('port', process.env.PORT || 3001)
+app.set('port', process.env.PORT || 3000)
 
 app.listen(app.get('port'), () => {
   console.log(`✅ PORT: ${app.get('port')} 🌟`)

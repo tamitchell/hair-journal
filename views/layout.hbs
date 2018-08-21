@@ -28,21 +28,6 @@
       {{{ body }}}
     </main>
 
-           <nav>
-        <div class="nav-wrapper">
-          <ul>
-          {{#if currentUser}}
-            <li><a href="/">Home</a></li>
-            <li><a href="/user/profile/{{currentUser.id}}">Profile</a></li>
-            <li><a href="/user/logout">Log Out</a></li>
-          {{else}}
-            <li><a href="/user/login">Log In</a></li>
-            <li><a href="/">Home</a></li>
-            <li><a href="/user/sign-up">Sign Up</a></li>
-          {{/if}}
-          </ul>
-        </div>
-      </nav>
          <script type="text/javascript" src="/js/materialize.min.js"></script>
       <script>  
         M.AutoInit();

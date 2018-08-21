@@ -2,6 +2,20 @@
 @import url("https://fonts.googleapis.com/css?family=Signika:400,600");
 body {
   background-color: #FCD337;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
 }
 
 h4 {
@@ -56,13 +70,26 @@ nav {
 }
 
 nav .nav-wrapper {
-  width: 50%;
+  width: 100%;
   max-width: 1000px;
   margin: 0 auto;
 }
 
 ul {
   width: 100%;
+  display: -webkit-box;
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -ms-flex-flow: row wrap;
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+          align-items: center;
 }
 
 ul li {
@@ -78,6 +105,73 @@ ul li a {
   color: #fff;
   font: 1em "Montserrat", sans-serif;
   padding: 1em;
+}
+
+ul .nav-item {
+  width: 30%;
+}
+
+.jumbotron {
+  background-color: white;
+  padding: 3em;
+  display: -webkit-box;
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -ms-flex-flow: row wrap;
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.jumbotron .jumbo-content {
+  width: 50%;
+  max-width: 500px;
+}
+
+.jumbotron .jumbo-content h4 {
+  color: black;
+}
+
+.jumbotron .jumbo-content p {
+  text-align: center;
+}
+
+.why-use-it {
+  max-height: 500px;
+  overflow: hidden;
+}
+
+.why-use-it .row {
+  background-color: white;
+}
+
+.why-use-it .row .left-img {
+  margin: 0;
+  padding: 0;
+}
+
+.why-use-it .row .left-img img {
+  width: 100%;
+}
+
+.why-use-it .row .right-content {
+  padding: 2em;
+}
+
+.why-use-it .row .right-content h4 {
+  text-align: left;
+  color: black;
+}
+
+.developer img {
+  width: 30%;
+  border-radius: 100%;
 }
 
 .container {
