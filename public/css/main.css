@@ -62,6 +62,76 @@ header h4 {
   font-size: 1.5em;
 }
 
+.parallax-container {
+  display: -webkit-box;
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -ms-flex-flow: row wrap;
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.parallax-container .homepage {
+  border: 2px solid white;
+  width: 40vw;
+  height: 40vw;
+  min-width: 300px;
+  min-height: 300px;
+  max-width: 450px;
+  max-height: 450px;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  -ms-flex-flow: row wrap;
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: stretch;
+  align-content: stretch;
+  -ms-flex-align: center;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.parallax-container .homepage .title-font {
+  line-height: 0;
+  color: white;
+  font-size: 3.2vw;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+.parallax-container .homepage h5 {
+  line-height: 0;
+  padding: 0;
+  text-transform: uppercase;
+  color: white;
+  font-size: 2vw;
+  opacity: 0.5;
+}
+
+.site-divider-type1 {
+  margin: 0;
+  padding: 0;
+  border: none;
+  height: 5px;
+  background-color: #91664D;
+}
+
 nav {
   background: none;
   -webkit-box-shadow: none;
@@ -148,7 +218,7 @@ ul .nav-item {
 }
 
 .why-use-it .row {
-  background-color: white;
+  background-color: #FCD337;
 }
 
 .why-use-it .row .left-img {
@@ -162,11 +232,16 @@ ul .nav-item {
 
 .why-use-it .row .right-content {
   padding: 2em;
+  color: white;
 }
 
 .why-use-it .row .right-content h4 {
   text-align: left;
-  color: black;
+}
+
+.why-use-it .row .right-content button a {
+  text-decoration: none;
+  color: white;
 }
 
 .developer img {
