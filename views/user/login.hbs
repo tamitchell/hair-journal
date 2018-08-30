@@ -1,16 +1,14 @@
 
-   <header class="site-header">
-            <div class="entire-logo">
-              <img src="/img/sphere.png" class="site-logo" alt="Growthsphere logo">
-            <h2>Growthsphere</h2>
-            </div>
-            
-           <h4>Develop Your Own Regimens with Style!</h4>
-    </header>
+    <div class="section no-pad-bot login-logo">
+    <div class="container homepage">
+      <h1 class="header align-middle center title-font">Growthsphere </h1>
+      <div class="row center">
+        <h5 class="header col s12">Dream | Plan | Grow</h5>
+      </div>
+    </div>
 
-<section class="row">
-  {{!-- <h4>Log In:</h4> --}}
-  
+
+<section class="row">  
   {{#if message}}
   <div class="alert alert-danger">{{message}}</div>
 {{/if}}
@@ -22,8 +20,10 @@
     <p class="input-field">
       <input type="password" name="password" placeholder="Password">
     </p>
-    <p class="input-field">
+    <p class="input-field form-button">
       <input type="submit" value="Log In" class="btn waves-effect waves-light">
+              <button type="button" class="btn align-middle"><a href="/user/sign-up">Sign Up</a></button>
+
     </p>
   </form>
 </section>

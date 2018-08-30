@@ -14,6 +14,7 @@ $hairtype: #FFFFFF;
 $hairlength: #388F53;
 $hairdensity: #C04B23;
 $hairporosity: #BF792F;
+$button-color: #ff5252;
 $card-shadow:0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
 
 @mixin background-setup {
@@ -47,12 +48,17 @@ $card-shadow:0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0
   align-items: center;
 }
 
- 
+@mixin site-logo {
+  .homepage {
+    border: 1px solid white;
+  }
+}
+
 body {
   background-color: $background;
   display: flex;
-     min-height: 100vh;
-     flex-direction: column;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 main {
@@ -65,67 +71,19 @@ h4 {
     font: 2em $titular-font;
 }
 
-header{
-    padding: 3em 5em 1em 5em;
-    .entire-logo{
-        position: relative;
-        animation: float 3s ease-in-out infinite;
-        margin-bottom: 1em;
-        .site-logo {
-            display:block;
-            margin: 0 auto; 
-            width:20%;
-          }
-          h2 {
-              font: 3em $logo-font;
-              position: absolute;
-              top: 35%;
-              left: 50%;
-              transform-origin: 10% -10px;
-              transform: rotate(-20deg) skew(-15deg) translate(-50%,-50%);
-          }
-    }
-     h2, h4, {
-        color:white;
-        text-align: center;
-      }
-      h4{
-          margin-top: 1em;
-          font-size: 1.5em;
-      }
-    
-  }
+#hero-img {
+  height: 100vh;
+  width: 100vw;
+}
+
 .parallax-container{
-  @include flex();
-  .homepage{
-    border: 2px solid white;
-    width: 40vw;
-    height: 40vw;
-    min-width: 300px;
-    min-height: 300px;
-    max-width: 450px;
-    max-height: 450px;
-    border-radius: 50%;
-    @include flex();
-    flex-flow: column nowrap;
-    .title-font {
-      line-height: 0;
-      color: $title-font-color;
-      font-size: 3.2vw;
-      font-family: $titular-font;
-      font-weight: 100;
-      text-transform: uppercase;
-    }
-    h5{
-      line-height: 0;
-      padding:0;
-      text-transform: uppercase;
-      color: $title-font-color;
-      font-size: 2vw;
-      opacity: 0.5;
-    }
-  }  
+  @include flex(); 
 }  
+
+.login-logo{
+  margin: 4em;
+  @include site-logo();
+}
 
 .site-divider-type1 {
   margin: 0;
@@ -188,34 +146,47 @@ header{
 }
 }
 
-.why-use-it {
+.form-button{
+  @include flex();
+  button{
+    margin: 1em;
+  }
+  a {
+    color: white;
+  }
+}
+
+.why-use-container {
   max-height: 500px;
   overflow: hidden;
-
- .row {
-   background-color: $background;
-   .left-img{
+  .card{
     margin: 0;
     padding: 0;
-    img{
+    box-shadow:none;
+    border: none;
+    border-radius: none;
+    .why-use-img{
       width: 100%;
+      position:relative;
+      min-height: 500px;
+      background-color: $background;
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
-   }
-   .right-content{
-     padding: 2em;
-     color:white;
-      h4{
-        text-align: left;
+    .btn {
+      margin-top: 2em;
+      background-color: $background;
+      a{
+        color: black;
       }
-      button{
-        a{
-          text-decoration: none;
-          color:white;
-        }
-      }
-   }
- 
- }
+    }
+  }
+  h4 {
+    color: black;
+    text-align: left;
+  }
 }
 
 .developer {
@@ -248,7 +219,7 @@ header{
 
 .login {
     display:block;
-            margin: 0 auto; 
+    margin: 0 auto; 
     padding: 2em;
     width: 50%;
     input[type=password], input[type=text] {
@@ -260,29 +231,40 @@ header{
 
  .row {
    .profile-container{
-    @include flex();
     background-image: url('/img/profile_background.jpg');
     @include background-setup();
      text-align: center;
-     padding: 2em;
      height: 40%;
      width: 100%;
-     .profile{
-      width: 60%;
+     margin: 0;
+     padding: 0;
+      .profile-header{
+        margin-top: 2em;
+      width: 100%;
       color: white;
-      .stats{
+     }
+     .stats{
+       background-color: $background;
+      .statbox-container{
         @include flex();
-        flex-flow: column wrap;
-        width: 100%;
+        flex-flow: row wrap;
         .statbox{
-          flex: 1;
-          margin: 0.5em;
-          height: 9em;
-          width: 9em;
+          margin: 1em;
+          height: 13vh;
+          min-height: 7em;
+          min-width: 9em;
+          max-width: 15vw;
           vertical-align: middle;
-          line-height: 9em;  
+          line-height: 7em;  
           font-family: $card-font;
           letter-spacing: 1px;
+          position: relative;
+          .stat-label {
+            text-transform: lowercase;
+            opacity: 0.3;
+            position: absolute;
+            top: -50%;
+          }
         }
         .hairtype{
           background-color:$hairtype;
@@ -302,10 +284,11 @@ header{
           background-color: $hairporosity;
         }
       }
-     }
+    }
    }
+   
    .regimen-container{
-     border: 2px solid blue;
+     @include flex();
      width:100%;
      height:auto;
      max-height: 100%;
@@ -317,7 +300,6 @@ header{
       width: 70em;
       .accordion-header{
         font-family: $card-font;
-        font-style: oblique;
         height: 10em;
       }
       .accordion-body{
@@ -410,4 +392,8 @@ header{
     100%{transform: translatey(0px);}
   }
 
-  
+  @media (max-width: 575.98px) {
+    .login {
+      width:100%;
+    }
+  }

@@ -2,14 +2,14 @@
 
 <section class="row col s6 container createStats">
 {{#if currentUser}}
-  <div class="stat-card card horizontal">
-  <div class="card-image stat-card-img hide-on-med-and-down">
+  <div class="card horizontal">
+  <div class="card-image hide-on-med-and-down">
     <img src="/img/stats_green_img.jpeg" alt="Carefree black boy" class="hoverZoomLink">
   </div>
   <div class="right-content">
         <h4 class="card-title">Hi {{currentUser.local.username}}, what's your Stats?</h4>
    
-    <div class="stat-card card-content">
+    <div class="card-content">
       
       <form action="/profile/{{currentUser.id}}/stats/create" method="POST" class="auth-form">
         <label for="hairtype">Hair Types</label>

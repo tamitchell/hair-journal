@@ -4,34 +4,46 @@
   <div class="col s12 m12 l12 profile-container">
     <!-- Profile sidebar goes here -->
 
-    <section class="profile">
+    <section class="profile-header col s12 m12 l12">
 
 
       <img src="/img/profile_pic.png" alt="Your profile picture" class="circle">
       <h2>{{user.local.username}}</h2>
 
+    </section>
 
+    <section class="container-fluid">
       {{#if user.hairstats}}
-      <div class="container stats">
+      <div class=" col s12 m12 l12 stats">
         {{#each user.hairstats}}
 
 
-        <div class="row">
-          <div class="col card-panel statbox hairtype">
+        <div class="row statbox-container">
+          <div class="col s3 m3 l3 card-panel statbox hairtype">
+            <p class="stat-label">type</p>
             {{> stat this.hairtype}}
           </div>
-          <div class="col card-panel statbox hairlength">
+          <div class="col s3 m3 l3 card-panel statbox hairlength">
+            <p class="stat-label">length</p>
             {{> stat this.hairlength}}
           </div>
+          <div class="col s3 m3 l3 card-panel statbox hairdensity">
+            <p class="stat-label">density</p>
+            {{> stat this.hairdensity}}
+          </div>
+          <div class="col s3 m3 l3 card-panel statbox hairporosity">
+            <p class="stat-label">porosity</p>
+            {{> stat this.hairporosity}}
+          </div>
         </div>
-        <div class="row">
+        {{!-- <div class="row">
           <div class="col card-panel statbox hairdensity">
             {{> stat this.hairdensity}}
           </div>
           <div class="col card-panel statbox hairporosity">
             {{> stat this.hairporosity}}
           </div>
-        </div>
+        </div> --}}
 
         {{/each}}
 
@@ -81,9 +93,9 @@
 
       <ul class="collapsible regimen-accordion" data-collapsible="accordion">
     <li>
-      <div class="collapsible-header">
+      <div class="collapsible-header accordion-header">
         
-          <p>{{> regimen this.regimentitle}}</p>
+          <h6>{{> regimen this.regimentitle}}</h6>
           <p>{{> regimen this.purpose}}</p>
           
           <button type="button" name="button"><a href="/profile/{{>regimen this.author}}/regimen/edit">Edit</a></button>

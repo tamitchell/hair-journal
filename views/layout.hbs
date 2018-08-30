@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Growthsphere</title>
-    {{!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> --}}
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Growthsphere</title>
+  {{!--
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> --}}
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
   <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="/css/materialize.css"  media="screen,projection"/>
+  <link type="text/css" rel="stylesheet" href="/css/materialize.css" media="screen,projection" />
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
 
+</head>
 
-   <link rel="stylesheet" type="text/css" href="/css/main.css">
-  </head>
-  <body>
-     {{!-- <header class="site-header">
-            <div class="entire-logo">
-              <img src="/img/sphere.png" class="site-logo" alt="Growthsphere logo">
-            <h2>Growthsphere</h2>
-            </div>
-            
-           <h4>Develop Your Own Regimens with Style!</h4>
-    </header> --}}
-    <main class="container-fluid">
-      {{{ body }}}
-    </main>
+<body>
 
-         <script type="text/javascript" src="/js/materialize.min.js"></script>
-      <script>  
-        M.AutoInit();
-      </script>
-  </body>
+  <main class="container-fluid">
+    {{{ body }}}
+  </main>
+
+  <footer class="page-footer">
+  <div class="footer-copyright">
+    <div class="container">
+      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+    </div>
+  </div>
+</footer>
+
+  <script type="text/javascript" src="/js/materialize.min.js"></script>
+  <script>  
+    M.AutoInit();
+  resizetop()
+  </script>
+</body>
+
 </html>
