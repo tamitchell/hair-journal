@@ -48,9 +48,36 @@ $card-shadow:0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0
   align-items: center;
 }
 
+@mixin header-style {
+  text-transform: uppercase;
+  font-weight: 100;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
 @mixin site-logo {
   .homepage {
     border: 1px solid white;
+    border-radius: 100%;
+    max-width: 500px;
+    max-height: 500px;
+    width: 50vw;
+    height: 50vw;
+    min-width: 250px;
+    min-height: 250px;
+    margin-top: 5vw;
+    margin-bottom: 5vw;
+    color: white;
+    padding: 13vw 0;
+    h1{
+      @include header-style();
+      font-size: 6vmin;
+    }
+    h5{
+      margin-top: -1em;
+      @include header-style();
+      font-size: 2vh;
+    }
   }
 }
 
@@ -77,7 +104,7 @@ h4 {
 }
 
 .parallax-container{
-  @include flex(); 
+  @include site-logo();
 }  
 
 .login-logo{

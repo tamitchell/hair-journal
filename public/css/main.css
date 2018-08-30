@@ -29,20 +29,36 @@ h4 {
   width: 100vw;
 }
 
-.parallax-container {
-  display: -webkit-box;
-  display: flex;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  -ms-flex-flow: row wrap;
-  -ms-flex-pack: center;
-  -webkit-box-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: stretch;
-  align-content: stretch;
-  -ms-flex-align: center;
-  -webkit-box-align: center;
-          align-items: center;
+.parallax-container .homepage {
+  border: 1px solid white;
+  border-radius: 100%;
+  max-width: 500px;
+  max-height: 500px;
+  width: 50vw;
+  height: 50vw;
+  min-width: 250px;
+  min-height: 250px;
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+  color: white;
+  padding: 13vw 0;
+}
+
+.parallax-container .homepage h1 {
+  text-transform: uppercase;
+  font-weight: 100;
+  letter-spacing: 2px;
+  text-align: center;
+  font-size: 6vmin;
+}
+
+.parallax-container .homepage h5 {
+  margin-top: -1em;
+  text-transform: uppercase;
+  font-weight: 100;
+  letter-spacing: 2px;
+  text-align: center;
+  font-size: 2vh;
 }
 
 .login-logo {
@@ -51,6 +67,34 @@ h4 {
 
 .login-logo .homepage {
   border: 1px solid white;
+  border-radius: 100%;
+  max-width: 500px;
+  max-height: 500px;
+  width: 50vw;
+  height: 50vw;
+  min-width: 250px;
+  min-height: 250px;
+  margin-top: 5vw;
+  margin-bottom: 5vw;
+  color: white;
+  padding: 13vw 0;
+}
+
+.login-logo .homepage h1 {
+  text-transform: uppercase;
+  font-weight: 100;
+  letter-spacing: 2px;
+  text-align: center;
+  font-size: 6vmin;
+}
+
+.login-logo .homepage h5 {
+  margin-top: -1em;
+  text-transform: uppercase;
+  font-weight: 100;
+  letter-spacing: 2px;
+  text-align: center;
+  font-size: 2vh;
 }
 
 .site-divider-type1 {
