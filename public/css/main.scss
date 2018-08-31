@@ -59,19 +59,19 @@ $card-shadow:0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0
   .homepage {
     border: 1px solid white;
     border-radius: 100%;
-    max-width: 500px;
-    max-height: 500px;
+    max-width: 350px;
+    max-height: 350px;
     width: 50vw;
     height: 50vw;
     min-width: 250px;
     min-height: 250px;
     margin-top: 5vw;
-    margin-bottom: 5vw;
+    margin-bottom: 1vw;
     color: white;
-    padding: 13vw 0;
+    padding: 13vh 0;
     h1{
       @include header-style();
-      font-size: 6vmin;
+      font-size: 5vmin;
     }
     h5{
       margin-top: -1em;
@@ -177,6 +177,9 @@ h4 {
   @include flex();
   button{
     margin: 1em;
+    overflow: hidden;
+    // width: 5vw;
+    // min-width: 10vw;
   }
   a {
     color: white;
@@ -244,17 +247,36 @@ h4 {
   }
 }
 
-.login {
-    display:block;
-    margin: 0 auto; 
-    padding: 2em;
-    width: 50%;
-    input[type=password], input[type=text] {
-      padding: 0.5em;
-      background-color: white;
-      box-shadow: $card-shadow;
+.slider{
+  z-index: 0;
+}
+
+.carousel-fixed-item{
+  position: absolute;
+  top: -7%;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  z-index: 1;
+  .login-container {
+    // z-index: inherit;
+    // position:absolute;
+    // top: 50%;
+    // left: -50%;
+    // transform: translate(-50%,-50%);
+    .login {
+      display:block;
+      margin: 0 auto; 
+      padding: 2em;
+      width: 50%;
+      input[type=password], input[type=text] {
+        padding: 0.5em;
+        background-color: white;
+        box-shadow: $card-shadow;
+      }
     }
   }
+}
 
  .row {
    .profile-container{

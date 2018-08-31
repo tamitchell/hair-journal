@@ -32,16 +32,16 @@ h4 {
 .parallax-container .homepage {
   border: 1px solid white;
   border-radius: 100%;
-  max-width: 500px;
-  max-height: 500px;
+  max-width: 350px;
+  max-height: 350px;
   width: 50vw;
   height: 50vw;
   min-width: 250px;
   min-height: 250px;
   margin-top: 5vw;
-  margin-bottom: 5vw;
+  margin-bottom: 1vw;
   color: white;
-  padding: 13vw 0;
+  padding: 13vh 0;
 }
 
 .parallax-container .homepage h1 {
@@ -49,7 +49,7 @@ h4 {
   font-weight: 100;
   letter-spacing: 2px;
   text-align: center;
-  font-size: 6vmin;
+  font-size: 5vmin;
 }
 
 .parallax-container .homepage h5 {
@@ -68,16 +68,16 @@ h4 {
 .login-logo .homepage {
   border: 1px solid white;
   border-radius: 100%;
-  max-width: 500px;
-  max-height: 500px;
+  max-width: 350px;
+  max-height: 350px;
   width: 50vw;
   height: 50vw;
   min-width: 250px;
   min-height: 250px;
   margin-top: 5vw;
-  margin-bottom: 5vw;
+  margin-bottom: 1vw;
   color: white;
-  padding: 13vw 0;
+  padding: 13vh 0;
 }
 
 .login-logo .homepage h1 {
@@ -85,7 +85,7 @@ h4 {
   font-weight: 100;
   letter-spacing: 2px;
   text-align: center;
-  font-size: 6vmin;
+  font-size: 5vmin;
 }
 
 .login-logo .homepage h5 {
@@ -203,6 +203,7 @@ ul .nav-item {
 
 .form-button button {
   margin: 1em;
+  overflow: hidden;
 }
 
 .form-button a {
@@ -284,14 +285,27 @@ ul .nav-item {
   margin: 0;
 }
 
-.login {
+.slider {
+  z-index: 0;
+}
+
+.carousel-fixed-item {
+  position: absolute;
+  top: -7%;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+  z-index: 1;
+}
+
+.carousel-fixed-item .login-container .login {
   display: block;
   margin: 0 auto;
   padding: 2em;
   width: 50%;
 }
 
-.login input[type=password], .login input[type=text] {
+.carousel-fixed-item .login-container .login input[type=password], .carousel-fixed-item .login-container .login input[type=text] {
   padding: 0.5em;
   background-color: white;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);

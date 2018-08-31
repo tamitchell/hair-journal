@@ -1,29 +1,51 @@
+   <div class="caption carousel-fixed-item center-align">
 
-    <div class="section no-pad-bot login-logo">
-    <div class="container homepage">
-      <h1 class="header align-middle center title-font">Growthsphere </h1>
-      <div class="row center">
-        <h5 class="header col s12">Dream | Plan | Grow</h5>
-      </div>
-    </div>
+        <section class="row login-container">
+          <div class="section no-pad-bot login-logo">
+            <div class="container homepage">
+              <h1 class="header align-middle center title-font">Growthsphere </h1>
+              <div class="row center">
+                <h5 class="header col s12">Dream | Plan | Grow</h5>
+              </div>
+            </div>
 
+            {{#if message}}
+            <div class="alert alert-danger">{{message}}</div>
+            {{/if}}
 
-<section class="row">  
-  {{#if message}}
-  <div class="alert alert-danger">{{message}}</div>
-{{/if}}
+            <form action="" method="POST" class="auth-form login">
+              <p class="input-field">
+                <input type="text" name="username" placeholder="username">
+              </p>
+              <p class="input-field">
+                <input type="password" name="password" placeholder="Password">
+              </p>
+              <p class="input-field form-button">
+                <input type="submit" value="Log In" class="btn waves-effect waves-light">
+                <button type="button" class="btn align-middle"><a href="/user/sign-up">Sign Up</a></button>
 
-  <form action="" method="POST" class="auth-form login">
-    <p class="input-field">
-      <input type="text" name="username" placeholder="username">
-    </p>
-    <p class="input-field">
-      <input type="password" name="password" placeholder="Password">
-    </p>
-    <p class="input-field form-button">
-      <input type="submit" value="Log In" class="btn waves-effect waves-light">
-              <button type="button" class="btn align-middle"><a href="/user/sign-up">Sign Up</a></button>
+              </p>
+            </form>
+        </section>
+        </div>
 
-    </p>
-  </form>
-</section>
+<div class="slider fullscreen">
+  <ul class="slides">
+    <li>
+      <img src="/img/slide4.gif"> <!-- random image -->
+    </li>
+    <li>
+      <img src="/img/slide3.gif"> <!-- random image -->
+    </li>
+     <li>
+      <img src="/img/slide1.gif"> <!-- random image -->
+    </li>
+     <li>
+      <img src="/img/slide5.gif"> <!-- random image -->
+    </li>
+  </ul>
+</div>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script>if (!window.jQuery) { document.write('<script src="bin/jquery-2.1.1.min.js"><\/script>'); }
+    </script>
