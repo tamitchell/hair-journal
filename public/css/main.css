@@ -38,7 +38,7 @@ h4 {
   height: 50vw;
   min-width: 250px;
   min-height: 250px;
-  margin-top: 5vw;
+  margin-top: 3vw;
   margin-bottom: 4vh;
   color: white;
   padding: 12vh 0;
@@ -74,7 +74,7 @@ h4 {
   height: 50vw;
   min-width: 250px;
   min-height: 250px;
-  margin-top: 5vw;
+  margin-top: 3vw;
   margin-bottom: 4vh;
   color: white;
   padding: 12vh 0;
@@ -279,7 +279,7 @@ ul .nav-item {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background-image: url("/img/create_acct.jpg");
+  background-image: url("/img/create_acct.png");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
