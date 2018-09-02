@@ -24,21 +24,25 @@
   </main>
 
   <footer class="page-footer">
-  <div class="footer-copyright">
-    <div class="container">
-      Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+    <div class="footer-copyright">
+      <div class="container">
+        Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
   <script type="text/javascript" src="/js/materialize.min.js"></script>
   <script>  
     M.AutoInit();
-   $(document).ready(function(){
+    $(document).ready(function () {
       $('.slider').slider();
     });
-        
-    
+
+    function formatDate(date) {
+      let newdate = date.getMonth() + '/' + date.getDay() + '/' + date.getFullYear()
+      return newdate
+    }
+
   </script>
 </body>
 

@@ -16,12 +16,14 @@
 
   <form action="" method="POST" class="auth-form">
     <p class="input-field">
-      <input type="text" name="username" placeholder="Username">
+       <label for="username">Username</label>
+      <input type="text" name="username" id="username" placeholder="Username">
     </p>
      {{#if message}}
   <div class="alert alert-danger">{{message}}</div>
 {{/if}}
     <p class="input-field">
+       <label for="password">Password</label>
       <input type="password" name="password" placeholder="Password">
     </p>
     <p class="input-field">

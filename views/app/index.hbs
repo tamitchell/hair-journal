@@ -1,62 +1,88 @@
 <div id="hero-img" class="parallax-container">
- 
+
   <div class="section no-pad-bot">
     <div class="container homepage">
       <h1 class="header center">Growthsphere </h1>
-        <h5 class="header col s12">Dream | Plan | Grow</h5>
+      <h5 class="header col s12">Dream | Plan | Grow</h5>
     </div>
-    </div>
-
-
-    <nav>
-      <div class="nav-wrapper">
-        <ul>
-          {{#if currentUser}}
-          <li class="nav-item"><a href="/">Home</a></li>
-          <li class="nav-item"><a href="/user/profile/{{currentUser.id}}">Profile</a></li>
-          <li class="nav-item"><a href="/user/logout">Log Out</a></li>
-          {{else}}
-          <li class="nav-item"><a href="/user/login">Log In</a></li>
-          <li class="nav-item"><a href="/">Home</a></li>
-          <li class="nav-item"><a href="/user/sign-up">Sign Up</a></li>
-          {{/if}}
-        </ul>
-      </div>
-    </nav>
- 
-   <div class="parallax"><img src="/img/yellow_natualhair_girl.jpg" alt="Brown skin girl with natural hair"></div>
-
   </div>
+
+
+  <nav>
+    <div class="nav-wrapper">
+      <ul>
+        {{#if currentUser}}
+        <li class="nav-item"><a href="/">Home</a></li>
+        <li class="nav-item"><a href="/user/profile/{{currentUser.id}}">Profile</a></li>
+        <li class="nav-item"><a href="/user/logout">Log Out</a></li>
+        {{else}}
+        <li class="nav-item"><a href="/user/login">Log In</a></li>
+        <li class="nav-item"><a href="/">Home</a></li>
+        <li class="nav-item"><a href="/user/sign-up">Sign Up</a></li>
+        {{/if}}
+      </ul>
+    </div>
+  </nav>
+
+  <div class="parallax"><img src="/img/yellow_natualhair_girl.jpg" alt="Brown skin girl with natural hair"></div>
+
+</div>
+
+
+  <h4>Latest Regimens</h4>
 
 {{#if currentUser}}
 
-<div class="container">
+<div class="container-fluid row home-regimen-container">
 
-  View regimens made by all users... Coming Soon!
-  
-{{!-- 
-{{#if regimen}}
+  {{#if regimen}} {{#each regimen}}
 
-  {{#each regimen}} 
-
-   <ul class="collapsible">
+  <ul class="collapsible col s12 m6 l3 regimen-accordion" data-collapsible="accordion">
     <li>
-      <div class="collapsible-header">
-          {{> 'regimen'}} 
-
+      <div class="collapsible-header row accordion-header">
+        <div class="text-container col">
+          <h6>{{> regimen this.regimentitle}}</h6>
+          <p>{{> regimen this.purpose}}</p>
+          <p>created by {{> regimen this.author.local.username}}</p>
         </div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        <div class="img-container col">
+          <div class="img-frame center-align">
+          </div>
+        </div>
+
+      </div>
+      <div class="collapsible-body accordion-body">
+        <span>
+          <h6>How do you keep your hair moisturized?</h6>
+          <p>{{> regimen this.moisturizing}}</p>
+          <h6>How do you detangle your hair?</h6>
+          <p>{{> regimen this.detangling}}</p>
+          <h6>How often do you wash your hair?</h6>
+          <p>{{> regimen this.washing}}</p>
+          <h6>Describe your typical washday routine:</h6>
+          <p class="big-paragraph"></p>
+          <h6>What kind of styles do you prefer?</h6>
+          <p class="big-paragraph">{{> regimen this.styling}}</p>
+          <h6>How often do you trim?</h6>
+          <p>{{> regimen this.trimming}}</p>
+          <h6>Any particular product favorites?</h6>
+          <p class="big-paragraph">{{> regimen this.products}}</p>
+          <h6>Additional Notes</h6>
+            <p class="big-paragraph">{{> regimen this.additionalNotes}}</p>
+        </span>
+      </div>
     </li>
-  
-  {{/each}}
-{{/if}} --}}
+
+  </ul>
+
+  {{/each}} {{/if}}
 
 
 
 </div>
 
 
- {{else}}
+{{else}}
 <div class="container-fluid jumbotron">
   <div class="section">
 
@@ -101,14 +127,14 @@
       <div class="card-content">
         <h4>La di da Di</h4>
         <p class="left-align">
-           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique
-        arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra
-        ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin
-        diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida
-        ultrices erat.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique
+          arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra
+          ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin
+          diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac,
+          gravida ultrices erat.
         </p>
-        <button type="button" class="btn"><a href="#">Learn More</a></button> 
-        </div>
+        <button type="button" class="btn"><a href="#">Learn More</a></button>
+      </div>
     </div>
     <div class="card-image why-use-img hide-on-small-only">
       <img src="/img/yellow_naturalhair_boy.jpg">
@@ -188,7 +214,7 @@
   <div class="parallax"><img src="/img/lit.jpg" alt="Carefree black boy laying in a bed of blue flowers"></div>
 </div>
 
-          {{/if}}
+{{/if}}
 
 
 <div class="container-fluid white">

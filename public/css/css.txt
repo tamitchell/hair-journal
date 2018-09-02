@@ -1,0 +1,4 @@
+<button type="button" name="button"><a href="/profile/{{>regimen this.author}}/regimen/edit">Edit</a></button>
+            <form action="/profile/regimen/{{>regimen this.id}}?_method=DELETE" method="POST">
+              <button type="submit" name="button">Delete</button>
+            </form>

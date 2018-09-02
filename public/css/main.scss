@@ -1,21 +1,22 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Pacifico');
-@import url('https://fonts.googleapis.com/css?family=Signika:400,600');
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Pacifico");
+@import url("https://fonts.googleapis.com/css?family=Signika:400,600");
 
-$background: #FCD337;
-$card-font: 'Signika', sans-serif;
-$logo-font: 'Pacifico', cursive;
-$titular-font: 'Montserrat', sans-serif;
+$background: #fcd337;
+$card-font: "Signika", sans-serif;
+$logo-font: "Pacifico", cursive;
+$titular-font: "Montserrat", sans-serif;
 $title-font-color: white;
 $profile-background: white;
 $regimen-background: rgba(219, 219, 219, 0.7);
-$form-color: #9D9D9D;
+$form-color: #9d9d9d;
 $regimen-form: white;
-$hairtype: #FFFFFF;
-$hairlength: #388F53;
-$hairdensity: #C04B23;
-$hairporosity: #BF792F;
+$hairtype: #ffffff;
+$hairlength: #388f53;
+$hairdensity: #c04b23;
+$hairporosity: #bf792f;
 $button-color: #ff5252;
-$card-shadow:0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+$card-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+  0 1px 5px 0 rgba(0, 0, 0, 0.12);
 
 @mixin background-setup {
   background-position: center;
@@ -67,18 +68,95 @@ $card-shadow:0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0
     height: 50vw;
     min-width: 250px;
     min-height: 250px;
-    margin-top: 2vw;
-    margin-bottom: 1vw;
+    margin-top: 5vw;
+    margin-bottom: 4vh;
     color: white;
-    padding: 13vh 0;
-    h1{
+    padding: 12vh 0;
+    h1 {
       @include header-style();
       font-size: 5vmin;
     }
-    h5{
+    h5 {
       margin-top: -1em;
       @include header-style();
       font-size: 2vh;
+    }
+  }
+}
+
+@mixin showregimen {
+  .regimen-accordion {
+    box-shadow: none;
+    width: 30%;
+    border: none;
+    li {
+      padding: 0;
+      width: 100%;
+      min-width: 15em;
+    }
+    .accordion-header {
+      font-family: $card-font;
+      text-align: left;
+      height: 15em;
+      .text-container {
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        h6 {
+          font-size: 2.5vh;
+          margin: 0;
+          padding-bottom: 1em;
+          width: 100%;
+        }
+        p {
+          height: 7em;
+          max-height: 7em;
+          overflow: scroll;
+          margin: 0;
+          width: 100%;
+        }
+      }
+      .img-container {
+        width: 50%;
+        height: 100%;
+        padding: 1em;
+        // overflow: hidden;
+        .img-frame {
+          border-radius: 100%;
+          width: 9vw;
+          height: 9vw;
+          min-width: 8em;
+          min-height: 8em;
+          overflow: hidden;
+        }
+        img {
+          width: 100%;
+        }
+        .button-container{
+          float: right;
+          form{
+            float: right;
+            padding-left: 1em;
+          }
+        }
+      }
+    }
+
+    .accordion-body {
+      text-align: left;
+      max-height: auto;
+      height: auto;
+      background-color: $profile-background;
+      h6 {
+        color: darkred;
+      }
+      .big-paragraph {
+        height: 7em;
+        max-height: 7em;
+        overflow: scroll;
+      }
     }
   }
 }
@@ -95,9 +173,9 @@ main {
 }
 
 h4 {
-    text-align: center;
-    color: white;
-    font: 2em $titular-font;
+  text-align: center;
+  color: white;
+  font: 2em $titular-font;
 }
 
 #hero-img {
@@ -105,101 +183,86 @@ h4 {
   width: 100vw;
 }
 
-.parallax-container{
+.parallax-container {
   @include site-logo();
-}  
+}
 
-.login-logo{
+.login-logo {
   margin: 4em;
   @include site-logo();
 }
 
-.site-divider-type1 {
-  margin: 0;
-  padding: 0;
-  border: none;
-  height: 5px;
-  background-color: #91664D;
+nav {
+  background: none;
+  box-shadow: none;
+  background-color: none;
+  .nav-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
 }
-  
-  
-    nav{
-      background: none;
-      box-shadow: none;
-      background-color: none;
-      .nav-wrapper {
-        width: 100%;
-        max-width: 1000px;
-        margin: 0 auto;
-      }
-    }
-  
-   
 
-    ul {
-      width: 100%;
-      @include flex();
-      li {
-        text-align: center;
-        width: 45%;
-        background-color: #FF6363;
-        box-shadow: $card-shadow;
-        margin: 0.5em 0.3em;
-        a {
-            color:#fff;
-            font: 1em $titular-font;
-            padding: 1em;
-        
-          }
-       
-      }
-      .nav-item {
-        width: 30%;
-      }
+ul {
+  width: 100%;
+  @include flex();
+  li {
+    text-align: center;
+    width: 45%;
+    background-color: #ff6363;
+    box-shadow: $card-shadow;
+    margin: 0.5em 0.3em;
+    a {
+      color: #fff;
+      font: 1em $titular-font;
+      padding: 1em;
     }
+  }
+  .nav-item {
+    width: 30%;
+  }
+}
 
 .jumbotron {
   background-color: $profile-background;
   padding: 3em;
   @include flex();
-  .jumbo-content{
+  .jumbo-content {
     width: 50%;
     max-width: 500px;
     h4 {
-    color:black;
-  }
-  p {
-    text-align: center;
-
+      color: black;
+    }
+    p {
+      text-align: center;
+    }
   }
 }
-}
 
-.form-button{
+.form-button {
   @include flex();
-  button{
+  button {
     margin: 1em;
     overflow: hidden;
-    // width: 5vw;
-    // min-width: 10vw;
   }
   a {
     color: white;
   }
 }
 
+
 .why-use-container {
   max-height: 500px;
   overflow: hidden;
-  .card{
+  .card {
     margin: 0;
     padding: 0;
-    box-shadow:none;
+    box-shadow: none;
     border: none;
     border-radius: none;
-    .why-use-img{
+    .why-use-img {
       width: 100%;
-      position:relative;
+      position: relative;
       min-height: 500px;
       background-color: $background;
       img {
@@ -210,7 +273,7 @@ h4 {
     .btn {
       margin-top: 2em;
       background-color: $background;
-      a{
+      a {
         color: black;
       }
     }
@@ -222,31 +285,31 @@ h4 {
 }
 
 .developer {
-  img{
+  img {
     width: 30%;
     border-radius: 100%;
   }
 }
 
-
-.slider{
+.slider {
   z-index: 0;
 }
 
-.carousel-fixed-item{
+.carousel-fixed-item {
   position: absolute;
   top: -7%;
   left: 0;
   right: 0;
   bottom: 20px;
   z-index: 1;
-.login-container {
+  .login-container {
     .login {
-      display:block;
-      margin: 0 auto; 
+      display: block;
+      margin: 0 auto;
       padding: 2em;
       width: 50%;
-      input[type=password], input[type=text] {
+      input[type="password"],
+      input[type="text"] {
         padding: 0.5em;
         background-color: white;
         box-shadow: $card-shadow;
@@ -255,59 +318,60 @@ h4 {
   }
 }
 
-.create-acct-container{
+.create-acct-container {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background-image: url('/img/create_acct.png');
+  background-image: url("/img/create_acct.jpg");
   @include background-setup();
   background-size: cover;
-  .createAcc{
-  @include cardbox();
-    h4{
+  .createAcc {
+    @include cardbox();
+    h4 {
       font-size: 1.5em;
       color: #545454;
     }
     .auth-form {
-        padding: 0 4em 0 4em;
-      input[type=password], input[type=email], input[type=text]  {
-          background-color:white;
-          color:#545454;
-          width: 100%;
-          margin: 0;
+      padding: 0 4em 0 4em;
+      input[type="password"],
+      input[type="email"],
+      input[type="text"] {
+        background-color: white;
+        color: #545454;
+        width: 100%;
+        margin: 0;
       }
+    }
   }
-  }
-  
 }
 
- .row {
-   .profile-container{
-    background-image: url('/img/profile_background.jpg');
+.row {
+  .profile-container {
+    background-image: url("/img/profile_background.jpg");
     @include background-setup();
-     text-align: center;
-     height: 40%;
-     width: 100%;
-     margin: 0;
-     padding: 0;
-      .profile-header{
-        margin-top: 2em;
+    text-align: center;
+    height: 40%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    .profile-header {
+      margin-top: 2em;
       width: 100%;
       color: white;
-     }
-     .stats{
-       background-color: $background;
-      .statbox-container{
+    }
+    .stats {
+      background-color: $profile-background;
+      .statbox-container {
         @include flex();
         flex-flow: row wrap;
-        .statbox{
+        .statbox {
           margin: 1em;
           height: 13vh;
           min-height: 7em;
           min-width: 9em;
           max-width: 15vw;
           vertical-align: middle;
-          line-height: 7em;  
+          line-height: 7em;
           font-family: $card-font;
           letter-spacing: 1px;
           position: relative;
@@ -318,93 +382,80 @@ h4 {
             top: -50%;
           }
         }
-        .hairtype{
-          background-color:$hairtype;
-          color:black;
+        .hairtype {
+          background-color: $hairtype;
+          color: black;
         }
-        .hairlength{
-          background-color:$hairlength;
+        .hairlength {
+          background-color: $hairlength;
           text-transform: uppercase;
-          color:white;
+          color: white;
         }
-        .hairdensity{
-          background-color:$hairdensity;
-          color:white;
+        .hairdensity {
+          background-color: $hairdensity;
+          color: white;
         }
-        .hairporosity{
-          color:white;
+        .hairporosity {
+          color: white;
           background-color: $hairporosity;
         }
       }
     }
-   }
-   
-   .regimen-container{
-     @include flex();
-     width:100%;
-     height:auto;
-     max-height: 100%;
-     background-color: $regimen-background;
-     padding: 3em;
-     .regimen-accordion{
-      border: none;
-      box-shadow:none;
-      width: 70em;
-      .accordion-header{
-        font-family: $card-font;
-        height: 10em;
-      }
-      .accordion-body{
-        text-align: left;
-        max-height: auto;
-        height: auto;
-      }
-     }
-  
-   }
- } 
-.statsform-container{
+  }
+  .regimen-container {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    background-color: $regimen-background;
+    @include showregimen();
+  }
+}
+
+.home-regimen-container {
   @include flex();
-  .createStats{
+  flex-flow: row wrap;
+  padding: 20px;
+  @include showregimen();
+}
+
+.statsform-container {
+  @include flex();
+  .createStats {
     @include flex();
     width: 90%;
     margin-top: 4em;
-    h4{
+    h4 {
       text-align: center;
       color: $form-color;
       padding: 2em 2em 0 2em;
     }
-    input[type=submit]{
+    input[type="submit"] {
       margin-top: 1em;
     }
   }
- 
 }
 
-.stats-not-logged{
-  background-image: url('/img/not-logged-in.jpeg');
+.stats-not-logged {
+  background-image: url("/img/not-logged-in.jpeg");
   @include background-setup();
   @include flex();
   padding: 5em;
-  p{
+  p {
     font-family: $titular-font;
     text-align: center;
     padding: 5em;
   }
-
 }
 
- 
- .create-regimen{
-   padding: 2em;
-   width: 80%;
-   .regimen-card{
-
-    .regimen-card-img{
+.create-regimen {
+  padding: 2em;
+  width: 80%;
+  .regimen-card {
+    .regimen-card-img {
       background-position: center center;
       height: 20em;
       overflow: hidden;
-      .regimen-card-title{
+      .regimen-card-title {
         width: 100%;
         height: 100%;
         margin: 0 auto;
@@ -414,38 +465,43 @@ h4 {
         letter-spacing: 3px;
         text-align: center;
         color: white;
-
       }
     }
-    .regimen-form{
+    .regimen-form {
       padding: 2em 3em;
       background-color: $regimen-form;
       color: $form-color;
-      fieldset{
-        border:none;
+      fieldset {
+        border: none;
         padding: 0.8em 0 0.8em 0;
-        legend{
+        legend {
           font-size: 16px;
         }
       }
       label {
         font-size: 16px;
       }
-      textarea{
+      textarea {
         border: none;
       }
-   }
-   }
- }
-  
-  @keyframes float {
-    0% {transform: translatey(0px);}
-    50% {transform: translatey(-20px);}
-    100%{transform: translatey(0px);}
-  }
-
-  @media (max-width: 575.98px) {
-    .login {
-      width:100%;
     }
   }
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+@media (max-width: 575.98px) {
+  .login {
+    width: 100%;
+  }
+}

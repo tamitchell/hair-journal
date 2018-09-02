@@ -36,15 +36,6 @@
             {{> stat this.hairporosity}}
           </div>
         </div>
-        {{!-- <div class="row">
-          <div class="col card-panel statbox hairdensity">
-            {{> stat this.hairdensity}}
-          </div>
-          <div class="col card-panel statbox hairporosity">
-            {{> stat this.hairporosity}}
-          </div>
-        </div> --}}
-
         {{/each}}
 
       </div>
@@ -65,7 +56,7 @@
           {{#if currentUser}}
           <li class="nav-item">
             <a href="/">Home</a>
-            </li>
+          </li>
           <li>
             <a href="/profile/{{currentUser.id}}/stats/edit">adjust stats</a>
           </li>
@@ -91,37 +82,57 @@
 
     {{#if user.regimens}} {{#each user.regimens}}
 
-      <ul class="collapsible regimen-accordion" data-collapsible="accordion">
-    <li>
-      <div class="collapsible-header accordion-header">
-        
-          <h6>{{> regimen this.regimentitle}}</h6>
-          <p>{{> regimen this.purpose}}</p>
-          
-          <button type="button" name="button"><a href="/profile/{{>regimen this.author}}/regimen/edit">Edit</a></button>
-      <form action="/profile/regimen/{{>regimen this.id}}?_method=DELETE" method="POST">
-              <button type="submit" name="button">Delete</button>
-      </form>
+    <ul class="collapsible col s12 m6 l3 regimen-accordion" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header row accordion-header">
+          <div class="text-container col">
+            <h6>{{> regimen this.regimentitle}}</h6>
+            <p>{{> regimen this.purpose}}</p>
+            <p>created by You</p>
+          </div>
+          <div class="img-container col">
+            <div class="img-frame center-align">
+              {{!-- <img src="/img/green_naturalhair_girl.jpg" alt={{> regimen this.regimentitle}} /> --}}
+            </div>
+
+                <div class="button-container">
+                     <a class="btn-floating btn-small waves-effect waves-light red" href="/profile/{{>regimen this.author}}/regimen/edit">
+                <i class="material-icons">edit</i>
+              </a> 
+
+              <form action="/profile/regimen/{{>regimen this.id}}?_method=DELETE" method="POST">
+                <button type="submit" class="btn-floating btn-small waves-effect waves-light cyan">
+                  <i class="material-icons">delete</i>
+                  </button>
+              </form>
+                </div>
+          </div>
 
         </div>
-      <div class="collapsible-body">
-        <p>How do you keep your hair moisturized?</p>
-        <p>{{> regimen this.moisturizing}}</p>
-      <p>How do you detangle your hair?</p>
-        <p>{{> regimen this.detangling}}</p>
-      <p>How often do you wash your hair?</p>
-        <p>{{> regimen this.washing}}</p>
-      <p>What kind of styles do you prefer?</p> 
-        <p>{{> regimen this.styling}}</p>
-      <p>How often do you trim?</p> 
-        <p>{{> regimen this.trimming}}</p>
-      <p>Any particular product favorites?</p> 
-        <p>{{> regimen this.products}}</p>
-      <p>Additional Notes</p> 
-      <p>{{> regimen this.additionalNotes}}</p>
+        <div class="collapsible-body accordion-body">
+          <span>
+            <h6>How do you keep your hair moisturized?</h6>
+            <p>{{> regimen this.moisturizing}}</p>
+            <h6>How do you detangle your hair?</h6>
+            <p>{{> regimen this.detangling}}</p>
+            <h6>How often do you wash your hair?</h6>
+            <p>{{> regimen this.washing}}</p>
+            <h6>Describe your typical washday routine:</h6>
+            <p class="big-paragraph"></p>
+            <h6>What kind of styles do you prefer?</h6>
+            <p class="big-paragraph">{{> regimen this.styling}}</p>
+            <h6>How often do you trim?</h6>
+            <p>{{> regimen this.trimming}}</p>
+            <h6>Any particular product favorites?</h6>
+            <p class="big-paragraph">{{> regimen this.products}}</p>
+            <h6>Additional Notes</h6>
+            <p class="big-paragraph">{{> regimen this.additionalNotes}}</p>
+          </span>
         </div>
-    </li>
-  </ul>
+      </li>
+
+    </ul>
+
 
     {{/each}} {{else}}
     <p>{{user.local.username}} doesn't have any regimens yet...</p>

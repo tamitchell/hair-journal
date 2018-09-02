@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat|Pacifico");
 @import url("https://fonts.googleapis.com/css?family=Signika:400,600");
 body {
-  background-color: #FCD337;
+  background-color: #fcd337;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -38,10 +38,10 @@ h4 {
   height: 50vw;
   min-width: 250px;
   min-height: 250px;
-  margin-top: 2vw;
-  margin-bottom: 1vw;
+  margin-top: 5vw;
+  margin-bottom: 4vh;
   color: white;
-  padding: 13vh 0;
+  padding: 12vh 0;
 }
 
 .parallax-container .homepage h1 {
@@ -74,10 +74,10 @@ h4 {
   height: 50vw;
   min-width: 250px;
   min-height: 250px;
-  margin-top: 2vw;
-  margin-bottom: 1vw;
+  margin-top: 5vw;
+  margin-bottom: 4vh;
   color: white;
-  padding: 13vh 0;
+  padding: 12vh 0;
 }
 
 .login-logo .homepage h1 {
@@ -95,14 +95,6 @@ h4 {
   letter-spacing: 2px;
   text-align: center;
   font-size: 2vh;
-}
-
-.site-divider-type1 {
-  margin: 0;
-  padding: 0;
-  border: none;
-  height: 5px;
-  background-color: #91664D;
 }
 
 nav {
@@ -138,7 +130,7 @@ ul {
 ul li {
   text-align: center;
   width: 45%;
-  background-color: #FF6363;
+  background-color: #ff6363;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   margin: 0.5em 0.3em;
@@ -228,7 +220,7 @@ ul .nav-item {
   width: 100%;
   position: relative;
   min-height: 500px;
-  background-color: #FCD337;
+  background-color: #fcd337;
 }
 
 .why-use-container .card .why-use-img img {
@@ -238,7 +230,7 @@ ul .nav-item {
 
 .why-use-container .card .btn {
   margin-top: 2em;
-  background-color: #FCD337;
+  background-color: #fcd337;
 }
 
 .why-use-container .card .btn a {
@@ -275,7 +267,8 @@ ul .nav-item {
   width: 50%;
 }
 
-.carousel-fixed-item .login-container .login input[type=password], .carousel-fixed-item .login-container .login input[type=text] {
+.carousel-fixed-item .login-container .login input[type="password"],
+.carousel-fixed-item .login-container .login input[type="text"] {
   padding: 0.5em;
   background-color: white;
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -286,7 +279,7 @@ ul .nav-item {
   position: absolute;
   width: 100vw;
   height: 100vh;
-  background-image: url("/img/create_acct.png");
+  background-image: url("/img/create_acct.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -313,7 +306,9 @@ ul .nav-item {
   padding: 0 4em 0 4em;
 }
 
-.create-acct-container .createAcc .auth-form input[type=password], .create-acct-container .createAcc .auth-form input[type=email], .create-acct-container .createAcc .auth-form input[type=text] {
+.create-acct-container .createAcc .auth-form input[type="password"],
+.create-acct-container .createAcc .auth-form input[type="email"],
+.create-acct-container .createAcc .auth-form input[type="text"] {
   background-color: white;
   color: #545454;
   width: 100%;
@@ -339,7 +334,7 @@ ul .nav-item {
 }
 
 .row .profile-container .stats {
-  background-color: #FCD337;
+  background-color: white;
 }
 
 .row .profile-container .stats .statbox-container {
@@ -382,27 +377,121 @@ ul .nav-item {
 }
 
 .row .profile-container .stats .statbox-container .hairtype {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: black;
 }
 
 .row .profile-container .stats .statbox-container .hairlength {
-  background-color: #388F53;
+  background-color: #388f53;
   text-transform: uppercase;
   color: white;
 }
 
 .row .profile-container .stats .statbox-container .hairdensity {
-  background-color: #C04B23;
+  background-color: #c04b23;
   color: white;
 }
 
 .row .profile-container .stats .statbox-container .hairporosity {
   color: white;
-  background-color: #BF792F;
+  background-color: #bf792f;
 }
 
 .row .regimen-container {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  background-color: rgba(219, 219, 219, 0.7);
+}
+
+.row .regimen-container .regimen-accordion {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  width: 30%;
+  border: none;
+}
+
+.row .regimen-container .regimen-accordion li {
+  padding: 0;
+  width: 100%;
+  min-width: 15em;
+}
+
+.row .regimen-container .regimen-accordion .accordion-header {
+  font-family: "Signika", sans-serif;
+  text-align: left;
+  height: 15em;
+}
+
+.row .regimen-container .regimen-accordion .accordion-header .text-container {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.row .regimen-container .regimen-accordion .accordion-header .text-container h6 {
+  font-size: 2.5vh;
+  margin: 0;
+  padding-bottom: 1em;
+  width: 100%;
+}
+
+.row .regimen-container .regimen-accordion .accordion-header .text-container p {
+  height: 7em;
+  max-height: 7em;
+  overflow: scroll;
+  margin: 0;
+  width: 100%;
+}
+
+.row .regimen-container .regimen-accordion .accordion-header .img-container {
+  width: 50%;
+  height: 100%;
+  padding: 1em;
+}
+
+.row .regimen-container .regimen-accordion .accordion-header .img-container .img-frame {
+  border-radius: 100%;
+  width: 9vw;
+  height: 9vw;
+  min-width: 8em;
+  min-height: 8em;
+  overflow: hidden;
+}
+
+.row .regimen-container .regimen-accordion .accordion-header .img-container img {
+  width: 100%;
+}
+
+.row .regimen-container .regimen-accordion .accordion-header .img-container .button-container {
+  float: right;
+}
+
+.row .regimen-container .regimen-accordion .accordion-header .img-container .button-container form {
+  float: right;
+  padding-left: 1em;
+}
+
+.row .regimen-container .regimen-accordion .accordion-body {
+  text-align: left;
+  max-height: auto;
+  height: auto;
+  background-color: white;
+}
+
+.row .regimen-container .regimen-accordion .accordion-body h6 {
+  color: darkred;
+}
+
+.row .regimen-container .regimen-accordion .accordion-body .big-paragraph {
+  height: 7em;
+  max-height: 7em;
+  overflow: scroll;
+}
+
+.home-regimen-container {
   display: -webkit-box;
   display: flex;
   display: -ms-flexbox;
@@ -416,29 +505,97 @@ ul .nav-item {
   -ms-flex-align: center;
   -webkit-box-align: center;
           align-items: center;
-  width: 100%;
-  height: auto;
-  max-height: 100%;
-  background-color: rgba(219, 219, 219, 0.7);
-  padding: 3em;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+          flex-flow: row wrap;
+  padding: 20px;
 }
 
-.row .regimen-container .regimen-accordion {
-  border: none;
+.home-regimen-container .regimen-accordion {
   -webkit-box-shadow: none;
           box-shadow: none;
-  width: 70em;
+  width: 30%;
+  border: none;
 }
 
-.row .regimen-container .regimen-accordion .accordion-header {
+.home-regimen-container .regimen-accordion li {
+  padding: 0;
+  width: 100%;
+  min-width: 15em;
+}
+
+.home-regimen-container .regimen-accordion .accordion-header {
   font-family: "Signika", sans-serif;
-  height: 10em;
+  text-align: left;
+  height: 15em;
 }
 
-.row .regimen-container .regimen-accordion .accordion-body {
+.home-regimen-container .regimen-accordion .accordion-header .text-container {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.home-regimen-container .regimen-accordion .accordion-header .text-container h6 {
+  font-size: 2.5vh;
+  margin: 0;
+  padding-bottom: 1em;
+  width: 100%;
+}
+
+.home-regimen-container .regimen-accordion .accordion-header .text-container p {
+  height: 7em;
+  max-height: 7em;
+  overflow: scroll;
+  margin: 0;
+  width: 100%;
+}
+
+.home-regimen-container .regimen-accordion .accordion-header .img-container {
+  width: 50%;
+  height: 100%;
+  padding: 1em;
+}
+
+.home-regimen-container .regimen-accordion .accordion-header .img-container .img-frame {
+  border-radius: 100%;
+  width: 9vw;
+  height: 9vw;
+  min-width: 8em;
+  min-height: 8em;
+  overflow: hidden;
+}
+
+.home-regimen-container .regimen-accordion .accordion-header .img-container img {
+  width: 100%;
+}
+
+.home-regimen-container .regimen-accordion .accordion-header .img-container .button-container {
+  float: right;
+}
+
+.home-regimen-container .regimen-accordion .accordion-header .img-container .button-container form {
+  float: right;
+  padding-left: 1em;
+}
+
+.home-regimen-container .regimen-accordion .accordion-body {
   text-align: left;
   max-height: auto;
   height: auto;
+  background-color: white;
+}
+
+.home-regimen-container .regimen-accordion .accordion-body h6 {
+  color: darkred;
+}
+
+.home-regimen-container .regimen-accordion .accordion-body .big-paragraph {
+  height: 7em;
+  max-height: 7em;
+  overflow: scroll;
 }
 
 .statsform-container {
@@ -477,11 +634,11 @@ ul .nav-item {
 
 .statsform-container .createStats h4 {
   text-align: center;
-  color: #9D9D9D;
+  color: #9d9d9d;
   padding: 2em 2em 0 2em;
 }
 
-.statsform-container .createStats input[type=submit] {
+.statsform-container .createStats input[type="submit"] {
   margin-top: 1em;
 }
 
@@ -538,7 +695,7 @@ ul .nav-item {
 .create-regimen .regimen-card .regimen-form {
   padding: 2em 3em;
   background-color: white;
-  color: #9D9D9D;
+  color: #9d9d9d;
 }
 
 .create-regimen .regimen-card .regimen-form fieldset {
