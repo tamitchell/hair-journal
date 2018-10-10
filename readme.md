@@ -1,6 +1,6 @@
 # Growthsphere - Track Your Hair Growth Progress
 
-Growthsphere is a self-started online web application initially designed to create a space for African American women to track their Natural hair growth progress. What's more than a web application that logs hair regimens and product outcomes, I am hoping that this application can evolve to become a space where women of color can come to share, collaborator and talk about their hair!
+Growthsphere is a self-started online web application initially designed to create a space for African American women to track their Natural hair growth progress. What's more than a web application that logs hair regimens and product outcomes, I am hoping that this application can evolve to become a space where women of color can come to share, collaborate and talk about their hair!
 
 ## Getting Started - A history of the issue
 
